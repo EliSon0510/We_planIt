@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'open-uri'
 
 puts "Deleting users.."
@@ -26,14 +27,46 @@ p trip_one = Trip.new(
   interests: "mountain hiking, natural wonders"
   # creator_id: 3 # or user_three?
   )
-trip_one.save
+trip_one.save!
 
 puts "creating some profiles.."
 
 p profile_1 = Profile.new(
-  first_name: "",
-  last_name: "",
+  first_name: "Flo",
+  last_name: "Rence",
   age: ,
-  gender: "",
+  gender: "female",
   picture: ,
-  location: "")
+  location: "Belgium"
+  )
+profile_1.save!
+
+p profile_2 = Profile.new(
+  first_name: "Ellie",
+  last_name: "Son",
+  age: ,
+  gender: "female",
+  picture: ,
+  location: "Belgium"
+  )
+profile_2.save!
+
+p profile_3 = Profile.new(
+  first_name: "Guil",
+  last_name: "Laume",
+  age: ,
+  gender: "male",
+  picture: ,
+  location: "Belgium"
+  )
+profile_3.save!
+
+p profile_4 = Profile.new(
+  first_name: "Pha",
+  last_name: "Edon",
+  age: ,
+  gender: "male",
+  picture: ,
+  location: "Greece"
+  )
+profile_4.save!
