@@ -39,6 +39,9 @@ p profile_1 = Profile.new(
   picture: ,
   location: "Belgium"
   )
+
+pic_1 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
+profile_1.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
 profile_1.save!
 
 p profile_2 = Profile.new(
@@ -49,6 +52,9 @@ p profile_2 = Profile.new(
   picture: ,
   location: "Belgium"
   )
+
+pic_2 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
+profile_2.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
 profile_2.save!
 
 p profile_3 = Profile.new(
@@ -59,6 +65,9 @@ p profile_3 = Profile.new(
   picture: ,
   location: "Belgium"
   )
+
+pic_3 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
+profile_3.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
 profile_3.save!
 
 p profile_4 = Profile.new(
@@ -69,4 +78,9 @@ p profile_4 = Profile.new(
   picture: ,
   location: "Greece"
   )
+
+pic_4 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
+profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
+
+puts "Finished"
