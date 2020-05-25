@@ -23,7 +23,7 @@ p trip_one = Trip.new(
   destination: "Canada",
   start_date: DateTime.new(2020,25,8,21), # the last one is the hour
   end_date: DateTime.new(2020,10,9,20),
-  budget: 2000
+  budget: 2000,
   interests: "mountain hiking, natural wonders"
   # creator_id: 3 # or user_three?
   )
@@ -34,53 +34,53 @@ puts "creating some profiles.."
 p profile_1 = Profile.new(
   first_name: "Flo",
   last_name: "Rence",
-  age: ,
+  age: 20,
   gender: "female",
-  picture: ,
+
   location: "Belgium"
   )
 
 pic_1 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
-profile_1.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
+profile_1.picture.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
 profile_1.save!
 
 p profile_2 = Profile.new(
   first_name: "Ellie",
   last_name: "Son",
-  age: ,
+  age: 20,
   gender: "female",
-  picture: ,
+
   location: "Belgium"
   )
 
 pic_2 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
-profile_2.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
+profile_2.picture.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
 profile_2.save!
 
 p profile_3 = Profile.new(
   first_name: "Guil",
   last_name: "Laume",
-  age: ,
+  age: 20,
   gender: "male",
-  picture: ,
+
   location: "Belgium"
   )
 
 pic_3 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
-profile_3.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
+profile_3.picture.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
 profile_3.save!
 
 p profile_4 = Profile.new(
   first_name: "Pha",
   last_name: "Edon",
-  age: ,
+  age: 20,
   gender: "male",
-  picture: ,
+
   location: "Greece"
   )
 
 pic_4 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
-profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
+profile_4.picture.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
 puts "Finished"
