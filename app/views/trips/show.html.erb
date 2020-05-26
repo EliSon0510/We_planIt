@@ -14,9 +14,15 @@
       <p><%= @trip.start_date %></p>
       <h4><strong>end_date</strong></h4>
       <p><%= @trip.end_date %></p>
-      <h4><strong>budget</strong></h4>
-      <p><%= @trip.budget %> €</p>
+      <h4><strong>budget/week</strong></h4>
+      <p><%= @trip.budget %> €/week</p>
       <h4><strong>interests</strong></h4>
       <p><%= @trip.interests %></p>
   </div>
+</div>
+
+<div class="container-infos text-center">
+  <%= link_to "Update my trip", edit_trip_path(@trip), class: "btn-round-corners" %>
+
+  <%= link_to "Delete my trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
 </div>

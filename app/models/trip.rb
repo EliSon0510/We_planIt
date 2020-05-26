@@ -1,6 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
-  has_many :interactions, dependent: :destroy
+  has_many :interactions
 
   validates :destination, inclusion: {in: ["Asia", "Europe", "North-America", "South-America", "Africa", "Oceania"], allow_nil: false}
   validates :start_date, presence: :true
