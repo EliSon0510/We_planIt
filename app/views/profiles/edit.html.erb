@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<% if policy(profile).edit? %>
-<% end %>
-=======
+
 <h1> Update your profile</h1>
 
   <%= simple_form_for (@profile) do |f| %>
@@ -14,4 +11,3 @@
   <%= f.input :photo, as: :file %>
   <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
->>>>>>> master

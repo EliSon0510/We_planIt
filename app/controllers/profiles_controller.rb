@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
   def update
     @profile.update(profile_params)
     authorize @profile
-    if @profile.save
+    if @profile.save!
       redirect_to profile_path(@profile)
     else
       render :edit

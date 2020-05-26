@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<% if policy(profile).create? %>
-
-<% end %>
-=======
 <h1> Create your profile</h1>
 
   <%= simple_form_for (@profile) do |f| %>
@@ -15,4 +10,4 @@
   <%= f.input :photo, as: :file %>
   <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
->>>>>>> master
+

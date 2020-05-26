@@ -1,19 +1,15 @@
-class ProfilePolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def show?
-    true
-  end
-
   def create?
-    true
+    return true
   end
 
-  def edit?
+   def edit?
     user_is_owner?
   end
 
