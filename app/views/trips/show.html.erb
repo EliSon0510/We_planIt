@@ -1,0 +1,22 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://dfp2hfrf3mn0u.cloudfront.net/cre/creston-ic-v3_1600x685_home-main-banner_2019_SYNCROS_1616656_jpg_original_1.jpg);">
+    <h1>Infos on selected trip</h1>
+</div>
+
+
+<div class="container grid-cards">
+  <div class="container-title">
+    <h1><%= @trip.destination.upcase %></h1>
+  </div>
+
+
+  <div class="container-infos">
+      <h4><strong>start_date</strong></h4>
+      <p><%= @trip.start_date %></p>
+      <h4><strong>end_date</strong></h4>
+      <p><%= @trip.end_date %></p>
+      <h4><strong>budget</strong></h4>
+      <p><%= @trip.budget %> €</p>
+      <h4><strong>interests</strong></h4>
+      <p><%= @trip.interests %></p>
+  </div>
+</div>

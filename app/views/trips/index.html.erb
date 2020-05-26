@@ -1,0 +1,56 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.txedbike.com/upfile/2020/03/31/20200331144911_125.jpg);">
+  <div class="container">
+    <h1>Find your next trip</h1>
+  </div>
+</div>
+
+<div class="flex-container">
+  <%= form_tag trips_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Look for a trip"
+  %>
+
+  <div id="but">
+    <%= submit_tag "Search", class: "btn-round-corners" %>
+    <% end %>
+  </div>
+
+  <div>
+    <p id="azure-text">------------------</p>
+  </div>
+
+  <div>
+    <h4>Add your trip to the list</h4>
+    <div id="but">
+      <%= link_to "Add a new trip !", new_trip_path, class: "btn-round-corners"%>
+    </div>
+  </div>
+</div>
+
+
+<div class="flex-container">
+  <h1>All the created trips</h1>
+  <br>
+  <div class="grid-cards">
+
+    <% @trips.order("updated_at desc").each do |trip| %>
+      <div class="card-bike">
+        <% if trip.photo.attached? %>
+          <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+        <%= image_tag "vintage-world.jpg" %>
+        <% end %>
+
+        <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+        <h3><%= trip.start_date %></h3>
+        <h3><%= trip.end_date %></h3>
+        <h3><%= trip.budget %> €/day</h3>
+        <p><%= trip.interests %></p>
+
+        <%= link_to"See more", trip_path(trip) %>
+      </div>
+    <% end %>
+  </div>
+</div>
