@@ -1,3 +1,18 @@
+<<<<<<< HEAD
 <% if policy(profile).create? %>
 
 <% end %>
+=======
+<h1> Create your profile</h1>
+
+  <%= simple_form_for (@profile) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.label :gender %>
+  <%= f.select :gender, ["female", "male", "other"], include_blank: 'Select a gender', class: 'form-control' %>
+  <%= f.input :age %>
+  <%= f.input :location %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "submit", class: "btn btn-primary" %>
+  <% end %>
+>>>>>>> master
