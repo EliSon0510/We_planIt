@@ -1,5 +1,9 @@
 <h1>Your profile</h1>
 
-<h2><%= @profile.first_name %> - <%= @profile.last_name %></h2>
+<h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
 <h3>Age : <%= @profile.age %></h3>
 <h3>From <%= @profile.location %></h3>
+
+<%= link_to "Edit your profile", edit_profile_path(@profile), class: "btn-round-corners" %>
+<br>
+<%= link_to "Delete the profile", profile_path(@profile), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
