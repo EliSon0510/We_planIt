@@ -1,0 +1,21 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.giant-bicycles.com/b_white,c_crop,h_600,q_70,w_1920/jv39jkthrz5szrlk2jka/Escape_range_banner.jpg);">
+  <div class="container">
+    <h1>Creat a new trip</h1>
+  </div>
+</div>
+
+<div class="flex-container">
+  <h2>Please tell us more about your trip</h2>
+</div>
+
+<div class="flex-container">
+  <%= simple_form_for [@user, @trip] do |f| %>
+  <%= f.label :destination %>
+  <%= f.select :destination, ["Asia", "Europe", "North-America", "South-America", "Africa", "Oceania"], include_blank: 'Select a destination', class: 'form-control' %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :budget, :label => "budget/week" %>
+  <%= f.input :interests %>
+  <%= f.submit "submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
