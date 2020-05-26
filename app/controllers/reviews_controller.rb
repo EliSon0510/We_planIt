@@ -23,14 +23,12 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:profile_id])
   end
 
   def update
-    @profile = Profile.find(params[:profile_id])
     @review.update(review_params)
     if @review.save
-      redirect_to profile_path(@profile)
+      redirect_to profile_path(@review.profile)
     else
       render :edit
     end
@@ -38,7 +36,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to profile_path(@profile)
+    redirect_to profile_path(@review.profile)
   end
 
 private

@@ -2,6 +2,6 @@
 
 <%= simple_form_for [@profile, @review] do |f| %>
   <%= f.input :content %>
-  <%= f.input :rating %>
+  <%= f.input :rating, collection: 0..5 %>
   <%= f.submit "submit", class: "btn btn-primary" %>
 <% end %>
