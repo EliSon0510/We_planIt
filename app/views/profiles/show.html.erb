@@ -7,3 +7,17 @@
 <%= link_to "Edit your profile", edit_profile_path(@profile), class: "btn-round-corners" %>
 <br>
 <%= link_to "Delete the profile", profile_path(@profile), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+<br>
+<%= link_to 'Leave a review', new_profile_review_path(@profile) %>
+
+<h1>Reviews</h1>
+
+<ul class="list-group">
+  <% @profile.reviews.each do |review| %>
+    <li class="list-group-item"><%= "#{review.rating} ⭐️ | #{review.content}" %>
+      <br>
+      <%= link_to 'Edit the review', edit_profile_review_path(@profile, review) %>
+
+    </li>
+  <% end %>
+</ul>
