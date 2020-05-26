@@ -12,22 +12,10 @@ puts "Deleting users.."
 User.destroy_all
 puts "Adding users..."
 
-p user_one = User.create!(username: "florence", email: "florence@gmail.com", password: "1234567")
-p user_two = User.create!(username: "ellie", email: "ellie@gmail.com", password: "1234567")
-p user_three = User.create!(username: "guillaume", email: "guillaume@gmail.com", password: "1234567")
-p user_four = User.create!(username: "phaedon", email: "phaedon@gmail.com", password: "1234567")
-
-puts "creating trip.."
-
-p trip_one = Trip.new(
-  destination: "Canada",
-  start_date: DateTime.new(2020,25,8,21), # the last one is the hour
-  end_date: DateTime.new(2020,10,9,20),
-  budget: 2000,
-  interests: "mountain hiking, natural wonders"
-  # creator_id: 3 # or user_three?
-  )
-trip_one.save!
+p user_one = User.create!(email: "florence@gmail.com", password: "1234567")
+p user_two = User.create!(email: "ellie@gmail.com", password: "1234567")
+p user_three = User.create!(email: "guillaume@gmail.com", password: "1234567")
+p user_four = User.create!(email: "phaedon@gmail.com", password: "1234567")
 
 puts "creating some profiles.."
 
@@ -38,11 +26,12 @@ p profile_1 = Profile.new(
   gender: "female",
 
   location: "Belgium"
+
   )
 
-pic_1 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
-profile_1.picture.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
-profile_1.save!
+#pic_1 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
+#profile_1.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
+#profile_1.save!
 
 p profile_2 = Profile.new(
   first_name: "Ellie",
@@ -53,9 +42,9 @@ p profile_2 = Profile.new(
   location: "Belgium"
   )
 
-pic_2 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
-profile_2.picture.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
-profile_2.save!
+#pic_2 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
+#profile_2.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
+#profile_2.save!
 
 p profile_3 = Profile.new(
   first_name: "Guil",
@@ -66,9 +55,9 @@ p profile_3 = Profile.new(
   location: "Belgium"
   )
 
-pic_3 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
-profile_3.picture.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
-profile_3.save!
+#pic_3 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
+#profile_3.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
+#profile_3.save!
 
 p profile_4 = Profile.new(
   first_name: "Pha",
@@ -79,8 +68,20 @@ p profile_4 = Profile.new(
   location: "Greece"
   )
 
-pic_4 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
-profile_4.picture.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
-profile_4.save!
+#pic_4 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
+#profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
+#profile_4.save!
+
+#puts "creating trip.."
+
+#p trip_one = Trip.new(
+#  destination: "Canada",
+#  start_date: DateTime.new(2020,25,8,21), # the last one is the hour
+#  end_date: DateTime.new(2020,10,9,20),
+#  budget: 2000,
+#  interests: "mountain hiking, natural wonders"
+
+# )
+#trip_one.save!
 
 puts "Finished"

@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  has_many :reviews, dependent: :detroy
+  has_many :reviews, dependent: :destroy
 
   validates :first_name, presence: :true
   validates :last_name, presence: :true
