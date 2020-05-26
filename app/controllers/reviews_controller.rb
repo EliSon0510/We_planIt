@@ -10,14 +10,12 @@ class ReviewsController < ApplicationController
   def new
     @profile = Profile.find(params[:profile_id])
     @review = Review.new
-    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
     @profile = Profile.find(params[:profile_id])
     @review.profile_id = @profile.id
-    authorize @review
     if @review.save
       redirect_to profile_path(@profile)
     else
@@ -26,12 +24,10 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    authorize @review
   end
 
   def update
     @review.update(review_params)
-    authorize @review
     if @review.save
       redirect_to profile_path(@review.profile)
     else
@@ -40,7 +36,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    authorize @review
     @review.destroy
     redirect_to profile_path(@review.profile)
   end
