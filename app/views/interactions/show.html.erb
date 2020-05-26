@@ -1,0 +1,11 @@
+<div class="container-infos text-center">
+
+  <%= link_to "Confirm the interaction", interaction_path(@interaction), method: :create, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+
+</div>
+
+<div class="container-infos text-center">
+
+  <%= link_to "Quit the interaction", interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+
+</div>
