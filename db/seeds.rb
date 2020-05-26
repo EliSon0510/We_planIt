@@ -7,9 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+include Rails.application.routes.url_helpers
 
 puts "Deleting users.."
 User.destroy_all
+Profile.destroy_all
+# Review.destroy_all
 puts "Adding users..."
 
 p user_one = User.create!(email: "florence@gmail.com", password: "1234567")
@@ -17,23 +20,21 @@ p user_two = User.create!(email: "ellie@gmail.com", password: "1234567")
 p user_three = User.create!(email: "guillaume@gmail.com", password: "1234567")
 p user_four = User.create!(email: "phaedon@gmail.com", password: "1234567")
 
-
+puts "Finished with users!"
 
 puts "creating some profiles.."
-
-#pic_1 = File.read('./app/assets/images/profile_1.jpg')
 
 p profile_1 = Profile.new(
   first_name: "Flo",
   last_name: "Rence",
   age: 20,
   gender: "female",
-  photo: image_tag("profile_1.jpg"),
+  photo: pic_1,
   location: "Belgium"
   )
 
-#(image_tag "profile_1.jpg")
-
+profile_1.user_id = user_one.id
+pic_1 = File.open(File.join(Rails.root, "/app/assets/images/profile_1.jpg"))
 #profile_1.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
 
 
@@ -48,10 +49,12 @@ p profile_2 = Profile.new(
   last_name: "Son",
   age: 20,
   gender: "female",
-  photo: image_tag("profile_2.jpg"),
+  photo: pic_2,
   location: "Belgium"
   )
 
+profile_2.user_id = user_two.id
+pic_2 = File.open(File.join(Rails.root, "/app/assets/images/profile_2.jpg"))
 #pic_2 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
 #profile_2.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
 profile_2.save!
@@ -63,11 +66,13 @@ p profile_3 = Profile.new(
   last_name: "Laume",
   age: 20,
   gender: "male",
-  photo: image_tag("profile_3.jpg"),
+  photo: pic_3,
   location: "Belgium"
   )
 
 #pic_3 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
+profile_3.user_id = user_three.id
+pic_3 = File.open(File.join(Rails.root, "/app/assets/images/profile_3.jpg"))
 #profile_3.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
 profile_3.save!
 
@@ -78,11 +83,13 @@ p profile_4 = Profile.new(
   last_name: "Edon",
   age: 20,
   gender: "male",
-  photo: image_tag("profile_4.jpg"),
+  photo: pic_4,
   location: "Greece"
   )
 
 #pic_4 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
+profile_4.user_id = user_four.id
+pic_4 = File.open(File.join(Rails.root, "/app/assets/images/profile_4.jpg"))
 #profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
