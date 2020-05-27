@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2020_05_26_161508) do
   end
 
   create_table "interactions", force: :cascade do |t|
+    t.boolean "validation", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "validation"
     t.integer "user_id"
     t.integer "trip_id"
   end
