@@ -25,11 +25,11 @@ puts "Finished with users!"
 puts "creating some profiles.."
 
 p profile_1 = Profile.new(
-  first_name: "Flo",
-  last_name: "Rence",
-  age: 20,
+  first_name: "Florence",
+  last_name: "Carlier",
+  age: 22,
   gender: "female",
-  location: "Belgium"
+  location: "Namur, Belgium"
   )
 
 profile_1.user_id = user_one.id
@@ -46,7 +46,7 @@ pic_2 = File.open(File.join(Rails.root, "/app/assets/images/profile_2.jpg"))
 p profile_2 = Profile.new(
   first_name: "Ellie",
   last_name: "Son",
-  age: 20,
+  age: 29,
   gender: "female",
   location: "Belgium"
   )
@@ -59,9 +59,9 @@ profile_2.save!
 pic_3 = File.open(File.join(Rails.root, "/app/assets/images/profile_3.jpg"))
 
 p profile_3 = Profile.new(
-  first_name: "Guil",
-  last_name: "Laume",
-  age: 20,
+  first_name: "Guillaume",
+  last_name: "de Crombrugghe",
+  age: 21,
   gender: "male",
   location: "Belgium"
   )
@@ -74,9 +74,9 @@ profile_3.save!
 pic_4 = File.open(File.join(Rails.root, "/app/assets/images/profile_4.jpg"))
 
 p profile_4 = Profile.new(
-  first_name: "Pha",
-  last_name: "Edon",
-  age: 20,
+  first_name: "Phaedon",
+  last_name: "Val",
+  age: 35,
   gender: "male",
   location: "Greece"
   )
