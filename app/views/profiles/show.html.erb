@@ -1,5 +1,3 @@
-
-
 <h1>Your profile</h1>
 
  <% if @profile.photo.attached? %>
@@ -33,6 +31,7 @@
         <%= f.input :rating, collection: 0..5 %>
         <%= f.submit "submit", class: "btn btn-primary" %>
       <% end %>
+  <% end %>
 
 
 <ul class="list-group">
@@ -48,4 +47,3 @@
       <% end %>
     </li>
   <% end %>
-  
