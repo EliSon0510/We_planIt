@@ -1,13 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one :profile, dependent: :destroy
   has_many :trips
   has_many :interactions
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   # this is a test!
 
-  has_one :profile, dependent: :destroy
 
   # this was added because of db:seed error..
 

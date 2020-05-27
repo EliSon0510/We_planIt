@@ -10,8 +10,8 @@ require 'open-uri'
 include Rails.application.routes.url_helpers
 
 puts "Deleting users.."
-User.destroy_all
 Profile.destroy_all
+User.destroy_all
 # Review.destroy_all
 puts "Adding users..."
 
