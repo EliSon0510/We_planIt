@@ -1,0 +1,77 @@
+<div>
+    <h1>Your trips</h1>
+</div>
+
+<div>
+  <h3>Your future trips</h3>
+  <br>
+</div>
+
+<div>
+
+  <div>
+
+    <% @future_trips.each do |future_trip| %>
+
+      <div>
+        <p> <em>
+        <%= future_trip.start_date %>
+        <%= '-' %>
+        <%= future_trip.end_date %>
+        </em></p>
+        <%= image_tag "vintage-world.jpg" %>
+        <h3><%= link_to future_trip.destination, trip_path(future_trip) %></h3>
+
+          <%= link_to "Edit your trip", edit_trip_path(future_trip), class: "btn-round-corners" %>
+          <%= link_to "Delete this trip", trips_path(future_trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <h3>Your previous trips</h3>
+  <br>
+</div>
+
+<div>
+  <div>
+    <% @past_trips.each do |future_trip| %>
+
+      <div>
+        <p> <em>
+        <%= past_trip.start_date %>
+        <%= '-' %>
+        <%= past_trip.end_date %>
+        </em></p>
+          <%= image_tag "vintage-world.jpg" %>
+
+        <h3><%= link_to past_trip.destination, trip_path(trip) %></h3>
+          <%= link_to "Edit your trip", edit_trip_path(past_trip), class: "btn-round-corners" %>
+          <%= link_to "Delete this trip", trips_path(past_trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <h3>Your own trips</h3>
+  <br>
+</div>
+
+<div>
+
+  <div>
+
+    <% @current_user.trips.each do |trip| %>
+
+      <div>
+        <%= image_tag "vintage-world.jpg" %>
+
+        <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+          <%= link_to "Edit your trip", edit_trip_path(trip), class: "btn-round-corners" %>
+          <%= link_to "Delete this trip", trips_path(trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      </div>
+    <% end %>
+  </div>
+</div>

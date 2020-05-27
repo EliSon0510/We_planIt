@@ -19,6 +19,13 @@ class InteractionsController < ApplicationController
     end
   end
 
+  #def update
+    #@interaction = Interaction.find(params[:id])
+    #status --> actif to pending
+    #status --> pending to proved
+    #status --> pending to refused
+  #end
+
   def show
     @interaction = Interaction.find(params[:id])
     authorize @interaction
