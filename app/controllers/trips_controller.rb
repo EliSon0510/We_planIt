@@ -5,6 +5,14 @@ class TripsController < ApplicationController
   def index
     #@trips = Trip.all
     @trips = policy_scope(Trip).order(created_at: :desc)
+
+    @markers = @trips.map do |trip|
+      {
+        lat: trip.latitude,
+        lng: trip.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trip: trip })
+      }
+    end
   end
 
   def show

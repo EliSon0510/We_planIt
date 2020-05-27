@@ -10,8 +10,7 @@
 
 <div class="flex-container">
   <%= simple_form_for [@user, @trip] do |f| %>
-  <%= f.label :destination %>
-  <%= f.select :destination, ["Asia", "Europe", "North-America", "South-America", "Africa", "Oceania"], include_blank: 'Select a destination', class: 'form-control' %>
+  <%= f.input :destination %>
   <%= f.association :interest, include_blank: 'Select an interest', class: 'form-control' %> <!-- multiple: true, size: 4 -->
   <%= f.input :start_date %>
   <%= f.input :end_date %>
