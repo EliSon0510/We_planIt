@@ -3,15 +3,20 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only:[:show, :edit, :destroy, :update]
 
   def show
+    @profile = Profile.find(params[:id])
+    authorize @profile
+    @review = Review.new
   end
 
   def new
     @profile = Profile.new
+    authorize @profile
   end
 
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
+    authorize @profile
     if @profile.save
       redirect_to profile_path(@profile)
     else
@@ -20,11 +25,13 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    authorize @profile
   end
 
   def update
     @profile.update(profile_params)
-    if @profile.save
+    authorize @profile
+    if @profile.save!
       redirect_to profile_path(@profile)
     else
       render :edit
