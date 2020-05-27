@@ -2,7 +2,13 @@
 
 <h1>Your profile</h1>
 
-<%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :thumb %>
+ <% if @profile.photo.attached? %>
+  <%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :thumb %>
+  <% else %>
+   <%= image_tag "profile.png" %>
+<% end %>
+
+
 <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
 <h3>Age : <%= @profile.age %></h3>
 <h3>From <%= @profile.location %></h3>
@@ -31,9 +37,13 @@
   <% @profile.reviews.each do |review| %>
     <li class="list-group-item"><%= "#{review.rating} ⭐️ | #{review.content}" %>
       <br>
+      <% if policy(review).edit? %>
       <%= link_to 'Edit the review', edit_review_path( review) %>
+      <% end %>
       <br>
+      <% if policy(review).destroy? %>
       <%= link_to "Delete the review", review_path(review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      <% end %>
     </li>
   <% end %>
 </ul>
