@@ -24,9 +24,6 @@ puts "Finished with users!"
 
 puts "creating some profiles.."
 
-
-
-
 p profile_1 = Profile.new(
   first_name: "Flo",
   last_name: "Rence",
