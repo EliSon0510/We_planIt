@@ -1,8 +1,12 @@
-
-
 <h1>Your profile</h1>
 
-<%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :thumb %>
+ <% if @profile.photo.attached? %>
+  <%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :thumb %>
+  <% else %>
+   <%= image_tag "profile.png" %>
+<% end %>
+
+
 <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
 <h3>Age : <%= @profile.age %></h3>
 <h3>From <%= @profile.location %></h3>
@@ -12,29 +16,34 @@
 <% end %>
 <br>
 <% if policy(@profile).destroy? %>
-<%= link_to "Delete the profile", root_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "btn-round-corners" %>
+<%= link_to "Delete the profile", profile_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "btn-round-corners" %>
 <% end %>
 
 <br>
 
 <h1>Reviews</h1>
 
-<h2>Add a review</h2>
+  <% unless @profile.user == current_user %>
+      <h2>Add a review</h2>
 
-<%= simple_form_for [@profile, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.submit "submit", class: "btn btn-primary" %>
-<% end %>
+      <%= simple_form_for [@profile, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.submit "submit", class: "btn btn-primary" %>
+      <% end %>
+  <% end %>
+
 
 <ul class="list-group">
   <% @profile.reviews.each do |review| %>
     <li class="list-group-item"><%= "#{review.rating} ⭐️ | #{review.content}" %>
       <br>
+      <% if policy(review).edit? %>
       <%= link_to 'Edit the review', edit_review_path( review) %>
+      <% end %>
       <br>
+      <% if policy(review).destroy? %>
       <%= link_to "Delete the review", review_path(review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      <% end %>
     </li>
   <% end %>
-</ul>
-

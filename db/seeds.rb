@@ -8,11 +8,20 @@
 
 require 'open-uri'
 include Rails.application.routes.url_helpers
+require 'faker'
+
 
 puts "Deleting users.."
 User.destroy_all
 Profile.destroy_all
 # Review.destroy_all
+Interest.destroy_all
+puts "Creating interests.."
+
+10.times do
+  p  Interest.create!(name: Faker::Hipster.word)
+end
+
 puts "Adding users..."
 
 p user_one = User.create!(email: "florence@gmail.com", password: "1234567")
@@ -87,16 +96,16 @@ profile_4.user_id = user_four.id
 profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
-#puts "creating trip.."
 
 #p trip_one = Trip.new(
 #  destination: "Canada",
 #  start_date: DateTime.new(2020,25,8,21), # the last one is the hour
 #  end_date: DateTime.new(2020,10,9,20),
 #  budget: 2000,
-#  interests: "mountain hiking, natural wonders"
+#  interests: "mountain hiking"
 
 # )
 #trip_one.save!
 
 puts "Finished"
+

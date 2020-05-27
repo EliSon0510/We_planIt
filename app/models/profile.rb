@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
-  has_many :reviews, dependent: :destroy
-  belongs_to :user
+  has_many :reviews, dependent: :nullify
+  belongs_to :user, optional: :true
 
   validates :first_name, presence: :true
   validates :last_name, presence: :true
