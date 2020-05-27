@@ -28,6 +28,6 @@ class InteractionsController < ApplicationController
   end
 
   def trip_params
-    params.require(:interaction).permit(:validation)
+    params.require(:interaction).permit(:status)
   end
 end
