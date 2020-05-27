@@ -8,6 +8,7 @@ gem 'cloudinary', '~> 1.12.0'
 
 gem 'pundit'
 
+gem 'geocoder'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
