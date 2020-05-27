@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :trips
   has_many :interactions
+  has_many :reviews
 
   # this is a test!
 
