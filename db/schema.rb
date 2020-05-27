@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_161322) do
   enable_extension "plpgsql"
 
   create_table "interactions", force: :cascade do |t|
+    t.string "validation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
