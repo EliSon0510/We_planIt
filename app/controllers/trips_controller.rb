@@ -7,6 +7,7 @@ class TripsController < ApplicationController
   end
 
   def show
+    @interaction = Interaction.new
   end
 
   def new
