@@ -14,9 +14,17 @@
         <li class="nav-item active">
           <%= link_to "Home", "#", class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Create my profile", "/profiles/new", class: "nav-link" %>
-        </li>
+
+        <% if current_user.profile %>
+            <li class="nav-item">
+            <%= link_to "See my profile", profile_path(current_user.profile), class: "nav-link" %>
+            </li>
+        <% else %>
+            <li class="nav-item">
+            <%= link_to "Create my profile", "/profiles/new", class: "nav-link" %>
+            </li>
+        <% end %>
+
         <li class="nav-item">
           <%= link_to "My trips", "/trips", class: "nav-link" %>
         </li>

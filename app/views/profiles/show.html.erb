@@ -18,20 +18,22 @@
 <% end %>
 <br>
 <% if policy(@profile).destroy? %>
-<%= link_to "Delete the profile", root_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "btn-round-corners" %>
+<%= link_to "Delete the profile", profile_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "btn-round-corners" %>
 <% end %>
 
 <br>
 
 <h1>Reviews</h1>
 
-<h2>Add a review</h2>
+  <% unless @profile.user == current_user %>
+      <h2>Add a review</h2>
 
-<%= simple_form_for [@profile, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.submit "submit", class: "btn btn-primary" %>
-<% end %>
+      <%= simple_form_for [@profile, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.submit "submit", class: "btn btn-primary" %>
+      <% end %>
+
 
 <ul class="list-group">
   <% @profile.reviews.each do |review| %>
@@ -46,5 +48,4 @@
       <% end %>
     </li>
   <% end %>
-</ul>
-
+  
