@@ -2,13 +2,12 @@
 
 <h1>Your profile</h1>
 
-
-
-<% if @profile.photo.attached? %>
+ <% if @profile.photo.attached? %>
   <%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :thumb %>
-    <% else %>
-  <%= image_tag "profile.png" %>
-    <% end %>
+  <% else %>
+   <%= image_tag "profile.png" %>
+<% end %>
+
 
 <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
 <h3>Age : <%= @profile.age %></h3>
