@@ -26,7 +26,7 @@
     <%= link_to "Update my trip", edit_trip_path(@trip), class: "btn-round-corners" %>
   <% end %>
 
-  <% if policy(@trip).edit? %>
+  <% if policy(@trip).destroy? %>
     <%= link_to "Delete my trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
   <% end %>
 

@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_134253) do
   end
 
   create_table "interactions", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
