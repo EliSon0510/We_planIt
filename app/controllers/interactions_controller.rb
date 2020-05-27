@@ -3,6 +3,7 @@ class InteractionsController < ApplicationController
   def new
     @trip = Trip.find(params[:trip_id])
     @interaction = Interaction.new
+    authorize @interaction
   end
 
   def create
@@ -10,8 +11,9 @@ class InteractionsController < ApplicationController
     @interaction = Interaction.new
     @interaction.trip = @trip
     @interaction.user = current_user
+    authorize @interaction
     if @interaction.save
-      redirect_to trip_interaction_path(@interaction)
+      redirect_to trip_interaction_path(@trip, @interaction)
     else
       redirect_to trip_path(@trip)
     end
@@ -19,10 +21,12 @@ class InteractionsController < ApplicationController
 
   def show
     @interaction = Interaction.find(params[:id])
+    authorize @interaction
   end
 
   def destroy
     @interaction = Interaction.find(params[:id])
+    authorize @interaction
     @interaction.destroy
     redirect_to trip_interaction_path
   end
