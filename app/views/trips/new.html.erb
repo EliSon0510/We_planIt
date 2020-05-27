@@ -11,10 +11,13 @@
 <div class="flex-container">
   <%= simple_form_for [@user, @trip] do |f| %>
   <%= f.input :destination %>
+  <%= f.association :interest, include_blank: 'Select an interest', class: 'form-control' %> <!-- multiple: true, size: 4 -->
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.input :budget, :label => "budget/week" %>
-  <%= f.input :interests %>
   <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
 </div>
+
+
+

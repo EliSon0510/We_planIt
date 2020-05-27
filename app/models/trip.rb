@@ -1,5 +1,8 @@
 class Trip < ApplicationRecord
   belongs_to :user
+
+  belongs_to :interest
+
   has_many :interactions
 
   validates :destination, presence: :true

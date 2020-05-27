@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_05_27_134253) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +45,12 @@ ActiveRecord::Schema.define(version: 2020_05_27_134253) do
     t.integer "trip_id"
   end
 
+  create_table "interests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -71,12 +78,13 @@ ActiveRecord::Schema.define(version: 2020_05_27_134253) do
     t.date "start_date"
     t.date "end_date"
     t.integer "budget"
-    t.string "interests"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.bigint "interest_id"
+    t.index ["interest_id"], name: "index_trips_on_interest_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
