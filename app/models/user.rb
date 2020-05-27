@@ -6,11 +6,6 @@ class User < ApplicationRecord
   has_many :interactions
   has_many :reviews, dependent: :destroy
 
-  # this is a test!
-
-
-  # this was added because of db:seed error..
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

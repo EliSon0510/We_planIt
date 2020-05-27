@@ -1,5 +1,8 @@
 class Trip < ApplicationRecord
   belongs_to :user
+
+  belongs_to :interest
+
   has_many :interactions
 
   validates :destination, inclusion: {in: ["Asia", "Europe", "North-America", "South-America", "Africa", "Oceania"], allow_nil: false}
