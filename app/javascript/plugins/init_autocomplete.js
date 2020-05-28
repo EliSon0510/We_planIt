@@ -8,7 +8,7 @@ const initAutocomplete = () => {
 };
 
 
-const InitAutocompleteSearch = function() {
+const initAutocompleteSearch = () => {
   const skills = JSON.parse(document.getElementById('search-data').dataset.skills)
   const searchInput = document.getElementById('trip_destination');
 };
