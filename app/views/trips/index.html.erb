@@ -1,6 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.txedbike.com/upfile/2020/03/31/20200331144911_125.jpg);">
   <div class="container">
-  <h1>Find your next trip</h1>
+    <h1>Find your next trip</h1>
+     <%= form_tag trips_path, method: :get do %>
+      <div id= "search-data" class="form-search search-data" data-skills="<%= @skills.to_json %>">
+
+      <%= text_field_tag :destination, params[:destination], placeholder: "Search for your destination here", autocomplete: :on, class: "form-control search-input"%>
+
+      <%= submit_tag "Search", name: nil %>
+    </div>
+    <% end %>
   </div>
 </div>
 

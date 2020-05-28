@@ -3,8 +3,12 @@ class TripsController < ApplicationController
 
 
   def index
-    #@trips = Trip.all
-    @trips = policy_scope(Trip).order(created_at: :desc)
+    if params[:destination].present?
+      sql_query_1 = "destination ILIKE :destination"
+      @trips = policy_scope(Trip).where(sql_query_1, destination: "%#{params[:destination]}%")
+    else
+      @trips = policy_scope(Trip).order(created_at: :desc)
+    end
 
     @markers = @trips.map do |trip|
       {
@@ -12,15 +16,6 @@ class TripsController < ApplicationController
         lng: trip.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { trip: trip })
       }
-    end
-  end
-
-  def search
-    if params[:query].present?
-      sql_query = "start_date ILIKE :query OR end_date ILIKE :query OR budget ILIKE :query OR destination ILIKE :query"
-      @trips = Trip.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @trips = Trip.all
     end
   end
 
