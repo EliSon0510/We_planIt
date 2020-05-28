@@ -21,6 +21,13 @@ class InteractionsController < ApplicationController
 
   def update
     @interaction = Interaction.find(params[:id])
+    if params[:interaction][:status] == "asking for validation..."
+      @interaction.status = "pending"
+    elsif params[:interaction][:status] == "Validated"
+      @interaction.status = "accepted"
+    elsif params[:interaction][:status] == "Denied"
+      @interaction.status = "rejected"
+    end
     authorize @interaction
     if @interaction.save
       redirect_to dashboard_path

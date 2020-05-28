@@ -1,3 +1,4 @@
+require 'pry'
 class TripsController < ApplicationController
   before_action :set_trip, only:[:show, :edit, :destroy, :update]
 
@@ -21,6 +22,7 @@ class TripsController < ApplicationController
 
   def show
     @interaction = Interaction.new
+    @trip_interaction = Interaction.where(user: current_user, trip: @trip)
   end
 
   def new

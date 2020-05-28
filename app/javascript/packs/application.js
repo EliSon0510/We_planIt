@@ -31,11 +31,9 @@ import "bootstrap";
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
-import { initAutocompleteSearch } from '../plugins/init_autocompleteSearch';
 
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
-  initAutocompleteSearch();
 })

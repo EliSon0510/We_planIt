@@ -27,11 +27,18 @@
   <% end %>
 
   <% if policy(@trip).destroy? %>
-    <%= link_to "Delete my trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+    <%= link_to "Delete my trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
   <% end %>
 
-  <%= simple_form_for [@trip, @interaction] do |f| %>
-  <%= f.submit "start interaction", class: "btn btn-primary" %>
+  <% if @trip_interaction.empty? && @trip.user != current_user%>
+    <%= simple_form_for [@trip, @interaction] do |f| %>
+      <%= f.submit "start interaction", class: "btn btn-primary" %>
+    <% end %>
+  <% elsif @trip.user == current_user %>
+    <% @trip.interactions.each do |interaction| %>
+      <%= link_to "Your trip_interaction with #{interaction.user.nickname}", trip_interaction_path(@trip, interaction), class: "btn btn-primary"%>
+    <% end %>
+  <% else %>
+    <%= link_to "Join trip_interaction", trip_interaction_path(@trip, @trip_interaction[0]), class: "btn btn-primary"%>
   <% end %>
-
 </div>
