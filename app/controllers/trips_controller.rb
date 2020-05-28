@@ -43,7 +43,7 @@ class TripsController < ApplicationController
   def update
     @trip.update(trip_params)
     if @trip.save
-      redirect_to trips_path
+      redirect_to @trip
     else
       render :new
     end
