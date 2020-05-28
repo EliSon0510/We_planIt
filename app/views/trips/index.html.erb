@@ -35,7 +35,7 @@
         <h3><%= trip.start_date %></h3>
         <h3><%= trip.end_date %></h3>
         <h3><%= trip.budget %> €/day</h3>
-        <p><%= trip.interests %></p>
+        <p><%= trip.interest.name %></p>
 
         <%= link_to"See more", trip_path(trip) %>
       </div>
