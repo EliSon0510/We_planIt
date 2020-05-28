@@ -15,6 +15,15 @@ class TripsController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      sql_query = "start_date ILIKE :query OR end_date ILIKE :query OR budget ILIKE :query OR destination ILIKE :query"
+      @trips = Trip.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @trips = Trip.all
+    end
+  end
+
   def show
     @interaction = Interaction.new
   end

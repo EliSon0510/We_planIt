@@ -1,0 +1,8 @@
+<h1>Find your next trip</h1>
+
+<%= form_tag projects_path, method: :get do %>
+  <%= text_field_tag :project_name, params[:start_date] %>
+  <%= text_field_tag :client, params[:end_date] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+

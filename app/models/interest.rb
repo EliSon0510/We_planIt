@@ -3,6 +3,9 @@ class Interest < ApplicationRecord
   validates :name, presence: true
 
   include PgSearch::Model
-  multisearchable against: [:name]
+  multisearchable against: [:name],
+  using: {
+      tsearch: { prefix: true }
+    }
 
 end
