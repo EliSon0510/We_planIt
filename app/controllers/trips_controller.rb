@@ -5,6 +5,14 @@ class TripsController < ApplicationController
   def index
     #@trips = Trip.all
     @trips = policy_scope(Trip).order(created_at: :desc)
+
+    @markers = @trips.map do |trip|
+      {
+        lat: trip.latitude,
+        lng: trip.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trip: trip })
+      }
+    end
   end
 
   def show
@@ -18,10 +26,12 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @interest = Interest.find(params[:trip][:interest_id])
+    @trip.interest = @interest
     @trip.user = current_user
     authorize @trip
     if @trip.save
-      redirect_to trips_path
+      redirect_to @trip
     else
       render :new
     end
@@ -47,7 +57,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :start_date, :end_date, :budget, :interests)
+    params.require(:trip).permit(:destination, :start_date, :end_date, :budget)
   end
 
   def set_trip

@@ -5,28 +5,20 @@
 </div>
 
 <div class="flex-container">
-  <%= form_tag trips_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Look for a trip"
-  %>
-
-  <div id="but">
-    <%= submit_tag "Search", class: "btn-round-corners" %>
-    <% end %>
   </div>
-
-  <div>
-    <p id="azure-text">------------------</p>
-  </div>
-
   <div>
     <h4>Add your trip to the list</h4>
     <div id="but">
       <%= link_to "Add a new trip !", new_trip_path, class: "btn-round-corners"%>
     </div>
   </div>
+</div>
+
+
+<div id="map"
+     style="width: 80%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
 
