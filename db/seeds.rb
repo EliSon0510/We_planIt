@@ -45,10 +45,10 @@ puts "Created Interests.."
 
 puts "Adding users..."
 
-p user_one = User.create!(email: "florence@gmail.com", password: "1234567")
-p user_two = User.create!(email: "ellie@gmail.com", password: "1234567")
-p user_three = User.create!(email: "guillaume@gmail.com", password: "1234567")
-p user_four = User.create!(email: "phaedon@gmail.com", password: "1234567")
+p user_one = User.create!(email: "florence@gmail.com", password: "1234567", nickname: "Flo")
+p user_two = User.create!(email: "ellie@gmail.com", password: "1234567", nickname: "Ellie")
+p user_three = User.create!(email: "guillaume@gmail.com", password: "1234567", nickname: "Guigui")
+p user_four = User.create!(email: "phaedon@gmail.com", password: "1234567", nickname: "MrNo")
 
 puts "Finished with users!"
 
