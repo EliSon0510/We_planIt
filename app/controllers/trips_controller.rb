@@ -30,10 +30,12 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @interest = Interest.find(params[:trip][:interest_id])
+    @trip.interest = @interest
     @trip.user = current_user
     authorize @trip
     if @trip.save
-      redirect_to trips_path
+      redirect_to @trip
     else
       render :new
     end
@@ -44,8 +46,9 @@ class TripsController < ApplicationController
 
   def update
     @trip.update(trip_params)
-    if @trip.save
-      redirect_to trips_path
+    if
+      @trip.save
+      redirect_to @trip
     else
       render :new
     end
@@ -59,7 +62,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :start_date, :end_date, :budget, :interests)
+    params.require(:trip).permit(:destination, :start_date, :end_date, :budget, :interest_id)
   end
 
   def set_trip

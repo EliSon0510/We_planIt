@@ -9,10 +9,11 @@
 require 'open-uri'
 include Rails.application.routes.url_helpers
 require 'faker'
-
+require 'time'
 
 puts "Deleting users.."
 User.destroy_all
+Trip.destroy_all
 Profile.destroy_all
 # Review.destroy_all
 Interest.destroy_all
@@ -104,7 +105,7 @@ profile_4.save!
 #  budget: 2000,
 #  interests: "mountain hiking"
 
-# )
+
 #trip_one.save!
 
 puts "Finished"
