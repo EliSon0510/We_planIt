@@ -7,4 +7,11 @@ const initAutocomplete = () => {
   }
 };
 
-export { initAutocomplete };
+
+const InitAutocompleteSearch = function() {
+  const skills = JSON.parse(document.getElementById('search-data').dataset.skills)
+  const searchInput = document.getElementById('trip_destination');
+};
+
+export { autocompleteSearch };
+export { initAutocompleteSearch};

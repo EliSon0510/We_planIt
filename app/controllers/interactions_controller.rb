@@ -30,6 +30,7 @@ class InteractionsController < ApplicationController
   end
 
   def show
+    @message = Message.new
     @interaction = Interaction.find(params[:id])
     authorize @interaction
   end

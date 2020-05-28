@@ -3,8 +3,12 @@ class TripsController < ApplicationController
 
 
   def index
-    #@trips = Trip.all
-    @trips = policy_scope(Trip).order(created_at: :desc)
+    if params[:destination].present?
+      sql_query_1 = "destination ILIKE :destination"
+      @trips = policy_scope(Trip).where(sql_query_1, destination: "%#{params[:destination]}%")
+    else
+      @trips = policy_scope(Trip).order(created_at: :desc)
+    end
 
     @markers = @trips.map do |trip|
       {
@@ -57,7 +61,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :start_date, :end_date, :budget)
+    params.require(:trip).permit(:destination, :start_date, :end_date, :budget, :interest_id)
   end
 
   def set_trip
