@@ -19,12 +19,14 @@ class InteractionsController < ApplicationController
     end
   end
 
-  #def update
-    #@interaction = Interaction.find(params[:id])
-    #status --> actif to pending
-    #status --> pending to proved
-    #status --> pending to refused
-  #end
+  def update
+    @interaction = Interaction.find(params[:id])
+    if @interaction.save
+      redirect_to dashboard_path
+    else
+      render :show
+    end
+  end
 
   def show
     @interaction = Interaction.find(params[:id])

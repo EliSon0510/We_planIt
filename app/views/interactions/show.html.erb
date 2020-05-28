@@ -2,11 +2,14 @@
     <h1>Discuss with your travel buddy</h1>
 </div>
 
-<div class="container-infos text-center">
-  <% if policy(@interaction).create? %>
-    <%=link_to "Confirm your participation to the trip", trip_interaction_path(@interaction), data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+<% if current_user == user_id %>
+  <%= simple_form_for [@trip, @interaction] do |f| %>
+  <%= f.label :status %>
+  <%= f.select :status, ["ask for validation"], include_blank: 'Select your status', class: 'form-control' %>
+    <%= f.submit "Ask for validation", class: "btn btn-primary" %>
   <% end %>
-</div>
+<% elsif current_user == creator_id %>
+<% end %>
 
 <div class="container-infos text-center">
   <% if policy(@interaction).destroy? %>
