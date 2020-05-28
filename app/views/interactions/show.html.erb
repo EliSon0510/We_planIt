@@ -1,16 +1,20 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://dfp2hfrf3mn0u.cloudfront.net/cre/creston-ic-v3_1600x685_home-main-banner_2019_SYNCROS_1616656_jpg_original_1.jpg);">
-    <h1>Discuss with your travel buddy</h1>
-</div>
-<div class="container"></div>
-<h1>Chat with your travel buddy</h1>
-<div id="messages" data-interaction-id="<%= @interaction.id %>"></div>
-  <% @interaction.messages.each do |message| %>
-    <%= render 'messages/message', message: message %>
-  <% end %>
+<h1>Discuss with your travel buddy</h1>
+
+<div class="container">
+
+
+  <h1>Chat with your travel buddy</h1>
+
+  <div id="messages" data-interaction-id="<%= @interaction.id %>">
+    <% @interaction.messages.each do |message| %>
+      <%= render 'messages/message', message: message %>
+    <% end %>
+  </div>
+
+
   <%= simple_form_for [@interaction, @message], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message" %>
+    <%= f.input :content, label: false, placeholder: "Message" %>
   <% end %>
-</div>
 
 
 <div>
@@ -24,6 +28,7 @@
       <%= @interaction.status %>
     <% end %>
 
+
   <% else %>
     <% if @interaction.status == "active" %>
       <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
@@ -36,9 +41,11 @@
   <% end %>
 </div>
 
-<div class="container-infos text-center">
-  <% if policy(@interaction).destroy? %>
-    <%= link_to "Abandon the trip", trip_interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
-  <% end %>
+
+  <div class="container-infos text-center">
+    <% if policy(@interaction).destroy? %>
+      <%= link_to "Abandon the trip", trip_interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+    <% end %>
+  </div>
 </div>
 

@@ -1,7 +1,7 @@
 <h1>Your profile</h1>
 
  <% if @profile.photo.attached? %>
-  <%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :thumb %>
+  <%= cl_image_tag @profile.photo.key, height: 220, width: 220, crop: :thumb %>
   <% else %>
    <%= image_tag "profile.png" %>
 <% end %>

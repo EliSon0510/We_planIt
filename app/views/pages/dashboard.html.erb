@@ -20,6 +20,7 @@
         <%= future_trip.end_date %>
         </em></p>
 
+
         <h4><%= link_to future_trip.destination, trip_path(future_trip) %></h4>
 
       </div>
@@ -58,7 +59,9 @@
 
     <div>
 
+
       <% @my_trips.each do |trip| %>
+
 
         <div>
           <h4><%= link_to trip.destination, trip_path(trip) %></h4>

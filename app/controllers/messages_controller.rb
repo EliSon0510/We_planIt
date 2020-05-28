@@ -10,8 +10,8 @@ class MessagesController < ApplicationController
       InteractionChannel.broadcast_to(
         @interaction,
         render_to_string(partial: 'message', locals:{message: @message})
-        )
-      redirect_to interaction_path(@interaction, anchor:"message-#{@message.id}")
+      )
+      redirect_to interaction_path(@interaction, anchor: "message-#{@message.id}")
     else
       render 'interactions/show'
     end
