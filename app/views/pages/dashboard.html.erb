@@ -19,11 +19,11 @@
         <%= '-' %>
         <%= future_trip.end_date %>
         </em></p>
-        <%= image_tag "vintage-world.jpg" %>
-        <h3><%= link_to future_trip.destination, trip_path(future_trip) %></h3>
+
+        <h4><%= link_to future_trip.destination, trip_path(future_trip) %></h4>
 
           <%= link_to "Edit your trip", edit_trip_path(future_trip), class: "btn-round-corners" %>
-          <%= link_to "Delete this trip", trips_path(future_trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+          <%= link_to "Delete this trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
       </div>
     <% end %>
   </div>
@@ -44,11 +44,11 @@
         <%= '-' %>
         <%= past_trip.end_date %>
         </em></p>
-          <%= image_tag "vintage-world.jpg" %>
 
-        <h3><%= link_to past_trip.destination, trip_path(trip) %></h3>
+
+        <h4><%= link_to past_trip.destination, trip_path(trip) %></h4>
           <%= link_to "Edit your trip", edit_trip_path(past_trip), class: "btn-round-corners" %>
-          <%= link_to "Delete this trip", trips_path(past_trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+          <%= link_to "Delete this trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
       </div>
     <% end %>
   </div>
@@ -66,11 +66,10 @@
     <% @current_user.trips.each do |trip| %>
 
       <div>
-        <%= image_tag "vintage-world.jpg" %>
 
-        <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+        <h4><%= link_to trip.destination, trip_path(trip) %></h4>
           <%= link_to "Edit your trip", edit_trip_path(trip), class: "btn-round-corners" %>
-          <%= link_to "Delete this trip", trips_path(trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+          <%= link_to "Delete this trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
       </div>
     <% end %>
   </div>
@@ -88,19 +87,20 @@
     <% @current_user.trips.each do |trip| %>
 
       <div>
-        <h3><%= link_to trip.destination, trip_path(trip) %></h3>
-        <h3><%= trip.start_date %></h3>
-        <h3><%= trip.end_date %></h3>
+        <h4><%= link_to trip.destination, trip_path(trip) %></h4>
+        <h4><%= trip.start_date %></h4>
+        <h4><%= trip.end_date %></h4>
         <p><%= trip.interest.name %></p>
       </div>
-    <% end %>
 
-    <% @current_user.interactions.each do |interaction| %>
 
-      <div>
-        <h3><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h3>
-          <%= link_to "Abandon the trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
-      </div>
+      <% @current_user.interactions.each do |interaction| %>
+
+        <div>
+          <h4><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
+            <%= link_to "Abandon the trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+        </div>
+      <% end %>
 
     <% end %>
   </div>
