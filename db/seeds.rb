@@ -9,18 +9,39 @@
 require 'open-uri'
 include Rails.application.routes.url_helpers
 require 'faker'
-
+require 'time'
+require 'json'
 
 puts "Deleting users.."
 User.destroy_all
+
+puts "Deleting trips.."
+Trip.destroy_all
+
+puts "Deleting profiles.."
 Profile.destroy_all
-# Review.destroy_all
+
+puts "Deleting reviews.."
+Review.destroy_all
+
+puts "Deleting interests.."
 Interest.destroy_all
+
 puts "Creating interests.."
 
-10.times do
-  p  Interest.create!(name: Faker::Hipster.word)
+filepath = 'interests.json'
+ser_interests = File.read(filepath)
+interests = JSON.parse(ser_interests)
+
+interests.each do |inter|
+  Interest.create!(inter)
 end
+
+puts "Created Interests.."
+
+#10.times do
+#  p  Interest.create!(name: Faker::Hipster.word)
+#end
 
 puts "Adding users..."
 
@@ -104,7 +125,7 @@ profile_4.save!
 #  budget: 2000,
 #  interests: "mountain hiking"
 
-# )
+
 #trip_one.save!
 
 puts "Finished"
