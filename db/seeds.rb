@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#require 'random'
+
 require 'open-uri'
 include Rails.application.routes.url_helpers
 require 'faker'
@@ -32,6 +34,7 @@ puts "Creating interests.."
 filepath = 'interests.json'
 ser_interests = File.read(filepath)
 interests = JSON.parse(ser_interests)
+inter_values = interests.values_at
 
 interests.each do |inter|
   Interest.create!(inter)
@@ -117,16 +120,17 @@ profile_4.user_id = user_four.id
 profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
+puts "Trying to create some trips.."
 
-#p trip_one = Trip.new(
-#  destination: "Canada",
-#  start_date: DateTime.new(2020,25,8,21), # the last one is the hour
-#  end_date: DateTime.new(2020,10,9,20),
-#  budget: 2000,
-#  interests: "mountain hiking"
+p trip_one = Trip.new(
+  destination: "Canada",
+  start_date: Date.parse("2020 December 15"),
+  end_date: Date.parse("2020 December 25"),
+  budget: 840,
+  interest: #interests.sample#"Activism" # interests.values_at.sample
+)
 
-
-#trip_one.save!
+trip_one.save!
 
 puts "Finished"
 
