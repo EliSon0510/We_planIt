@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 2020_05_27_134253) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "interest_id"
     t.float "latitude"
     t.float "longitude"
-    t.bigint "interest_id"
     t.index ["interest_id"], name: "index_trips_on_interest_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end

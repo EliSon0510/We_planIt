@@ -9,7 +9,7 @@
 require 'open-uri'
 include Rails.application.routes.url_helpers
 require 'faker'
-
+require 'time'
 
 puts "Deleting users.."
 User.destroy_all
