@@ -42,8 +42,9 @@ class TripsController < ApplicationController
 
   def update
     @trip.update(trip_params)
-    if @trip.save
-      redirect_to trips_path
+    if
+      @trip.save
+      redirect_to @trip
     else
       render :new
     end
@@ -57,7 +58,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :start_date, :end_date, :budget)
+    params.require(:trip).permit(:destination, :start_date, :end_date, :budget, :interest_id)
   end
 
   def set_trip
