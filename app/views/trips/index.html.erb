@@ -37,7 +37,7 @@
 
     <% @trips.order("updated_at desc").each do |trip| %>
       <div class="card-bike">
-        <%= image_tag "vintage-world.jpg" %>
+        <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
 
         <h3><%= link_to trip.destination, trip_path(trip) %></h3>
         <h3><%= trip.start_date %></h3>
