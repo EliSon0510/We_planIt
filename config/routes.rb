@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :trips do
     resources :interactions, only: [:create, :show, :destroy]
   end
+  get 'dashboard', to: 'pages#dashboard'
 end
