@@ -75,3 +75,33 @@
     <% end %>
   </div>
 </div>
+
+<div>
+  <h3>Your interactions</h3>
+  <br>
+</div>
+
+<div>
+
+  <div>
+
+    <% @current_user.trips.each do |trip| %>
+
+      <div>
+        <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+        <h3><%= trip.start_date %></h3>
+        <h3><%= trip.end_date %></h3>
+        <p><%= trip.interest.name %></p>
+      </div>
+    <% end %>
+
+    <% @current_user.interactions.each do |interaction| %>
+
+      <div>
+        <h3><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h3>
+          <%= link_to "Abandon the trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

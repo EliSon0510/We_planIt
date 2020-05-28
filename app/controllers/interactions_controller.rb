@@ -21,6 +21,7 @@ class InteractionsController < ApplicationController
 
   def update
     @interaction = Interaction.find(params[:id])
+    authorize @interaction
     if @interaction.save
       redirect_to dashboard_path
     else

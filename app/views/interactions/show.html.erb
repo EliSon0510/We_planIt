@@ -2,17 +2,28 @@
     <h1>Discuss with your travel buddy</h1>
 </div>
 
-<% if current_user == user_id %>
-  <%= simple_form_for [@trip, @interaction] do |f| %>
-  <%= f.label :status %>
-  <%= f.select :status, ["ask for validation"], include_blank: 'Select your status', class: 'form-control' %>
-    <%= f.submit "Ask for validation", class: "btn btn-primary" %>
+<div>
+  <% if current_user == @interaction.trip.user %>
+    <% if @interaction.status == "pending" %>
+      <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
+      <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control' %>
+      <%= f.submit "Answer to the buddy", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+
+  <% else %>
+    <% if @interaction.status == "active" %>
+      <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
+        <%= f.select :status, ["asking for validation..."], include_blank: 'Select your status', class: 'form-control' %>
+        <%= f.submit "Ask for validation", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
   <% end %>
-<% elsif current_user == creator_id %>
-<% end %>
+</div>
 
 <div class="container-infos text-center">
   <% if policy(@interaction).destroy? %>
     <%= link_to "Abandon the trip", trip_interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
   <% end %>
 </div>
+
