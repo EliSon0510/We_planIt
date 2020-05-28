@@ -13,4 +13,5 @@ const initAutocompleteSearch = () => {
   const searchInput = document.getElementById('trip_destination');
 };
 
-export { initAutocomplete };
+export { initAutocomplete};
+

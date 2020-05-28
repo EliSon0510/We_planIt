@@ -3,7 +3,7 @@ class Trip < ApplicationRecord
 
   belongs_to :interest
 
-  has_many :interactions
+  has_many :interactions, dependent: :destroy
 
   validates :destination, presence: :true
   validates :start_date, presence: :true

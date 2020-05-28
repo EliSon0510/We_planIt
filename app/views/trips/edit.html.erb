@@ -4,18 +4,17 @@
   </div>
 </div>
 
-<div class="flex-container">
+<div class="container text-center">
   <h2>What changes would you like to do ?</h2>
 </div>
 
-<div class="flex-container">
+<div class="container">
   <%= simple_form_for [@user, @trip] do |f| %>
   <%= f.input :destination %>
+  <%= f.association :interest, include_blank: 'Select an interest', class: 'form-control' %> <!-- multiple: true, size: 4 -->
   <%= f.input :start_date %>
   <%= f.input :end_date %>
-  <%= f.input :budget %>
-  <%= f.association :interest, include_blank: 'Select an interest', class: 'form-control' %>
+  <%= f.input :budget, :label => "budget/week" %>
   <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
-
 </div>

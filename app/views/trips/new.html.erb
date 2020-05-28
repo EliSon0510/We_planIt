@@ -1,14 +1,14 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.giant-bicycles.com/b_white,c_crop,h_600,q_70,w_1920/jv39jkthrz5szrlk2jka/Escape_range_banner.jpg);">
+<div class="banner height160px padding50" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg);">
   <div class="container">
-    <h1>Creat a new trip</h1>
+    <h1 class="font_white">Create a new trip</h1>
   </div>
 </div>
 
-<div class="flex-container">
+<div class="container text-center">
   <h2>Please tell us more about your trip</h2>
 </div>
 
-<div class="flex-container">
+<div class="container">
   <%= simple_form_for [@user, @trip] do |f| %>
   <%= f.input :destination %>
   <%= f.association :interest, include_blank: 'Select an interest', class: 'form-control' %> <!-- multiple: true, size: 4 -->
