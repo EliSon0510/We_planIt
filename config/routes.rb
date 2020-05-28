@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   resources :reviews, only: [:edit, :update, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :trips do
+  resources :trips, only: [:index, :new, :create, :show, :edit, :update] do
     resources :interactions, only: [:create, :show]
   end
+  resources :trips, only: [:destroy]
+
   resources :interactions, only: [:destroy, :update]
 
   resources :interactions, only: :show do

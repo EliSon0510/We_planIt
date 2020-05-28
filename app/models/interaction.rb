@@ -1,5 +1,5 @@
 class Interaction < ApplicationRecord
-  belongs_to :trip
+  belongs_to :trip, dependent: :destroy
   belongs_to :user
   has_many :messages
 

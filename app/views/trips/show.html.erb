@@ -27,7 +27,7 @@
   <% end %>
 
   <% if policy(@trip).destroy? %>
-    <%= link_to "Delete my trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+    <%= link_to "Delete my trip", dashboard_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
   <% end %>
 
   <%= simple_form_for [@trip, @interaction] do |f| %>
