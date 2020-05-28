@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner height160px padding50" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg);">
+  <div class="container">
+    <h1 class="font_white">Welcome to We PlanIt !!</h1>
+  </div>
+</div>
+
+<div class="container">
+  <h2>How to find your buddy</h2>
+  <div class="flex-container  text-center">
+    <div class="height200px border-rds20 margin5px">
+      <h4>Looking for a travel friend ?</h4>
+      <%= image_tag "Homepg_alone", class: "img_h150px"%>
+    </div>
+    <div class="height200px border-rds20 margin5px">
+      <h4>Create your profile and trip</h4>
+      <%= image_tag "Homepg_computer", class: "img_h150px"%>
+    </div>
+    <div class="height200px border-rds20 margin5px">
+      <h4>Start planning together</h4>
+      <%= image_tag "Homepg_planning", class: "img_h150px"%>
+    </div>
+    <div class="height200px border-rds20 margin5px">
+      <h4>Enjoy a great vacation</h4>
+      <%= image_tag "Homepg_friends", class: "img_h150px"%>
+    </div>
+  </div>
+  <div class="flex-container">
+    <div class="width25 text-center">
+      <%= link_to "Add a new trip !", new_trip_path, class: "btn-round-corners"%>
+    </div>
+    <div class="width25 text-center">
+      <%= link_to "Search for a trip !", trips_path, class: "btn-round-corners"%>
+    </div>
+    <div class="width25 text-center">
+      <%= link_to "See your dashboard !",  "/dashboard", class: "btn-round-corners"%>
+    </div>
+  </div>
+</div>
+
+
