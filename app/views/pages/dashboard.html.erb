@@ -19,7 +19,7 @@
         <%= '-' %>
         <%= future_trip.end_date %>
         </em></p>
-        <%= image_tag "vintage-world.jpg" %>
+        <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
         <h3><%= link_to future_trip.destination, trip_path(future_trip) %></h3>
 
           <%= link_to "Edit your trip", edit_trip_path(future_trip), class: "btn-round-corners" %>
@@ -44,9 +44,9 @@
         <%= '-' %>
         <%= past_trip.end_date %>
         </em></p>
-          <%= image_tag "vintage-world.jpg" %>
+          <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
 
-        <h3><%= link_to past_trip.destination, trip_path(trip) %></h3>
+        <h3><%= link_to past_trip.destination, trip_path(past_trip) %></h3>
           <%= link_to "Edit your trip", edit_trip_path(past_trip), class: "btn-round-corners" %>
           <%= link_to "Delete this trip", trips_path(past_trip), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
       </div>
@@ -66,7 +66,7 @@
     <% @current_user.trips.each do |trip| %>
 
       <div>
-        <%= image_tag "vintage-world.jpg" %>
+        <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
 
         <h3><%= link_to trip.destination, trip_path(trip) %></h3>
           <%= link_to "Edit your trip", edit_trip_path(trip), class: "btn-round-corners" %>
