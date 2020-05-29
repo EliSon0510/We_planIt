@@ -28,13 +28,16 @@ class TripsController < ApplicationController
   end
 
   def show
+
+    @markers = [
+      {
+        lat: @trip.latitude,
+        lng: @trip.longitude
+      }
+      ]
     @interaction = Interaction.new
     @trip_interaction = Interaction.where(user: current_user, trip: @trip)
 
-    @trip = Trip.geocoded
-
-    @marker.lat = @trip.latitude
-    @marker.lng = @trip.longitude
   end
 
   def new
