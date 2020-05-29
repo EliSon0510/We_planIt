@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only:[:show, :edit, :destroy, :update]
 
   def show
-    @profile = Profile.find(params[:id])
     authorize @profile
     @review = Review.new
   end

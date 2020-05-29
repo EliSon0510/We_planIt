@@ -18,7 +18,11 @@
       <p><%= @trip.budget %> €/week</p>
       <h4><strong>interests</strong></h4>
       <p><%= @trip.interest.name %></p>
-
+      <p>
+          <% if @trip.user == current_user %>
+            <%= link_to "Created by #{@trip.user.nickname}", profile_path(@trip.user_id)%>
+          <% end %>
+      </p>
   </div>
 </div>
 
