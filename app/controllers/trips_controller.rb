@@ -19,18 +19,25 @@ class TripsController < ApplicationController
     end
 
     @markers = @trips.map do |trip|
-      next if trip.lng.nil?
       {
         lat: trip.latitude,
         lng: trip.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { trip: trip })
       }
-    end.compact
+    end
   end
 
   def show
+
+    @markers = [
+      {
+        lat: @trip.latitude,
+        lng: @trip.longitude
+      }
+      ]
     @interaction = Interaction.new
     @trip_interaction = Interaction.where(user: current_user, trip: @trip)
+
   end
 
   def new

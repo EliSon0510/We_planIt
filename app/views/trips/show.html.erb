@@ -8,15 +8,22 @@
     <h1><%= @trip.destination.upcase %></h1>
   </div>
 
+  <div id="map"
+     style="width: 40%; height: 150px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div>
+
+  </div>
 
   <div class="container-infos">
-      <h4><strong>start_date</strong></h4>
+      <h4><strong>Start date</strong></h4>
       <p><%= @trip.start_date %></p>
-      <h4><strong>end_date</strong></h4>
+      <h4><strong>End date</strong></h4>
       <p><%= @trip.end_date %></p>
-      <h4><strong>budget/week</strong></h4>
+      <h4><strong>Budget/week</strong></h4>
       <p><%= @trip.budget %> €/week</p>
-      <h4><strong>interests</strong></h4>
+      <h4><strong>Interests</strong></h4>
       <p><%= @trip.interest.name %></p>
       <p>
           <% if @trip.user == current_user %>
@@ -37,7 +44,7 @@
 
   <% if @trip_interaction.empty? && @trip.user != current_user%>
     <%= simple_form_for [@trip, @interaction] do |f| %>
-      <%= f.submit "start interaction", class: "btn btn-primary" %>
+      <%= f.submit "Start interaction", class: "btn btn-primary" %>
     <% end %>
   <% elsif @trip.user == current_user %>
     <% @trip.interactions.each do |interaction| %>
