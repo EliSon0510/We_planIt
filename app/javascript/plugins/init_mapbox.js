@@ -25,12 +25,22 @@ const initMapbox = () => {
   };
 
   const fitMapToMarkers = (map, markers) => {
-  if (markers.length === 0) { return }
+  if (markers.length === 0) { return;
+  }
+  else if (markers.length === 1) {
+     const bounds = new mapboxgl.LngLatBounds();
+      markers.forEach((marker) => {
+      console.log(marker)
+      bounds.extend([ marker.lng, marker.lat ])});
+      map.fitBounds(bounds, { padding: 70, maxZoom: 2, duration: 0 });
+  }
+  else{
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => {
   console.log(marker)
   bounds.extend([ marker.lng, marker.lat ])});
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  }
   };
 
   if (mapElement) { // only build a map if there's a div#map to inject into
