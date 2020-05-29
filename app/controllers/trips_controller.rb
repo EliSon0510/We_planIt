@@ -19,13 +19,12 @@ class TripsController < ApplicationController
     end
 
     @markers = @trips.map do |trip|
-      next if trip.lng.nil?
       {
         lat: trip.latitude,
         lng: trip.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { trip: trip })
       }
-    end.compact
+    end
   end
 
   def show
