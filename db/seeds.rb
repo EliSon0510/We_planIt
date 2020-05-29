@@ -64,18 +64,12 @@ p profile_1 = Profile.new(
   gender: "female",
   location: "Namur, Belgium"
   )
-
 profile_1.user_id = user_one.id
 pic_1 = File.open(File.join(Rails.root, "/app/assets/images/profile_1.jpg"))
 profile_1.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
-#pic_1 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
 profile_1.save!
 
-#pic_2 = File.read('./app/assets/images/profile_2.jpg')
-
-
 pic_2 = File.open(File.join(Rails.root, "/app/assets/images/profile_2.jpg"))
-
 p profile_2 = Profile.new(
   first_name: "Ellie",
   last_name: "Son",
@@ -83,14 +77,11 @@ p profile_2 = Profile.new(
   gender: "female",
   location: "Belgium"
   )
-
 profile_2.user_id = user_two.id
-#pic_2 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
 profile_2.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
 profile_2.save!
 
 pic_3 = File.open(File.join(Rails.root, "/app/assets/images/profile_3.jpg"))
-
 p profile_3 = Profile.new(
   first_name: "Guillaume",
   last_name: "de Crombrugghe",
@@ -98,14 +89,11 @@ p profile_3 = Profile.new(
   gender: "male",
   location: "Belgium"
   )
-
 profile_3.user_id = user_three.id
-#pic_3 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
 profile_3.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
 profile_3.save!
 
 pic_4 = File.open(File.join(Rails.root, "/app/assets/images/profile_4.jpg"))
-
 p profile_4 = Profile.new(
   first_name: "Phaedon",
   last_name: "Val",
@@ -113,24 +101,47 @@ p profile_4 = Profile.new(
   gender: "male",
   location: "Greece"
   )
-
 profile_4.user_id = user_four.id
-#pic_4 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
-
 profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
-#puts "Creating reviews...."
+puts "Finished with profiles.."
 
-#p review_1 = Review.new(
-#  content: "test text..!!!"
-#  rating: 5
-#  )
+puts "Creating reviews...."
 
-#profile_1.reviews = review_1
-#review_1.save!
+p review_1 = Review.new(
+  content: "I think she likes travelling.. also funny to travel with!",
+  rating: 5,
+  user: User.first,
+  profile: Profile.first
+  )
+review_1.save!
 
-#puts "Finished with reviews.."
+p review_2 = Review.new(
+  content: "Had travelled a lot! I would definetely recommend her.",
+  rating: 5,
+  user: user_two,
+  profile: profile_2
+  )
+review_2.save!
+
+p review_3 = Review.new(
+  content: "Seems nice and funny guy!",
+  rating: 5,
+  user: user_three,
+  profile: profile_3
+  )
+review_3.save!
+
+p review_4 = Review.new(
+  content: "Seems nice lad but he doesn't speak a lot.",
+  rating: 5,
+  user: user_four,
+  profile: profile_4
+  )
+review_4.save!
+
+puts "Finished with reviews.."
 
 puts "Creating some trips.."
 
@@ -140,9 +151,8 @@ p trip_one = Trip.new(
   end_date: Date.parse("2020 December 25"),
   budget: 840,
   user: User.third,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interest: Interest.first
 )
-
 trip_one.save!
 
 p trip_two = Trip.new(
@@ -151,9 +161,8 @@ p trip_two = Trip.new(
   end_date: Date.parse("2019 May 25"),
   budget: 600,
   user: User.last,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interest: Interest.first
 )
-
 trip_two.save!
 
 p trip_three = Trip.new(
@@ -162,9 +171,8 @@ p trip_three = Trip.new(
   end_date: Date.parse("2020 April 25"),
   budget: 900,
   user: User.first,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interest: Interest.first
 )
-
 trip_three.save!
 
 p trip_four = Trip.new(
@@ -173,9 +181,8 @@ p trip_four = Trip.new(
   end_date: Date.parse("2018 January 25"),
   budget: 1100,
   user: User.first,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
-)
-
+  interest: Interest.first
+  )
 trip_four.save!
 
 p trip_five = Trip.new(
@@ -184,9 +191,8 @@ p trip_five = Trip.new(
   end_date: Date.parse("2019 July 25"),
   budget: 840,
   user: User.second,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interest: Interest.first
 )
-
 trip_five.save!
 
 p trip_six = Trip.new(
@@ -195,12 +201,11 @@ p trip_six = Trip.new(
   end_date: Date.parse("2022 July 25"),
   budget: 400,
   user: User.second,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interest: Interest.first
 )
-
 trip_six.save!
 
 puts "Created some trips.."
 
-puts "Finished"
+puts "All done!"
 
