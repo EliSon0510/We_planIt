@@ -25,7 +25,7 @@
         <h4><%= link_to future_trip.destination, trip_path(future_trip) %></h4>
 
         <% future_trip.interactions.each do |interaction| %>
-          <% unless @trips == @my_trips %>
+          <% if interaction.user == current_user && interaction.status != "active" %>
             <div>
               <h4><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
             </div>
