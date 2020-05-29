@@ -5,7 +5,7 @@
 
   <h1>Chat with your travel buddy</h1>
 
-  <div id="messages" data-interaction-id="<%= @interaction.id %>">
+  <div id='messages' data-interaction-id="<%= @interaction.id %>">
     <% @interaction.messages.each do |message| %>
       <%= render 'messages/message', message: message %>
     <% end %>
