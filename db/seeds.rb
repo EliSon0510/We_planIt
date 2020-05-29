@@ -120,26 +120,16 @@ profile_4.user_id = user_four.id
 profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
-puts "Trying to create some trips.."
-
-#random_interest.each do |inter|
-#  interest = Interest.new(inter)
-#  interest.id = inter['name']
-#  interest.save!
-#end
-
-ran_inter = Interest.order('RANDOM()').first
-#ran_user = User.order('RANDOM()').first
+puts "Creating some trips.."
 
 p trip_one = Trip.new(
   destination: "Canada",
   start_date: Date.parse("2020 December 15"),
   end_date: Date.parse("2020 December 25"),
   budget: 840,
-  interest: ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  user: User.first,
+  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
 )
-
-user_one.trip_ids = trip_one.id
 
 trip_one.save!
 
