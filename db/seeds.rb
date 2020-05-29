@@ -117,6 +117,17 @@ profile_4.user_id = user_four.id
 profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
+#puts "Creating reviews...."
+
+#p review_1 = Review.new(
+#  content: "test text..!!!"
+#  rating: 5
+#  )
+
+#profile_1.reviews = review_1
+#review_1.save!
+
+#puts "Finished with reviews.."
 
 #p trip_one = Trip.new(
 #  destination: "Canada",
