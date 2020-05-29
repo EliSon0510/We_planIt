@@ -129,7 +129,7 @@ puts "Trying to create some trips.."
 #end
 
 ran_inter = Interest.order('RANDOM()').first
-ran_user = User.order('RANDOM()').first
+#ran_user = User.order('RANDOM()').first
 
 p trip_one = Trip.new(
   destination: "Canada",
@@ -137,8 +137,9 @@ p trip_one = Trip.new(
   end_date: Date.parse("2020 December 25"),
   budget: 840,
   interest: ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
-  user: ran_user
 )
+
+user_one.trip_ids = trip_one.id
 
 trip_one.save!
 
