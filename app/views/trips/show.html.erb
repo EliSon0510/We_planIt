@@ -26,8 +26,8 @@
       <h4><strong>Interests</strong></h4>
       <p><%= @trip.interest.name %></p>
       <p>
-          <% if @trip.user == current_user %>
-            <%= link_to "Created by #{@trip.user.nickname}", profile_path(@trip.user_id)%>
+          <% unless @trip.user == current_user %>
+            <%= link_to "Created by #{@trip.user.nickname}", profile_path(@trip.user.profile.id)%>
           <% end %>
       </p>
   </div>
