@@ -1,4 +1,3 @@
-require 'pry'
 class TripsController < ApplicationController
   before_action :set_trip, only:[:show, :edit, :destroy, :update]
 
@@ -7,6 +6,14 @@ class TripsController < ApplicationController
     if params[:destination].present?
       sql_query_1 = "destination ILIKE :destination"
       @trips = policy_scope(Trip).where(sql_query_1, destination: "%#{params[:destination]}%")
+    # elsif params[:budget].present?
+    #    sql_query_3 = "budget ILIKE :budget"
+    #   @trips = policy_scope(Trip).where(sql_query_3, budget: "%#{params[:budget]}%")
+    elsif params[:start_date].present? && params[:end_date].present?
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+      sql_query_2 = "start_date ILIKE :start_date AND end_date ILIKE :end_date"
+      @trips = policy_scope(Trip).where(sql_query_2, start_date: "%#{params[:start_date]}%", end_date: "%#{params[:end_date]}%")
     else
       @trips = policy_scope(Trip).order(created_at: :desc)
     end
@@ -21,8 +28,16 @@ class TripsController < ApplicationController
   end
 
   def show
+
+    @markers = [
+      {
+        lat: @trip.latitude,
+        lng: @trip.longitude
+      }
+      ]
     @interaction = Interaction.new
     @trip_interaction = Interaction.where(user: current_user, trip: @trip)
+
   end
 
   def new

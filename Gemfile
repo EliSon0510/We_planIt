@@ -14,6 +14,8 @@ gem 'geocoder'
 
 gem 'faker'
 
+gem 'turbolinks_render'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

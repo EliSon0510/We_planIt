@@ -4,7 +4,12 @@
      <%= form_tag trips_path, method: :get do %>
       <div id= "search-data" class="form-search search-data" data-skills="<%= @skills.to_json %>">
 
-      <%= text_field_tag :destination, params[:destination], placeholder: "Search for your destination here", autocomplete: :on, class: "form-control search-input"%>
+      <%= text_field_tag :destination, params[:destination], placeholder: "Search for your destination here", autocomplete: :on, class: "form-control search-input", id:"search-bar"%>
+      <%#text_field_tag :budget, params[:budget], placeholder: "Give your budget in €/week here", autocomplete: :on, class: "form-control search-input"%>
+      <%=label_tag 'Starting date of your next trip: ' %>
+      <%= date_select "start date", :start_date %>
+      <%=label_tag ' - Ending date of your next trip: ' %>
+      <%= date_select "end date", :end_date %>
 
       <%= submit_tag "Search", name: nil %>
     </div>
@@ -24,7 +29,7 @@
 
 
 <div id="map"
-     style="width: 80%; height: 600px;"
+     style="width: 80%; height: 450px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

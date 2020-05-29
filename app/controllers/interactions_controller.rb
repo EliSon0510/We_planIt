@@ -46,7 +46,7 @@ class InteractionsController < ApplicationController
     @interaction = Interaction.find(params[:id])
     authorize @interaction
     @interaction.destroy
-    redirect_to trip_interaction_path
+    redirect_to dashboard_path
   end
 
   def trip_params
