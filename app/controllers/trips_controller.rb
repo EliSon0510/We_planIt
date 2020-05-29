@@ -29,6 +29,7 @@ class TripsController < ApplicationController
 
   def show
 
+
     @markers = [
       {
         lat: @trip.latitude,
