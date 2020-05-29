@@ -1,3 +1,4 @@
+require 'pry'
 class TripsController < ApplicationController
   before_action :set_trip, only:[:show, :edit, :destroy, :update]
 
@@ -21,6 +22,7 @@ class TripsController < ApplicationController
 
   def show
     @interaction = Interaction.new
+    @trip_interaction = Interaction.where(user: current_user, trip: @trip)
   end
 
   def new
@@ -46,9 +48,8 @@ class TripsController < ApplicationController
 
   def update
     @trip.update(trip_params)
-    if
-      @trip.save
-      redirect_to @trip
+    if @trip.save
+      redirect_to trip_path(@trip)
     else
       render :new
     end
@@ -56,7 +57,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-    redirect_to trips_path
+    redirect_to dashboard_path
   end
 
   private
