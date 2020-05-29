@@ -44,7 +44,7 @@
 
   <div class="container-infos text-center">
     <% if policy(@interaction).destroy? %>
-      <%= link_to "Abandon the trip", trip_interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      <%= link_to "Abandon the trip", interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
     <% end %>
   </div>
 </div>
