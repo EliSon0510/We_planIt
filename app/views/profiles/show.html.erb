@@ -43,7 +43,7 @@
       <% end %>
       <br>
       <% if policy(review).destroy? %>
-      <%= link_to "Delete the review", review_path(review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
+      <%= link_to "Delete the review", review_path(review), method: :delete, remote: true, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
       <% end %>
     </li>
   <% end %>
