@@ -127,11 +127,68 @@ p trip_one = Trip.new(
   start_date: Date.parse("2020 December 15"),
   end_date: Date.parse("2020 December 25"),
   budget: 840,
-  user: User.first,
+  user: User.third,
   interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
 )
 
 trip_one.save!
+
+p trip_two = Trip.new(
+  destination: "Greece",
+  start_date: Date.parse("2019 May 15"),
+  end_date: Date.parse("2019 May 25"),
+  budget: 600,
+  user: User.last,
+  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+)
+
+trip_two.save!
+
+p trip_three = Trip.new(
+  destination: "United Kingdom",
+  start_date: Date.parse("2021 April 15"),
+  end_date: Date.parse("2020 April 25"),
+  budget: 900,
+  user: User.first,
+  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+)
+
+trip_three.save!
+
+p trip_four = Trip.new(
+  destination: "New York",
+  start_date: Date.parse("2018 January 15"),
+  end_date: Date.parse("2018 January 25"),
+  budget: 1100,
+  user: User.first,
+  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+)
+
+trip_four.save!
+
+p trip_five = Trip.new(
+  destination: "Cuba",
+  start_date: Date.parse("2019 June 15"),
+  end_date: Date.parse("2019 July 25"),
+  budget: 840,
+  user: User.second,
+  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+)
+
+trip_five.save!
+
+p trip_six = Trip.new(
+  destination: "Niger",
+  start_date: Date.parse("2022 June 15"),
+  end_date: Date.parse("2022 July 25"),
+  budget: 400,
+  user: User.second,
+  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+)
+
+trip_six.save!
+
+puts "Created some trips.."
 
 puts "Finished"
 
