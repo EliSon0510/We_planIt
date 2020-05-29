@@ -1,9 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://dfp2hfrf3mn0u.cloudfront.net/cre/creston-ic-v3_1600x685_home-main-banner_2019_SYNCROS_1616656_jpg_original_1.jpg);">
+<div class="banner" style="background: #167ffb;
+    color: white;
+    border-radius: 5px;
+    text-align: center;">
     <h1>Infos on selected trip</h1>
 </div>
 
 
-<div class="container grid-cards">
+<div class="container grid-cards" style="border: 1px solid;
+    border-radius: 5px;">
   <div class="container-title">
     <h1><%= @trip.destination.upcase %></h1>
   </div>
@@ -26,9 +30,9 @@
       <h4><strong>Interests</strong></h4>
       <p><%= @trip.interest.name %></p>
       <p>
-          <% unless @trip.user == current_user %>
-            <%= link_to "Created by #{@trip.user.nickname}", profile_path(@trip.user.profile.id)%>
-          <% end %>
+        <% unless @trip.user == current_user %>
+          <%= link_to "Created by #{@trip.user.nickname}", profile_path(@trip.user.profile.id)%>
+        <% end %>
       </p>
   </div>
 </div>

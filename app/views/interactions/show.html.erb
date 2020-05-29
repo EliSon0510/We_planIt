@@ -5,6 +5,12 @@
 
   <h1>Chat with your travel buddy</h1>
 
+  <% if current_user == @interaction.user %>
+    <%= link_to "You're chatting with #{@interaction.trip.user.nickname}", profile_path(@interaction.trip.user.profile.id)%>
+  <% else %>
+    <%= link_to "You're chatting with #{@interaction.user.nickname}", profile_path(@interaction.user.profile.id)%>
+  <% end %>
+
   <div id='messages' data-interaction-id="<%= @interaction.id %>">
     <% @interaction.messages.each do |message| %>
       <%= render 'messages/message', message: message %>
