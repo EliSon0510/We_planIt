@@ -36,7 +36,7 @@
 
 <ul class="list-group">
   <% @profile.reviews.each do |review| %>
-    <li class="list-group-item"><%= "#{review.rating} ⭐️ | #{review.content}" %>
+    <li class="list-group-item"><%= "Review by #{review.user.nickname} : #{review.rating} ⭐️ | #{review.content}" %>
       <br>
       <% if policy(review).edit? %>
       <%= link_to 'Edit the review', edit_review_path( review) %>
