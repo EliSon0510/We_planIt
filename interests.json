@@ -9,49 +9,25 @@
         "name": "Arts"
     },
     {
-        "name": "Blogging"
-    },
-    {
         "name": "Climate protection"
     },
     {
         "name": "Cooking Vlogging"
     },
     {
-        "name": "Development"
-    },
-    {
-        "name": "Digital Marketing"
-    },
-    {
-        "name": "Digital Media"
-    },
-    {
         "name": "Eco-Design"
-    },
-    {
-        "name": "Economy of the Future"
-    },
-    {
-        "name": "Energy efficiency"
     },
     {
         "name": "Extreme Sports"
     },
     {
-        "name": "Graphic Design"
+        "name": "Photography"
     },
     {
         "name": "Green Living"
     },
     {
         "name": "Hiking"
-    },
-    {
-        "name": "History"
-    },
-    {
-        "name": "Intercultural communication"
     },
     {
         "name": "Journalism"
@@ -66,34 +42,19 @@
         "name": "Marketing"
     },
     {
-        "name": "Museums"
+        "name": "Museums & History"
     },
     {
-        "name": "Music"
+        "name": "Concert"
     },
     {
         "name": "Natural Wonders"
     },
     {
-        "name": "Nutrition"
-    },
-    {
-        "name": "Online Marketing"
-    },
-    {
-        "name": "Organizational Development"
+        "name": "Business Trip"
     },
     {
         "name": "Partying"
-    },
-    {
-        "name": "Politics"
-    },
-    {
-        "name": "Refugee Solidarity"
-    },
-    {
-        "name": "Regional Agriculture"
     },
     {
         "name": "Safari"
@@ -102,24 +63,9 @@
         "name": "Sailing"
     },
     {
-        "name": "Self-determination"
-    },
-    {
-        "name": "Social Media Marketing"
-    },
-    {
-        "name": "Sustainable Society"
-    },
-    {
         "name": "Vacations"
     },
     {
         "name": "Vacations"
-    },
-    {
-        "name": "World Food"
-    },
-    {
-        "name": "World Peace"
     }
 ]
