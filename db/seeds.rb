@@ -345,6 +345,8 @@ p trip_sixteen = Trip.new(
   user: User.fourth,
   interests: [Interest.first, Interest.last]
 )
+pic_4 = File.open(File.join(Rails.root, "/app/assets/images/profile_4.jpg"))
+trip_sixteen.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 
 trip_sixteen.save!
 
