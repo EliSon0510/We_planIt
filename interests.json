@@ -9,7 +9,13 @@
         "name": "Arts"
     },
     {
+        "name": "Business Trip"
+    },
+    {
         "name": "Climate protection"
+    },
+    {
+        "name": "Concert"
     },
     {
         "name": "Cooking Vlogging"
@@ -19,9 +25,6 @@
     },
     {
         "name": "Extreme Sports"
-    },
-    {
-        "name": "Photography"
     },
     {
         "name": "Green Living"
@@ -45,16 +48,13 @@
         "name": "Museums & History"
     },
     {
-        "name": "Concert"
-    },
-    {
         "name": "Natural Wonders"
     },
     {
-        "name": "Business Trip"
+        "name": "Partying"
     },
     {
-        "name": "Partying"
+        "name": "Photography"
     },
     {
         "name": "Safari"
