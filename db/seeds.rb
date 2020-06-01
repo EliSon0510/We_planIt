@@ -183,7 +183,7 @@ p trip_one = Trip.new(
   end_date: Date.parse("2020 December 25"),
   budget: 840,
   user: User.third,
-  interests: [Interest.second, Interest.first]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 trip_one.save!
 
@@ -193,7 +193,7 @@ p trip_two = Trip.new(
   end_date: Date.parse("2019 May 25"),
   budget: 600,
   user: User.last,
-  interests: [Interest.third, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 trip_two.save!
 
@@ -203,7 +203,7 @@ p trip_three = Trip.new(
   end_date: Date.parse("2020 April 25"),
   budget: 900,
   user: User.first,
-  interests: [Interest.fourth, Interest.first]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 trip_three.save!
 
@@ -213,7 +213,7 @@ p trip_four = Trip.new(
   end_date: Date.parse("2018 January 25"),
   budget: 1100,
   user: User.first,
-  interests: [Interest.first, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_four.save!
@@ -224,7 +224,7 @@ p trip_five = Trip.new(
   end_date: Date.parse("2019 July 25"),
   budget: 840,
   user: User.second,
-  interests: [Interest.first, Interest.second] #[Interest.all.shuffle[0,2]]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first] #[Interest.all.shuffle[0,2]]
 )
 trip_five.save!
 
@@ -234,7 +234,7 @@ p trip_six = Trip.new(
   end_date: Date.parse("2022 July 25"),
   budget: 400,
   user: User.second,
-  interests: [Interest.third, Interest.first]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 trip_six.save!
 
@@ -244,7 +244,7 @@ p trip_seven = Trip.new(
   end_date: Date.parse("2021 July 25"),
   budget: 732,
   user: User.second,
-  interests: [Interest.first, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_seven.save!
@@ -255,7 +255,7 @@ p trip_eight = Trip.new(
   end_date: Date.parse("2020 August 25"),
   budget: 640,
   user: User.second,
-  interests: [Interest.fifth, Interest.first]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_eight.save!
@@ -266,7 +266,7 @@ p trip_nine = Trip.new(
   end_date: Date.parse("2021 January 03"),
   budget: 420,
   user: User.third,
-  interests: [Interest.first, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_nine.save!
@@ -288,7 +288,7 @@ p trip_eleven = Trip.new(
   end_date: Date.parse("2020 July 25"),
   budget: 700,
   user: User.fourth,
-  interests: [Interest.second, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_eleven.save!
@@ -299,7 +299,7 @@ p trip_twelve = Trip.new(
   end_date: Date.parse("2022 April 23"),
   budget: 420,
   user: User.first,
-  interests: [Interest.last, Interest.third]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_twelve.save!
@@ -310,7 +310,7 @@ p trip_thirteen = Trip.new(
   end_date: Date.parse("2022 November 28"),
   budget: 600,
   user: User.first,
-  interests: [Interest.first, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_thirteen.save!
@@ -321,7 +321,7 @@ p trip_fourteen = Trip.new(
   end_date: Date.parse("2021 April 10"),
   budget: 400,
   user: User.third,
-  interests: [Interest.first, Interest.second]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_fourteen.save!
@@ -332,18 +332,18 @@ p trip_fifteen = Trip.new(
   end_date: Date.parse("2021 May 27"),
   budget: 549,
   user: User.first,
-  interests: [Interest.third, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_fifteen.save!
 
 p trip_sixteen = Trip.new(
   destination: "Samothraki",
-  start_date: Date.parse("2020 June 26"),
-  end_date: Date.parse("2020 July 23"),
+  start_date: Date.parse("202 June 26"),
+  end_date: Date.parse("2021 July 23"),
   budget: 200,
   user: User.fourth,
-  interests: [Interest.first, Interest.last]
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_4 = File.open(File.join(Rails.root, "/app/assets/images/profile_4.jpg"))
 trip_sixteen.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
