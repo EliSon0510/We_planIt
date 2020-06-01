@@ -3,7 +3,7 @@
     <h1>Find your next vacation !</h1>
     <%= form_tag trips_path, method: :get do %>
       <%= text_field_tag :destination, nil, autocomplete: :on, class: 'form-control search-input', id:'search-bar'%>
-      <% budgets= ["0-300", "300-600"] %>
+      <% budgets = [["0-300 €/week", "0-300"], ["300-600 €/week", "300-600"], ["600 - 1000 €/week", "600-1000"], ["> 1000 €/week", ">=1000"] ] %>
       <%= select_tag :budget, options_for_select(budgets), prompt: "Selct your budget" %>
       <%=label_tag 'Starting date of your next trip:' %>
       <%= date_select 'start date', :start_date %>
@@ -13,7 +13,9 @@
     <% end %>
   </div>
 </div>
-
+<% if @query && @trips.size == 0  %>
+<h3> Sorry, there are no trips found ... Please, create your own! </h3>
+<% end %>
 
   <div style="
     margin: 65px 0;
