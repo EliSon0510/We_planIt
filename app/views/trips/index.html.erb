@@ -52,7 +52,11 @@
           <div class="trip-budget">
             <h3><%= trip.budget %> €/week</h3>
           </div>
-          <p class="trip-more"><%= trip.interest.name %></p>
+          <div>
+          <ul> <% trip.interests.each do |interest| %></ul>
+            <li><%= interest.name %></li>
+          <% end %>
+          </div>
 
           <%= link_to"See more", trip_path(trip) %>
 

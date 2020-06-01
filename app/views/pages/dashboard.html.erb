@@ -77,7 +77,6 @@
           <h4><%= link_to trip.destination, trip_path(trip) %></h4>
           <h4><%= trip.start_date %></h4>
           <h4><%= trip.end_date %></h4>
-          <p><%= trip.interest.name %></p>
           <%= link_to "Edit your trip", edit_trip_path(trip), class: "btn-round-corners" %>
           <%= link_to "Delete this trip", trip_path(trip), method: :delete, remote: true, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
         </div>
