@@ -128,7 +128,7 @@ p trip_one = Trip.new(
   end_date: Date.parse("2020 December 25"),
   budget: 840,
   user: User.third,
-  interests: [Interest.first, Interest.last]
+  interests: [Interest.second, Interest.first]
 )
 
 trip_one.save!
@@ -139,7 +139,7 @@ p trip_two = Trip.new(
   end_date: Date.parse("2019 May 25"),
   budget: 600,
   user: User.last,
-  interests: [Interest.first, Interest.last] #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.third, Interest.last]
 )
 
 trip_two.save!
@@ -150,7 +150,7 @@ p trip_three = Trip.new(
   end_date: Date.parse("2020 April 25"),
   budget: 900,
   user: User.first,
-  interests: [Interest.first, Interest.last] #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.fourth, Interest.first]
 )
 
 trip_three.save!
@@ -161,8 +161,7 @@ p trip_four = Trip.new(
   end_date: Date.parse("2018 January 25"),
   budget: 1100,
   user: User.first,
-  interests: Interest.all.shuffle[0..2]
-  interests: [Interest.first, Interest.last] #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.first, Interest.last]
 )
 
 trip_four.save!
@@ -173,7 +172,7 @@ p trip_five = Trip.new(
   end_date: Date.parse("2019 July 25"),
   budget: 840,
   user: User.second,
-  interests: Interest.all.shuffle[0..2]
+  interests: [Interest.first, Interest.second] #[Interest.all.shuffle[0,2]]
 )
 
 trip_five.save!
@@ -184,7 +183,7 @@ p trip_six = Trip.new(
   end_date: Date.parse("2022 July 25"),
   budget: 400,
   user: User.second,
-  interests: Interest.all.shuffle[0..2]
+  interests: [Interest.third, Interest.first]
 )
 
 trip_six.save!
@@ -195,7 +194,7 @@ p trip_seven = Trip.new(
   end_date: Date.parse("2021 July 25"),
   budget: 732,
   user: User.second,
-  interests: Interest.all.shuffle.[0..2]
+  interests: [Interest.first, Interest.last]
 )
 
 trip_seven.save!
@@ -206,7 +205,7 @@ p trip_eight = Trip.new(
   end_date: Date.parse("2020 August 25"),
   budget: 640,
   user: User.second,
-  interests: Interest.all.shuffle[0..2]
+  interests: [Interest.fifth, Interest.first]
 )
 
 trip_eight.save!
@@ -217,7 +216,7 @@ p trip_nine = Trip.new(
   end_date: Date.parse("2021 January 03"),
   budget: 420,
   user: User.third,
-  interests: Interest.all.shuffle[0..2]
+  interests: [Interest.first, Interest.last]
 )
 
 trip_nine.save!
@@ -228,7 +227,7 @@ p trip_ten = Trip.new(
   end_date: Date.parse("2022 July 06"),
   budget: 400,
   user: User.first,
-  interests: Interest.all.shuffle[0..2]
+  interests: [Interest.first, Interest.last]
 )
 
 trip_ten.save!
@@ -239,7 +238,7 @@ p trip_eleven = Trip.new(
   end_date: Date.parse("2020 July 25"),
   budget: 700,
   user: User.fourth,
-  interests: Interest.all.shuffle[5..6]
+  interests: [Interest.second, Interest.last]
 )
 
 trip_eleven.save!
@@ -250,7 +249,7 @@ p trip_twelve = Trip.new(
   end_date: Date.parse("2022 April 23"),
   budget: 420,
   user: User.first,
-  interests: Interest.all.shuffle[5..6]
+  interests: [Interest.last, Interest.third]
 )
 
 trip_twelve.save!
@@ -261,7 +260,7 @@ p trip_thirteen = Trip.new(
   end_date: Date.parse("2022 November 28"),
   budget: 600,
   user: User.first,
-  interests: Interest.all.shuffle[5..6]
+  interests: [Interest.first, Interest.last]
 )
 
 trip_thirteen.save!
@@ -272,7 +271,7 @@ p trip_fourteen = Trip.new(
   end_date: Date.parse("2021 April 10"),
   budget: 400,
   user: User.third,
-  interests: Interest.all.shuffle[3..6]
+  interests: [Interest.first, Interest.second]
 )
 
 trip_fourteen.save!
@@ -283,7 +282,7 @@ p trip_fifteen = Trip.new(
   end_date: Date.parse("2021 May 27"),
   budget: 549,
   user: User.first,
-  interests: Interest.all.shuffle[4..6]
+  interests: [Interest.third, Interest.last]
 )
 
 trip_fifteen.save!
@@ -294,7 +293,7 @@ p trip_sixteen = Trip.new(
   end_date: Date.parse("2021 July 23"),
   budget: 200,
   user: User.fourth,
-  interests: Interest.all.shuffle[0..6]
+  interests: [Interest.first, Interest.last]
 )
 
 trip_sixteen.save!
