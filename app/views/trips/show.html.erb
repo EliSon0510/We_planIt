@@ -15,9 +15,14 @@
   <div id="map"
      style="width: 40%; height: 150px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <div>
-
+    <% if @trip.photo.attached? %>
+        <%= cl_image_tag @trip.photo.key, height: 150, width: 150, crop: :fill %>
+    <% else %>
+        <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+    <% end %>
   </div>
 
   <div class="container-infos">

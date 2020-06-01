@@ -14,7 +14,11 @@
     <% @future_trips.each do |future_trip| %>
 
       <div>
-        <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
+        <% if trip.photo.attached? %>
+              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+        <% else %>
+              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+        <% end %>
         <p> <em>
         <%= future_trip.start_date %>
         <%= '-' %>
@@ -45,7 +49,11 @@
     <% @past_trips.each do |past_trip| %>
 
       <div>
-        <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
+        <% if trip.photo.attached? %>
+              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+        <% else %>
+              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+        <% end %>
         <p> <em>
         <%= past_trip.start_date %>
         <%= '-' %>
@@ -73,7 +81,11 @@
 
 
         <div>
-          <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
+          <% if trip.photo.attached? %>
+              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+          <% else %>
+              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <% end %>
           <h4><%= link_to trip.destination, trip_path(trip) %></h4>
           <h4><%= trip.start_date %></h4>
           <h4><%= trip.end_date %></h4>
