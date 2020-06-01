@@ -17,3 +17,4 @@ const initInteractionCable = () => {
 }
 
 export { initInteractionCable };
+

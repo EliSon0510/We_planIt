@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
 
@@ -21,4 +22,6 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard', to: 'pages#dashboard'
+
+  resources :notifications, only: [:index]
 end
