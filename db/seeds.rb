@@ -112,7 +112,7 @@ puts "Creating reviews...."
 p review_1 = Review.new(
   content: "I think she likes travelling.. also funny to travel with!",
   rating: 5,
-  user: User.first,
+  user: User.third,
   profile: Profile.first
   )
 review_1.save!
@@ -120,7 +120,7 @@ review_1.save!
 p review_2 = Review.new(
   content: "Had travelled a lot! I would definetely recommend her.",
   rating: 5,
-  user: user_two,
+  user: user_four,
   profile: profile_2
   )
 review_2.save!
@@ -128,7 +128,7 @@ review_2.save!
 p review_3 = Review.new(
   content: "Seems nice and funny guy!",
   rating: 5,
-  user: user_three,
+  user: user_one,
   profile: profile_3
   )
 review_3.save!
@@ -136,7 +136,7 @@ review_3.save!
 p review_4 = Review.new(
   content: "Seems nice lad but he doesn't speak a lot.",
   rating: 5,
-  user: user_four,
+  user: user_two,
   profile: profile_4
   )
 review_4.save!
