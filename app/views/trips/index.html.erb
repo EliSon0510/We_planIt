@@ -60,9 +60,14 @@
             <h3><%= trip.budget %> €/week</h3>
           </div>
           <div>
-          <ul> <% trip.interests.each do |interest| %></ul>
+
+          <ul> <% trip.interests.first(2).each do |interest| %>
             <li><%= interest.name %></li>
           <% end %>
+          <% if trip.interests.size > 2 %>
+            <li> ...</li>
+          <% end %>
+          </ul>
           </div>
 
           <%= link_to"See more", trip_path(trip) %>
