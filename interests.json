@@ -18,13 +18,13 @@
         "name": "Concert"
     },
     {
-        "name": "Cooking Vlogging"
-    },
-    {
-        "name": "Eco-Design"
+        "name": "Design"
     },
     {
         "name": "Extreme Sports"
+    },
+    {
+        "name": "Food Vlogging"
     },
     {
         "name": "Green Living"
@@ -33,16 +33,10 @@
         "name": "Hiking"
     },
     {
-        "name": "Journalism"
-    },
-    {
         "name": "Lifestyle"
     },
     {
         "name": "Local food"
-    },
-    {
-        "name": "Marketing"
     },
     {
         "name": "Museums & History"
@@ -61,9 +55,6 @@
     },
     {
         "name": "Sailing"
-    },
-    {
-        "name": "Vacations"
     },
     {
         "name": "Vacations"
