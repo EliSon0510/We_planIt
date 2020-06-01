@@ -21,12 +21,12 @@ class TripsController < ApplicationController
         @trips = @trips.where(sql_query_3, low_range: budget_range.first.to_i, higher_range: budget_range.last.to_i)
       end
     end
-    if params[:start_date].present? && params[:end_date].present?
+    if params["start date"].present? && params["end date"].present?
       @query = true
-      start_date >= params[:start_date]
-      end_date <= params[:end_date]
-      sql_query_2 = "start_date ILIKE :start_date AND end_date ILIKE :end_date"
-      @trips = @trips.where(sql_query_2, start_date: "%#{params[:start_date]}%", end_date: "%#{params[:end_date]}%")
+      start_date = Date.civil(params["start date"][:"start_date(1i)"].to_i,params["start date"][:"start_date(2i)"].to_i,params["start date"][:"start_date(3i)"].to_i)
+      end_date = Date.civil(params["end date"][:"end_date(1i)"].to_i,params["end date"][:"end_date(2i)"].to_i,params["end date"][:"end_date(3i)"].to_i)
+      sql_query_2 = "start_date >= :start_date AND end_date <= :end_date"
+      @trips = @trips.where(sql_query_2, start_date: start_date, end_date: end_date )
    end
 
     @trips = policy_scope(@trips)
