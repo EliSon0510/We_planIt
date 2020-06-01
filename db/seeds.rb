@@ -141,6 +141,38 @@ p review_4 = Review.new(
   )
 review_4.save!
 
+p review_5 = Review.new(
+  content: "We spend very nice time travelling in Iceland.. She also helped much with the maps!",
+  rating: 5,
+  user: user_two,
+  profile: profile_1
+  )
+review_5.save!
+
+p review_6 = Review.new(
+  content: "It was a great sailing trip in Spain! She also paid a lot of our meals!",
+  rating: 5,
+  user: user_three,
+  profile: profile_2
+  )
+review_6.save!
+
+p review_7 = Review.new(
+  content: "Interesting guy! Also very helpful as we traveled to London using his own car.",
+  rating: 5,
+  user: user_four,
+  profile: profile_3
+  )
+review_7.save!
+
+p review_8 = Review.new(
+  content: "We did some hiking on a greek island. It was nice but sometimes he doesn't seem to realize danger.. ",
+  rating: 3,
+  user: user_three,
+  profile: profile_4
+  )
+review_8.save!
+
 puts "Finished with reviews.."
 
 puts "Creating some trips.."
