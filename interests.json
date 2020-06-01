@@ -1,253 +1,125 @@
 [
     {
-      "name":"Partying"
+        "name": "Activism"
     },
     {
-      "name":"Activism"
+        "name": "Adventure"
     },
     {
-      "name":"Sailing"
+        "name": "Arts"
     },
     {
-      "name":"Safari"
+        "name": "Blogging"
     },
     {
-      "name":"Blockchain"
+        "name": "Climate protection"
     },
     {
-      "name":"Blogging"
+        "name": "Cooking Vlogging"
     },
     {
-      "name":"Coaching"
+        "name": "Development"
     },
     {
-      "name":"Corporate Social Responsibility"
+        "name": "Digital Marketing"
     },
     {
-      "name":"Creative thinking"
+        "name": "Digital Media"
     },
     {
-      "name":"Democracy"
+        "name": "Eco-Design"
     },
     {
-      "name":"Digital Media"
+        "name": "Economy of the Future"
     },
     {
-      "name":"Digital Marketing"
+        "name": "Energy efficiency"
     },
     {
-      "name":"Digitization"
+        "name": "Extreme Sports"
     },
     {
-      "name":"Adventure"
+        "name": "Graphic Design"
     },
     {
-      "name":"Eco-Design"
+        "name": "Green Living"
     },
     {
-      "name":"Hiking"
+        "name": "Hiking"
     },
     {
-      "name":"Energy efficiency"
+        "name": "History"
     },
     {
-      "name":"Engagement"
+        "name": "Intercultural communication"
     },
     {
-      "name":"Development"
+        "name": "Journalism"
     },
     {
-      "name":"Nutrition"
+        "name": "Lifestyle"
     },
     {
-      "name":"Natural Wonders"
+        "name": "Local food"
     },
     {
-      "name":"Vacations"
+        "name": "Marketing"
     },
     {
-      "name":"Family"
+        "name": "Museums"
     },
     {
-      "name":"Finance"
+        "name": "Music"
     },
     {
-      "name":"Refugee Solidarity"
+        "name": "Natural Wonders"
     },
     {
-      "name":"Freedom"
+        "name": "Nutrition"
     },
     {
-      "name":"Peace"
+        "name": "Online Marketing"
     },
     {
-      "name":"Gastronomy"
+        "name": "Organizational Development"
     },
     {
-      "name":"Money system"
+        "name": "Partying"
     },
     {
-      "name":"Community"
+        "name": "Politics"
     },
     {
-      "name":"Genetic engineering"
+        "name": "Refugee Solidarity"
     },
     {
-      "name":"Justice"
+        "name": "Regional Agriculture"
     },
     {
-      "name":"Social commitment"
+        "name": "Safari"
     },
     {
-      "name":"Graphic Design"
+        "name": "Sailing"
     },
     {
-      "name":"Basic Income"
+        "name": "Self-determination"
     },
     {
-      "name":"Green Living"
+        "name": "Social Media Marketing"
     },
     {
-      "name":"Extreme Sports"
+        "name": "Sustainable Society"
     },
     {
-      "name":"History"
+        "name": "Vacations"
     },
     {
-      "name":"Integration"
+        "name": "Vacations"
     },
     {
-      "name":"Intercultural communication"
+        "name": "World Food"
     },
     {
-      "name":"Journalism"
-    },
-    {
-      "name":"Arts"
-    },
-    {
-      "name":"Museums"
-    },
-    {
-      "name":"Climate protection"
-    },
-    {
-      "name":"Cooking"
-    },
-    {
-      "name":"Cooperation"
-    },
-    {
-      "name":"Creativity"
-    },
-    {
-      "name":"Food"
-    },
-    {
-      "name":"Lifestyle"
-    },
-    {
-      "name":"Love"
-    },
-    {
-      "name":"Local food"
-    },
-    {
-      "name":"Marketing"
-    },
-    {
-      "name":"Music"
-    },
-    {
-      "name":"Muslim Community"
-    },
-    {
-      "name":"Online Marketing"
-    },
-    {
-      "name":"Organizational Development"
-    },
-    {
-      "name":"Politics"
-    },
-    {
-      "name":"Project Management"
-    },
-    {
-      "name":"Facilitation"
-    },
-    {
-      "name":"Regional"
-    },
-    {
-      "name":"Regional Agriculture"
-    },
-    {
-      "name":"Regional Development"
-    },
-    {
-      "name":"Self-determination"
-    },
-    {
-      "name":"Self-reflection"
-    },
-    {
-      "name":"Social Media"
-    },
-    {
-      "name":"Social Media Marketing"
-    },
-    {
-      "name":"Software"
-    },
-    {
-      "name":"Social Innovations"
-    },
-    {
-      "name":"Social Innovations in the Global South"
-    },
-    {
-      "name":"Social value added"
-    },
-    {
-      "name":"Social Theater"
-    },
-    {
-      "name":"Sufficiency"
-    },
-    {
-      "name":"Safari"
-    },
-    {
-      "name":"Event Management"
-    },
-    {
-      "name":"Connectedness promotion"
-    },
-    {
-      "name":"Association Foundation"
-    },
-    {
-      "name":"Virtual Teams"
-    },
-    {
-      "name":"World Food"
-    },
-    {
-      "name":"World Peace"
-    },
-    {
-      "name":"Economy of the Future"
-    },
-    {
-      "name":"Zeitgeist"
-    },
-    {
-      "name":"Sustainable Society"
-    },
-    {
-      "name":"Vacations"
+        "name": "World Peace"
     }
-  ]
-
-
+]

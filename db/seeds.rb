@@ -307,8 +307,8 @@ trip_fifteen.save!
 
 p trip_sixteen = Trip.new(
   destination: "Samothraki",
-  start_date: Date.parse("202 June 26"),
-  end_date: Date.parse("2021 July 23"),
+  start_date: Date.parse("2020 June 26"),
+  end_date: Date.parse("2020 July 23"),
   budget: 200,
   user: User.fourth,
   interests: [Interest.first, Interest.last]
