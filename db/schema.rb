@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_06_01_090446) do
 
   # These are extensions that must be enabled in order to support this database
@@ -48,6 +49,11 @@ ActiveRecord::Schema.define(version: 2020_06_01_090446) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests_trips", id: false, force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.bigint "interest_id", null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -110,10 +116,8 @@ ActiveRecord::Schema.define(version: 2020_06_01_090446) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "interest_id"
     t.float "latitude"
     t.float "longitude"
-    t.index ["interest_id"], name: "index_trips_on_interest_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 

@@ -4,8 +4,18 @@
   </div>
 </div>
 
+<% if user_signed_in? && !current_user.profile %>
+  <div>
+    <h2 class="text-center">Create your profile</h2>
+    <div class="text-center">
+      <%= link_to "Your profile", new_profile_path%>
+    </div>
+  </div>
+<% end %>
+
+
 <div class="container">
-  <h2>How to find your buddy</h2>
+  <h2 class="text-center">How to find your buddy</h2>
   <div class="flex-container  text-center">
     <div class="height200px border-rds20 margin5px">
       <h4>Looking for a travel friend ?</h4>

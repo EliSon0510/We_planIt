@@ -38,10 +38,17 @@
         </li>
 
         <li class="nav-item">
-          <p>Hello <%= current_user.nickname %></p>
+          <span class="nav-link">
+          <i>Hello <%= current_user.nickname %></i>
+          </span>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.profile %>
+              <%= cl_image_tag current_user.profile.photo.key, class: " avatar dropdown-toggle", :transformation=>[ {:width=>30, :height=>30, :crop=>"thumb"}, {:radius=>50} ], id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+              <%= image_tag "Profile_user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

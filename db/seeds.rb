@@ -64,18 +64,12 @@ p profile_1 = Profile.new(
   gender: "female",
   location: "Namur, Belgium"
   )
-
 profile_1.user_id = user_one.id
 pic_1 = File.open(File.join(Rails.root, "/app/assets/images/profile_1.jpg"))
 profile_1.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
-#pic_1 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
 profile_1.save!
 
-#pic_2 = File.read('./app/assets/images/profile_2.jpg')
-
-
 pic_2 = File.open(File.join(Rails.root, "/app/assets/images/profile_2.jpg"))
-
 p profile_2 = Profile.new(
   first_name: "Ellie",
   last_name: "Son",
@@ -83,14 +77,11 @@ p profile_2 = Profile.new(
   gender: "female",
   location: "Belgium"
   )
-
 profile_2.user_id = user_two.id
-#pic_2 = URI.open("https://www.sunflowerhospital.in/wp-content/uploads/2017/09/profile-img.jpg")
 profile_2.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
 profile_2.save!
 
 pic_3 = File.open(File.join(Rails.root, "/app/assets/images/profile_3.jpg"))
-
 p profile_3 = Profile.new(
   first_name: "Guillaume",
   last_name: "de Crombrugghe",
@@ -98,14 +89,11 @@ p profile_3 = Profile.new(
   gender: "male",
   location: "Belgium"
   )
-
 profile_3.user_id = user_three.id
-#pic_3 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
 profile_3.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
 profile_3.save!
 
 pic_4 = File.open(File.join(Rails.root, "/app/assets/images/profile_4.jpg"))
-
 p profile_4 = Profile.new(
   first_name: "Phaedon",
   last_name: "Val",
@@ -113,12 +101,79 @@ p profile_4 = Profile.new(
   gender: "male",
   location: "Greece"
   )
-
 profile_4.user_id = user_four.id
-#pic_4 = URI.open("https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg")
-
 profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
+
+puts "Finished with profiles.."
+
+puts "Creating reviews...."
+
+p review_1 = Review.new(
+  content: "I think she likes travelling.. also funny to travel with!",
+  rating: 5,
+  user: User.third,
+  profile: Profile.first
+  )
+review_1.save!
+
+p review_2 = Review.new(
+  content: "Had travelled a lot! I would definetely recommend her.",
+  rating: 5,
+  user: user_four,
+  profile: profile_2
+  )
+review_2.save!
+
+p review_3 = Review.new(
+  content: "Seems nice and funny guy!",
+  rating: 5,
+  user: user_one,
+  profile: profile_3
+  )
+review_3.save!
+
+p review_4 = Review.new(
+  content: "Seems nice lad but he doesn't speak a lot.",
+  rating: 5,
+  user: user_two,
+  profile: profile_4
+  )
+review_4.save!
+
+p review_5 = Review.new(
+  content: "We spend very nice time travelling in Iceland.. She also helped much with the maps!",
+  rating: 5,
+  user: user_two,
+  profile: profile_1
+  )
+review_5.save!
+
+p review_6 = Review.new(
+  content: "It was a great sailing trip in Spain! She also paid a lot of our meals!",
+  rating: 5,
+  user: user_three,
+  profile: profile_2
+  )
+review_6.save!
+
+p review_7 = Review.new(
+  content: "Interesting guy! Also very helpful as we traveled to London using his own car.",
+  rating: 5,
+  user: user_four,
+  profile: profile_3
+  )
+review_7.save!
+
+p review_8 = Review.new(
+  content: "We did some hiking on a greek island. It was nice but sometimes he doesn't seem to realize danger.. ",
+  rating: 3,
+  user: user_three,
+  profile: profile_4
+  )
+review_8.save!
+
+puts "Finished with reviews.."
 
 puts "Creating some trips.."
 
@@ -128,9 +183,8 @@ p trip_one = Trip.new(
   end_date: Date.parse("2020 December 25"),
   budget: 840,
   user: User.third,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
-
 trip_one.save!
 
 p trip_two = Trip.new(
@@ -139,9 +193,8 @@ p trip_two = Trip.new(
   end_date: Date.parse("2019 May 25"),
   budget: 600,
   user: User.last,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
-
 trip_two.save!
 
 p trip_three = Trip.new(
@@ -150,9 +203,8 @@ p trip_three = Trip.new(
   end_date: Date.parse("2020 April 25"),
   budget: 900,
   user: User.first,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
-
 trip_three.save!
 
 p trip_four = Trip.new(
@@ -161,7 +213,7 @@ p trip_four = Trip.new(
   end_date: Date.parse("2018 January 25"),
   budget: 1100,
   user: User.first,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
 trip_four.save!
@@ -172,9 +224,8 @@ p trip_five = Trip.new(
   end_date: Date.parse("2019 July 25"),
   budget: 840,
   user: User.second,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first] #[Interest.all.shuffle[0,2]]
 )
-
 trip_five.save!
 
 p trip_six = Trip.new(
@@ -183,12 +234,121 @@ p trip_six = Trip.new(
   end_date: Date.parse("2022 July 25"),
   budget: 400,
   user: User.second,
-  interest: Interest.first #ran_inter #interests.sample[1]#"Activism" # interests.values_at.sample
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+trip_six.save!
+
+p trip_seven = Trip.new(
+  destination: "Peru",
+  start_date: Date.parse("2021 June 15"),
+  end_date: Date.parse("2021 July 25"),
+  budget: 732,
+  user: User.second,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 
-trip_six.save!
+trip_seven.save!
+
+p trip_eight = Trip.new(
+  destination: "Costa Rica",
+  start_date: Date.parse("2020 June 15"),
+  end_date: Date.parse("2020 August 25"),
+  budget: 640,
+  user: User.second,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_eight.save!
+
+p trip_nine = Trip.new(
+  destination: "Croatia",
+  start_date: Date.parse("2021 Octomber 08"),
+  end_date: Date.parse("2021 January 03"),
+  budget: 420,
+  user: User.third,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_nine.save!
+
+p trip_ten = Trip.new(
+  destination: "Thailand",
+  start_date: Date.parse("2022 May 26"),
+  end_date: Date.parse("2022 July 06"),
+  budget: 400,
+  user: User.first,
+  interests: [Interest.first, Interest.last]
+)
+
+trip_ten.save!
+
+p trip_eleven = Trip.new(
+  destination: "Santorini",
+  start_date: Date.parse("2020 June 25"),
+  end_date: Date.parse("2020 July 25"),
+  budget: 700,
+  user: User.fourth,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_eleven.save!
+
+p trip_twelve = Trip.new(
+  destination: "Turkey",
+  start_date: Date.parse("2021 April 05"),
+  end_date: Date.parse("2022 April 23"),
+  budget: 420,
+  user: User.first,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_twelve.save!
+
+p trip_thirteen = Trip.new(
+  destination: "Italy",
+  start_date: Date.parse("2022 November 09"),
+  end_date: Date.parse("2022 November 28"),
+  budget: 600,
+  user: User.first,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_thirteen.save!
+
+p trip_fourteen = Trip.new(
+  destination: "Ireland",
+  start_date: Date.parse("2021 March 06"),
+  end_date: Date.parse("2021 April 10"),
+  budget: 400,
+  user: User.third,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_fourteen.save!
+
+p trip_fifteen = Trip.new(
+  destination: "Ireland",
+  start_date: Date.parse("2021 April 12"),
+  end_date: Date.parse("2021 May 27"),
+  budget: 549,
+  user: User.first,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_fifteen.save!
+
+p trip_sixteen = Trip.new(
+  destination: "Samothraki",
+  start_date: Date.parse("202 June 26"),
+  end_date: Date.parse("2021 July 23"),
+  budget: 200,
+  user: User.fourth,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+
+trip_sixteen.save!
 
 puts "Created some trips.."
 
-puts "Finished"
+puts "All done!"
 

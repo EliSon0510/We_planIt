@@ -1,24 +1,21 @@
 <div class="banner height220px padding50" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg); border-radius: 5px;">
   <div class="container">
-    <h1 style="color: white;
-    text-shadow: 1px 1px 1px black;
-    font-weight: 700;">Find your next vacation !</h1>
-     <%= form_tag trips_path, method: :get do %>
-      <div id= "search-data" class="form-search search-data" data-skills="<%= @skills.to_json %>">
-
-      <%= text_field_tag :destination, params[:destination], placeholder: "Search for your destination here", autocomplete: :on, class: "form-control search-input", id:"search-bar"%>
-      <%#text_field_tag :budget, params[:budget], placeholder: "Give your budget in €/week here", autocomplete: :on, class: "form-control search-input"%>
-      <%=label_tag 'Starting date of your next trip: ' %>
-      <%= date_select "start date", :start_date %>
-      <%=label_tag ' - Ending date of your next trip: ' %>
-      <%= date_select "end date", :end_date %>
-
-      <%= submit_tag "Search", name: nil %>
-    </div>
+    <h1>Find your next vacation !</h1>
+    <%= form_tag trips_path, method: :get do %>
+      <%= text_field_tag :destination, nil, autocomplete: :on, class: 'form-control search-input', id:'search-bar'%>
+      <% budgets = [["0-300 €/week", "0-300"], ["300-600 €/week", "300-600"], ["600 - 1000 €/week", "600-1000"], ["> 1000 €/week", ">=1000"] ] %>
+      <%= select_tag :budget, options_for_select(budgets), prompt: "Select your budget" %>
+      <%=label_tag 'Starting date of your next trip:' %>
+      <%= date_select 'start date', :start_date %>
+      <%=label_tag ' - Ending date of your next trip:' %>
+      <%= date_select 'end date', :end_date %>
+      <%= submit_tag 'Search', name: nil %>
     <% end %>
   </div>
 </div>
-
+<% if @query && @trips.size == 0  %>
+<h3> Sorry, there are no trips found ... Please, create your own! </h3>
+<% end %>
 
   <div style="
     margin: 65px 0;
@@ -46,8 +43,13 @@
     <% @trips.order("updated_at desc").each do |trip| %>
 
       <div class="trip-card">
-        <%= image_tag("vintage-world.jpg", size: "242x242", alt: "trip image")%>
-
+        <div>
+          <% if trip.photo.attached? %>
+              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+          <% else %>
+              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <% end %>
+        </div>
         <div class="trip-details">
           <h3><%= link_to trip.destination, trip_path(trip) %></h3>
           <div class="trip-schedule">
@@ -57,7 +59,16 @@
           <div class="trip-budget">
             <h3><%= trip.budget %> €/week</h3>
           </div>
-          <p class="trip-more"><%= trip.interest.name %></p>
+          <div>
+
+          <ul> <% trip.interests.first(2).each do |interest| %>
+            <li><%= interest.name %></li>
+          <% end %>
+          <% if trip.interests.size > 2 %>
+            <li> ...</li>
+          <% end %>
+          </ul>
+          </div>
 
           <%= link_to"See more", trip_path(trip) %>
 
