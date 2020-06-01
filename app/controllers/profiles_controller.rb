@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
 
   def show
     authorize @profile
+
     @review = Review.new
   end
 
@@ -49,7 +50,7 @@ private
   end
 
    def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :age, :location, :gender, :photo)
+    params.require(:profile).permit(:first_name, :last_name, :age, :location, :gender, :photo, :review)
   end
 
 
