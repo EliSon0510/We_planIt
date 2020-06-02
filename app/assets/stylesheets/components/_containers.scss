@@ -1,6 +1,6 @@
 .flex-container{
   display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 2fr 2fr 2fr;
     padding: 15px;
     grid-gap: 10px;
 }
@@ -26,43 +26,23 @@
 }
 
 .banner{
+  //should be on all pages
   background-size: cover;
   background-position: center;
+  width: 100%;
   height: 260px;
   align-items: center;
 }
 
 .cards{
+  // used on cards of homepage
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
-.trip-card{
-  background: white;
-  border: 1px solid;
-  border-color: $WPblue;
-  border-radius: 5px;
-}
-.trip-card a{
-  color: $WPblue;
-}
-
-.trip-details{
-  padding: 3px;
-}
-.trip-details li{
-  font-size: 12px;
-}
-
-.card_home{
-  background: white;
-  border: 1px solid;
-  border-color: $WPblue;
-  border-radius: 5px;
-  padding-top: 7px;
-}
-.card_home img{
-  max-width: 100%;
-  height: auto;
+.trips-map{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 10px;
 }
