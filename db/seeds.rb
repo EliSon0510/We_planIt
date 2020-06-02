@@ -191,7 +191,7 @@ trip_one.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png
 trip_one.save!
 
 p trip_two = Trip.new(
-  destination: "Athens, Αττική, Greece",
+  destination: "Athens, Greece",
   start_date: Date.parse("2019 May 15"),
   end_date: Date.parse("2019 May 25"),
   budget: 600,
@@ -295,7 +295,7 @@ trip_nine.photo.attach(io: pic_9, filename: 'image.png', content_type: 'image/pn
 trip_nine.save!
 
 p trip_ten = Trip.new(
-  destination: "Bangkok, กรุงเทพมหานคร, Thailand",
+  destination: "Bangkok, Thailand",
   start_date: Date.parse("2022 May 26"),
   end_date: Date.parse("2022 July 06"),
   budget: 400,
@@ -308,7 +308,7 @@ trip_ten.photo.attach(io: pic_10, filename: 'image.png', content_type: 'image/pn
 trip_ten.save!
 
 p trip_eleven = Trip.new(
-  destination: "Santorini, Thira Municipal Unit, Αιγαίο, Greece",
+  destination: "Santorini, Thira Municipal Unit, Greece",
   start_date: Date.parse("2020 June 25"),
   end_date: Date.parse("2020 July 25"),
   budget: 700,
@@ -373,7 +373,7 @@ trip_fifteen.photo.attach(io: pic_15, filename: 'image.png', content_type: 'imag
 trip_fifteen.save!
 
 p trip_sixteen = Trip.new(
-  destination: "Samothraki, Μακεδονία - Θράκη, Greece",
+  destination: "Samothraki, Greece",
   start_date: Date.parse("2020 June 26"),
   end_date: Date.parse("2020 July 23"),
   budget: 200,
@@ -386,7 +386,7 @@ trip_sixteen.photo.attach(io: pic_16, filename: 'image.png', content_type: 'imag
 trip_sixteen.save!
 
 p trip_seventeen = Trip.new(
-  destination: "Mykonos, Αιγαίο, Greece",
+  destination: "Mykonos, Greece",
   start_date: Date.parse("2020 July 26"),
   end_date: Date.parse("2020 August 23"),
   budget: 830,
