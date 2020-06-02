@@ -14,10 +14,10 @@
     <% @future_trips.each do |future_trip| %>
 
       <div>
-        <% if trip.photo.attached? %>
-              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+        <% if future_trip.photo.attached? %>
+          <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
         <% else %>
-              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
         <% end %>
         <p> <em>
         <%= future_trip.start_date %>
@@ -49,7 +49,7 @@
     <% @past_trips.each do |past_trip| %>
 
       <div>
-        <% if trip.photo.attached? %>
+        <% if past_trip.photo.attached? %>
               <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
         <% else %>
               <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
