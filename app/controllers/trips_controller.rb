@@ -28,6 +28,11 @@ class TripsController < ApplicationController
       sql_query_2 = "start_date >= :start_date AND end_date <= :end_date"
       @trips = @trips.where(sql_query_2, start_date: start_date, end_date: end_date )
    end
+   if params[:name].present?
+    @query = true
+    sql_query_4 = "interests.name ILIKE :name"
+    @trips = @trips.joins(:interests).where(sql_query_4, name: "%#{params[:name]}%")
+  end
 
     @trips = policy_scope(@trips)
 
