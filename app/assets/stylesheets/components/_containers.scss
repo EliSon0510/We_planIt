@@ -1,5 +1,8 @@
 .flex-container{
   display: flex;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  padding: 15px;
 }
 
 .w80{
@@ -18,15 +21,35 @@
   padding: 70px 0;
 }
 
+.background_white{
+  background-color: white;
+}
+
 .banner{
   width: 100%;
   height: 250px;
   align-items: center;
-
 }
 
 .cards{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
+}
+
+.trip-card{
+  background: white;
+  border: 1px solid;
+  border-color: $WPblue;
+  border-radius: 5px;
+}
+.trip-card a{
+  color: $WPblue;
+}
+
+.trip-details{
+  padding: 3px;
+}
+.trip-details li{
+  font-size: 12px;
 }
