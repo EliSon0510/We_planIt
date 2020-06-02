@@ -26,7 +26,8 @@
 }
 
 .banner{
-  width: 100%;
+  background-size: cover;
+  background-position: center;
   height: 260px;
   align-items: center;
 }
@@ -52,4 +53,16 @@
 }
 .trip-details li{
   font-size: 12px;
+}
+
+.card_home{
+  background: white;
+  border: 1px solid;
+  border-color: $WPblue;
+  border-radius: 5px;
+  padding-top: 7px;
+}
+.card_home img{
+  max-width: 100%;
+  height: auto;
 }
