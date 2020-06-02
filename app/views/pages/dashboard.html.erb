@@ -15,9 +15,10 @@
 
       <div>
         <% if future_trip.photo.attached? %>
+
               <%= cl_image_tag future_trip.photo.key, height: 150, width: 150, crop: :fill %>
         <% else %>
-              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
         <% end %>
         <p> <em>
         <%= future_trip.start_date %>
@@ -50,7 +51,9 @@
 
       <div>
         <% if past_trip.photo.attached? %>
+
               <%= cl_image_tag past_trip.photo.key, height: 150, width: 150, crop: :fill %>
+
         <% else %>
               <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
         <% end %>
