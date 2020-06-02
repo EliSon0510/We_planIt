@@ -40,6 +40,11 @@ class InteractionsController < ApplicationController
     @message = Message.new
     @interaction = Interaction.find(params[:id])
     authorize @interaction
+    @notifications = Notification.where(recipient: current_user, actor: actor(@interaction)).unread
+    @notifications.each do |notification|
+      notification.read_at = Time.now
+      notification.save
+    end
   end
 
   def destroy
@@ -47,6 +52,16 @@ class InteractionsController < ApplicationController
     authorize @interaction
     @interaction.destroy
     redirect_to dashboard_path
+  end
+
+  private
+
+  def actor(interaction)
+    if current_user == interaction.trip.user
+      interaction.user
+    else
+      interaction.trip.user
+    end
   end
 
   def trip_params

@@ -11,6 +11,7 @@ const initNotificationCable = () => {
       received(data) {
         console.log(data)
         document.querySelector(".navbar").insertAdjacentHTML("afterend", data.body)
+        document.querySelector("#notification-counter").innerText("afterend", data.body)
         // notificationContainer.insertAdjacentHTML('beforeend', data);
       }
     })

@@ -1,6 +1,5 @@
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 0; right: 0; opacity: 1;">
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 4; right: 0; opacity: 1;">
   <div class="toast-body">
-   <%= body %>
+   <%= link_to "#{body}", trip_interaction_path(@interaction.trip, @interaction) %>
   </div>
 </div>
-
