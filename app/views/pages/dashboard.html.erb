@@ -1,5 +1,7 @@
-<div>
+<div class="banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://upload.wikimedia.org/wikipedia/commons/4/42/South_East_England_banner_Sussex_forest.jpg);">
+  <div class="container">
     <h1>Your trips</h1>
+  </div>
 </div>
 
 <div>
@@ -15,9 +17,10 @@
 
       <div>
         <% if future_trip.photo.attached? %>
+
               <%= cl_image_tag future_trip.photo.key, height: 150, width: 150, crop: :fill %>
         <% else %>
-              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
         <% end %>
         <p> <em>
         <%= future_trip.start_date %>
@@ -50,7 +53,9 @@
 
       <div>
         <% if past_trip.photo.attached? %>
+
               <%= cl_image_tag past_trip.photo.key, height: 150, width: 150, crop: :fill %>
+
         <% else %>
               <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
         <% end %>
