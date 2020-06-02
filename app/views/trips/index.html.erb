@@ -4,7 +4,7 @@
     <%= form_tag trips_path, method: :get do %>
       <%= text_field_tag :destination, nil, autocomplete: :on, placeholder: "Search for your location", class: 'form-control search-input', id:'search-bar'%>
       <% budgets = [["0-300 €/week", "0-300"], ["300-600 €/week", "300-600"], ["600 - 1000 €/week", "600-1000"], ["> 1000 €/week", ">=1000"] ] %>
-      <%= select_tag :budget, options_for_select(budgets), prompt: "Selct your budget" %>
+      <%= select_tag :budget, options_for_select(budgets), prompt: "Select your budget" %>
       <%=label_tag 'Starting date of your next trip:' %>
       <%= date_select 'start date', :start_date %>
       <%=label_tag ' - Ending date of your next trip:' %>
@@ -61,9 +61,14 @@
             <h3><%= trip.budget %> €/week</h3>
           </div>
           <div>
-          <ul> <% trip.interests.each do |interest| %></ul>
+
+          <ul> <% trip.interests.first(2).each do |interest| %>
             <li><%= interest.name %></li>
           <% end %>
+          <% if trip.interests.size > 2 %>
+            <li> ...</li>
+          <% end %>
+          </ul>
           </div>
 
           <%= link_to"See more", trip_path(trip) %>

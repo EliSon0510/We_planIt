@@ -12,8 +12,27 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/new";
+@import "pages/edit";
 
+h1{
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+}
+
+h2{
+  font-family: 'Amatic SC', cursive;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h3{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
 
 h4{
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
+  font-weight: 100;
 }

@@ -11,7 +11,7 @@
 <div class="container">
   <%= simple_form_for [@user, @trip] do |f| %>
   <%= f.input :destination %>
-  <%= f.association :interests, as: :check_boxes, class: 'form-control' %> <!-- multiple: true, size: 4 -->
+  <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.input :budget, :label => "budget/week" %>
