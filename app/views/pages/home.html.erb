@@ -1,4 +1,4 @@
-<div class="banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg);">
+<div class="banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.squarespace-cdn.com/content/v1/54611b5be4b0b862de5ee550/1512054864812-11CEZK87IC6JVZCNY7AZ/ke17ZwdGBToddI8pDm48kCjOTWjA3bFR4FuIWmohiPUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcfKMZKyZMwQikGTdMFgsUh7IlmDMPfuq0zvntNEzrjTJg2dLV8np1-NrGJPalO4Hy/road+and+highways+banner.png?format=2500w);">
   <div class="container">
     <h1 class="font_white">Welcome to We PlanIt !!</h1>
   </div>
@@ -15,10 +15,22 @@
 
 
 <div class="container w80">
+  <div class="container text-center mt-3">
+    <div class="btn btn-flat ">
+      <%= link_to "Add a new trip !", new_trip_path, class: "btn-round-corners"%>
+    </div>
+    <div class="btn btn-flat text-center">
+      <%= link_to "Search for a trip !", trips_path, class: "btn-round-corners"%>
+    </div>
+    <div class="btn btn-flat text-center">
+      <%= link_to "See your dashboard !",  "/dashboard", class: "btn-round-corners"%>
+    </div>
+  </div>
+
   <h2 class="text-center">How to find your buddy</h2>
   <div class="cards text-center mt-4">
     <div class="card height200px">
-    <h4>Create your profile and trip</h4>
+    <h4>Create your profile & trip</h4>
       <%= image_tag "Homepg_computer", class: "img_h150px"%>
     </div>
     <div class=" card height200px">
@@ -34,17 +46,7 @@
       <%= image_tag "Homepg_friends", class: "img_h150px"%>
     </div>
   </div>
-  <div class="flex-container text-center mt-3">
-    <div class="btn btn-flat ">
-      <%= link_to "Add a new trip !", new_trip_path, class: "btn-round-corners"%>
-    </div>
-    <div class="btn btn-flat text-center">
-      <%= link_to "Search for a trip !", trips_path, class: "btn-round-corners"%>
-    </div>
-    <div class="btn btn-flat text-center">
-      <%= link_to "See your dashboard !",  "/dashboard", class: "btn-round-corners"%>
-    </div>
-  </div>
+
 </div>
 
 
