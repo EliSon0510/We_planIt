@@ -9,7 +9,8 @@
       <%= date_select 'start date', :start_date %>
       <%=label_tag ' - Ending date of your next trip:' %>
       <%= date_select 'end date', :end_date %>
-      <%= text_field_tag :name, nil, placeholder: "Give your interests here" %>
+      <% interests = ["Activism","Adventure", "Arts", "Business Trip", "Climate protection", "Concert", "Design", "Extreme Sports", "Food Vlogging", "Green Living", "Hiking", "Lifestyle", "Local food", "Museums & History", "Natural Wonders", "Partying", "Photography", "Safari", "Sailing", "Vacations"] %>
+      <%= select_tag :name, options_for_select(interests), prompt: "Search by interests here" %>
       <%= submit_tag 'Search', name: nil %>
     <% end %>
   </div>
