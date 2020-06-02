@@ -10,7 +10,10 @@
       <%=label_tag ' - Ending date of your next trip:' %>
       <%= date_select 'end date', :end_date %>
       <% interests = ["Activism","Adventure", "Arts", "Business Trip", "Climate protection", "Concert", "Design", "Extreme Sports", "Food Vlogging", "Green Living", "Hiking", "Lifestyle", "Local food", "Museums & History", "Natural Wonders", "Partying", "Photography", "Safari", "Sailing", "Vacations"] %>
-      <%= select_tag :name, options_for_select(interests), prompt: "Search by interests here" %>
+      <% Interest.all.map(&:name).each do |interest| %>
+      <%= check_box_tag "interests[]", interest %>
+      <%= interest %>
+      <% end %>
       <%= submit_tag 'Search', name: nil %>
     <% end %>
   </div>
@@ -37,7 +40,21 @@
     <br>
     <div class="cards mt-4">
 
-      <% @trips.order("updated_at desc").each do |trip| %>
+
+<div id="map"
+     style="width: 100%; height: 450px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+
+<div>
+  <h1>All the created trips</h1>
+  <br>
+  <div class="flex-container">
+
+    <% @trips.sort_by(&:updated_at).each do |trip| %>
+
 
         <div class="trip-card">
           <div>
