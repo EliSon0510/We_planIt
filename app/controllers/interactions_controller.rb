@@ -45,6 +45,7 @@ class InteractionsController < ApplicationController
       notification.read_at = Time.now
       notification.save
     end
+    notifications
   end
 
   def destroy
