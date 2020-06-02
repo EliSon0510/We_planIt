@@ -1,4 +1,4 @@
-<div class="banner height220px padding50" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg); border-radius: 5px;">
+<div class="banner pt-4" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg); border-radius: 5px;">
   <div class="container">
     <h1>Find your next vacation !</h1>
     <%= form_tag trips_path, method: :get do %>
@@ -19,64 +19,64 @@
 <% end %>
 
   <div style="
-    margin: 65px 0;
+    margin: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;">
     <h4>Add your trip to the list</h4>
-    <%= link_to "+ New trip !", new_trip_path, class: "btn btn-primary"%>
+    <%= link_to "New trip !", new_trip_path, class: "btn btn-flat"%>
+  </div>
+
+<div class="flex-container w80">
+  <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
 
+  <div>
+    <h2>All the created trips</h2>
+    <br>
+    <div class="cards mt-4">
 
-<div id="map"
-     style="width: 100%; height: 450px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+      <% @trips.order("updated_at desc").each do |trip| %>
 
-
-<div>
-  <h1>All the created trips</h1>
-  <br>
-  <div class="flex-container">
-
-    <% @trips.order("updated_at desc").each do |trip| %>
-
-      <div class="trip-card">
-        <div>
-          <% if trip.photo.attached? %>
-              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
-          <% else %>
-              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
-          <% end %>
-        </div>
-        <div class="trip-details">
-          <h3><%= link_to trip.destination, trip_path(trip) %></h3>
-          <div class="trip-schedule">
-            <h3><%= trip.start_date %></h3>
-            <h3><%= trip.end_date %></h3>
-          </div>
-          <div class="trip-budget">
-            <h3><%= trip.budget %> €/week</h3>
-          </div>
+        <div class="trip-card">
           <div>
-
-          <ul> <% trip.interests.first(2).each do |interest| %>
-            <li><%= interest.name %></li>
-          <% end %>
-          <% if trip.interests.size > 2 %>
-            <li> ...</li>
-          <% end %>
-          </ul>
+            <% if trip.photo.attached? %>
+                <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+            <% else %>
+                <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+            <% end %>
           </div>
+          <div class="trip-details">
+            <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+            <div class="trip-schedule">
+              <h3><%= trip.start_date %></h3>
+              <h3><%= trip.end_date %></h3>
+            </div>
+            <div class="trip-budget">
+              <h3><%= trip.budget %> €/week</h3>
+            </div>
+            <div>
 
-          <%= link_to"See more", trip_path(trip) %>
+            <ul> <% trip.interests.first(2).each do |interest| %>
+              <li><%= interest.name %></li>
+            <% end %>
+            <% if trip.interests.size > 2 %>
+              <li> ...</li>
+            <% end %>
+            </ul>
+            </div>
 
+            <%= link_to"See more", trip_path(trip) %>
+
+          </div>
         </div>
-      </div>
 
-    <% end %>
+      <% end %>
+    </div>
+
   </div>
-
 </div>
+
