@@ -1,3 +1,8 @@
+.btn-container{
+  display: flex;
+  justify-content: center;
+}
+
 .btn-flat {
   color: white;
   padding: 15px 30px;
@@ -5,7 +10,7 @@
   background: #028090;
   transition: background 0.3s ease;
   width: 30%;
-  margin: 10px
+  margin: 10px;
 }
 
 .btn-flat:hover {
