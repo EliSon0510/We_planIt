@@ -1,8 +1,8 @@
 .flex-container{
-  display: flex;
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  padding: 15px;
+    grid-template-columns: 2fr 2fr;
+    padding: 15px;
+    grid-gap: 10px;
 }
 
 .w80{
@@ -27,7 +27,7 @@
 
 .banner{
   width: 100%;
-  height: 250px;
+  height: 260px;
   align-items: center;
 }
 

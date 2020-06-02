@@ -1,4 +1,10 @@
-<h1>Your profile</h1>
+<div class="banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://explorerabun.com/wp-content/uploads/2015/02/banner-adventure.png);">
+  <div class="container">
+    <h1>Your profile</h1>
+  </div>
+</div>
+
+<br>
 
  <% if @profile.photo.attached? %>
   <%= cl_image_tag @profile.photo.key, height: 220, width: 220, crop: :thumb %>
@@ -21,7 +27,7 @@
 
 <br>
 
-<h1>Reviews</h1>
+<h2>Reviews</h2>
 
   <% unless @profile.user == current_user %>
       <h2>Add a review</h2>

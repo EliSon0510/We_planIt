@@ -3,7 +3,7 @@ class TripsController < ApplicationController
 
 
   def index
-     @trips = Trip.order(created_at: :desc)
+     @trips = Trip
      @query = false
     if params[:destination].present?
       @query = true
@@ -30,10 +30,9 @@ class TripsController < ApplicationController
       @trips = @trips.where(sql_query_2, start_date: start_date, end_date: end_date )
       end
    end
-   if params[:name].present?
+   if params[:interests].present?
     @query = true
-    sql_query_4 = "interests.name ILIKE :name"
-    @trips = @trips.joins(:interests).where(sql_query_4, name: "%#{params[:name]}%")
+    @trips = @trips.joins(:interests).where(interests: {name: params[:interests]} )
   end
 
     @trips = policy_scope(@trips)
