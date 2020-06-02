@@ -9,7 +9,7 @@
       <%= date_select 'start date', :start_date %>
       <%=label_tag ' - Ending date of your next trip:' %>
       <%= date_select 'end date', :end_date %>
-      <%= text_field_tag :name, placeholder: "Your interest" %>
+      <%= text_field_tag :name, nil, placeholder: "Give your interests here" %>
       <%= submit_tag 'Search', name: nil %>
     <% end %>
   </div>

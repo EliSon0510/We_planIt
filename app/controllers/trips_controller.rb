@@ -30,8 +30,8 @@ class TripsController < ApplicationController
    end
    if params[:name].present?
     @query = true
-    sql_query_4 = "name ILIKE :name"
-    @trips = @trips.where(sql_query_4, name: "%#{params[:name]}%")
+    sql_query_4 = "interests.name ILIKE :name"
+    @trips = @trips.joins(:interests).where(sql_query_4, name: "%#{params[:name]}%")
   end
 
     @trips = policy_scope(@trips)
