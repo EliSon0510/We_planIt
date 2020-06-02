@@ -25,9 +25,16 @@ class TripsController < ApplicationController
       @query = true
       start_date = Date.civil(params["start date"][:"start_date(1i)"].to_i,params["start date"][:"start_date(2i)"].to_i,params["start date"][:"start_date(3i)"].to_i)
       end_date = Date.civil(params["end date"][:"end_date(1i)"].to_i,params["end date"][:"end_date(2i)"].to_i,params["end date"][:"end_date(3i)"].to_i)
-      sql_query_2 = "start_date >= :start_date AND end_date <= :end_date"
+      unless start_date == Date.today
+        sql_query_2 = "start_date >= :start_date AND end_date <= :end_date"
       @trips = @trips.where(sql_query_2, start_date: start_date, end_date: end_date )
+      end
    end
+   if params[:name].present?
+    @query = true
+    sql_query_4 = "interests.name ILIKE :name"
+    @trips = @trips.joins(:interests).where(sql_query_4, name: "%#{params[:name]}%")
+  end
 
     @trips = policy_scope(@trips)
 

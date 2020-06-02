@@ -1,14 +1,16 @@
-<div class="banner height220px padding50" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg); border-radius: 5px;">
+<div class="banner pt-4" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg)">
   <div class="container">
     <h1>Find your next vacation !</h1>
     <%= form_tag trips_path, method: :get do %>
-      <%= text_field_tag :destination, nil, autocomplete: :on, class: 'form-control search-input', id:'search-bar'%>
+      <%= text_field_tag :destination, nil, autocomplete: :on, placeholder: "Search for your location", class: 'form-control search-input', id:'search-bar'%>
       <% budgets = [["0-300 €/week", "0-300"], ["300-600 €/week", "300-600"], ["600 - 1000 €/week", "600-1000"], ["> 1000 €/week", ">=1000"] ] %>
       <%= select_tag :budget, options_for_select(budgets), prompt: "Select your budget" %>
       <%=label_tag 'Starting date of your next trip:' %>
       <%= date_select 'start date', :start_date %>
       <%=label_tag ' - Ending date of your next trip:' %>
       <%= date_select 'end date', :end_date %>
+      <% interests = ["Activism","Adventure", "Arts", "Business Trip", "Climate protection", "Concert", "Design", "Extreme Sports", "Food Vlogging", "Green Living", "Hiking", "Lifestyle", "Local food", "Museums & History", "Natural Wonders", "Partying", "Photography", "Safari", "Sailing", "Vacations"] %>
+      <%= select_tag :name, options_for_select(interests), prompt: "Search by interests here" %>
       <%= submit_tag 'Search', name: nil %>
     <% end %>
   </div>
@@ -18,64 +20,68 @@
 <% end %>
 
   <div style="
-    margin: 65px 0;
+    background-color: white;
+    margin: 15px 0;
+    padding: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;">
     <h4>Add your trip to the list</h4>
-    <%= link_to "+ New trip !", new_trip_path, class: "btn btn-primary"%>
+    <%= link_to "New trip !", new_trip_path, class: "btn btn-flat"%>
   </div>
 
+<div class="flex-container">
 
+  <div class="m-2 p-2  background_white">
+    <h2>All the created trips</h2>
+    <br>
+    <div class="cards mt-4">
 
-<div id="map"
-     style="width: 100%; height: 450px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+      <% @trips.order("updated_at desc").each do |trip| %>
 
-
-<div>
-  <h1>All the created trips</h1>
-  <br>
-  <div class="flex-container">
-
-    <% @trips.order("updated_at desc").each do |trip| %>
-
-      <div class="trip-card">
-        <div>
-          <% if trip.photo.attached? %>
-              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
-          <% else %>
-              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
-          <% end %>
-        </div>
-        <div class="trip-details">
-          <h3><%= link_to trip.destination, trip_path(trip) %></h3>
-          <div class="trip-schedule">
-            <h3><%= trip.start_date %></h3>
-            <h3><%= trip.end_date %></h3>
-          </div>
-          <div class="trip-budget">
-            <h3><%= trip.budget %> €/week</h3>
-          </div>
+        <div class="trip-card">
           <div>
-
-          <ul> <% trip.interests.first(2).each do |interest| %>
-            <li><%= interest.name %></li>
-          <% end %>
-          <% if trip.interests.size > 2 %>
-            <li> ...</li>
-          <% end %>
-          </ul>
+            <% if trip.photo.attached? %>
+                <%= cl_image_tag trip.photo.key, crop: :fill %>
+            <% else %>
+                <%= image_tag "WorldLogo.png"%>
+            <% end %>
           </div>
+          <div class="trip-details">
+            <div class="trip-destination">
+              <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+            </div>
+            <div class="trip-schedule">
+              <h4><%= trip.start_date %></h4>
+              <h4><%= trip.end_date %></h4>
+            </div>
+            <div class="trip-budget">
+              <h4><%= trip.budget %> €/week</h4>
+            </div>
+            <div>
 
-          <%= link_to"See more", trip_path(trip) %>
+            <ul> <% trip.interests.first(2).each do |interest| %>
+              <li><%= interest.name %></li>
+            <% end %>
+            <% if trip.interests.size > 2 %>
+              <li> ...</li>
+            <% end %>
+            </ul>
+            </div>
 
+            <%= link_to"See more", trip_path(trip) %>
+
+          </div>
         </div>
-      </div>
 
-    <% end %>
+      <% end %>
+    </div>
+
   </div>
 
+  <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
+
