@@ -12,11 +12,11 @@
 <h3>From <%= @profile.location %></h3>
 
 <% if policy(@profile).edit? %>
-<%= link_to "Edit your profile", edit_profile_path(@profile), class: "btn-round-corners" %>
+<%= link_to "", edit_profile_path(@profile), class: "fas fa-edit" %>
 <% end %>
-<br>
+
 <% if policy(@profile).destroy? %>
-<%= link_to "Delete the profile", profile_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "btn-round-corners" %>
+<%= link_to "", profile_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "fas fa-trash-alt" %>
 <% end %>
 
 <br>
