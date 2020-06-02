@@ -4,6 +4,12 @@
     padding: 15px;
     grid-gap: 10px;
 }
+.flex-container-2col{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding: 15px;
+    grid-gap: 10px;
+}
 
 .w80{
   width: 80%;
