@@ -185,26 +185,35 @@ p trip_one = Trip.new(
   user: User.third,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_1 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Canada.jpg"))
+trip_one.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png')
+
 trip_one.save!
 
 p trip_two = Trip.new(
-  destination: "Greece",
+  destination: "Athens",
   start_date: Date.parse("2019 May 15"),
   end_date: Date.parse("2019 May 25"),
   budget: 600,
   user: User.last,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_2 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Athens.jpg"))
+trip_two.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png')
+
 trip_two.save!
 
 p trip_three = Trip.new(
-  destination: "United Kingdom",
+  destination: "London",
   start_date: Date.parse("2021 April 15"),
-  end_date: Date.parse("2020 April 25"),
+  end_date: Date.parse("2021 April 25"),
   budget: 900,
   user: User.first,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_3 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/London.jpg"))
+trip_three.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/png')
+
 trip_three.save!
 
 p trip_four = Trip.new(
@@ -215,6 +224,8 @@ p trip_four = Trip.new(
   user: User.first,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_4 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/NY.jpg"))
+trip_four.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 
 trip_four.save!
 
@@ -223,19 +234,25 @@ p trip_five = Trip.new(
   start_date: Date.parse("2019 June 15"),
   end_date: Date.parse("2019 July 25"),
   budget: 840,
-  user: User.second,
+  user: User.fourth,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first] #[Interest.all.shuffle[0,2]]
 )
+pic_5 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Cuba.jpg"))
+trip_five.photo.attach(io: pic_5, filename: 'image.png', content_type: 'image/png')
+
 trip_five.save!
 
 p trip_six = Trip.new(
-  destination: "Niger",
+  destination: "Nigeria",
   start_date: Date.parse("2022 June 15"),
   end_date: Date.parse("2022 July 25"),
   budget: 400,
   user: User.second,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_6 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Nigeria.jpg"))
+trip_six.photo.attach(io: pic_6, filename: 'image.png', content_type: 'image/png')
+
 trip_six.save!
 
 p trip_seven = Trip.new(
@@ -246,6 +263,8 @@ p trip_seven = Trip.new(
   user: User.second,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_7 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Peru.jpg"))
+trip_seven.photo.attach(io: pic_7, filename: 'image.png', content_type: 'image/png')
 
 trip_seven.save!
 
@@ -257,6 +276,8 @@ p trip_eight = Trip.new(
   user: User.second,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_8 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Costa_Rica.jpg"))
+trip_eight.photo.attach(io: pic_8, filename: 'image.png', content_type: 'image/png')
 
 trip_eight.save!
 
@@ -268,6 +289,8 @@ p trip_nine = Trip.new(
   user: User.third,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_9 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Croatia.jpg"))
+trip_nine.photo.attach(io: pic_9, filename: 'image.png', content_type: 'image/png')
 
 trip_nine.save!
 
@@ -279,6 +302,8 @@ p trip_ten = Trip.new(
   user: User.first,
   interests: [Interest.first, Interest.last]
 )
+pic_10 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Thailand.jpg"))
+trip_ten.photo.attach(io: pic_10, filename: 'image.png', content_type: 'image/png')
 
 trip_ten.save!
 
@@ -287,20 +312,24 @@ p trip_eleven = Trip.new(
   start_date: Date.parse("2020 June 25"),
   end_date: Date.parse("2020 July 25"),
   budget: 700,
-  user: User.fourth,
+  user: User.second,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_11 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Santorini.jpg"))
+trip_eleven.photo.attach(io: pic_11, filename: 'image.png', content_type: 'image/png')
 
 trip_eleven.save!
 
 p trip_twelve = Trip.new(
   destination: "Turkey",
   start_date: Date.parse("2021 April 05"),
-  end_date: Date.parse("2022 April 23"),
+  end_date: Date.parse("2021 April 23"),
   budget: 420,
   user: User.first,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_12 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Turkey.jpg"))
+trip_twelve.photo.attach(io: pic_12, filename: 'image.png', content_type: 'image/png')
 
 trip_twelve.save!
 
@@ -312,6 +341,8 @@ p trip_thirteen = Trip.new(
   user: User.first,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_13 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Italy.jpg"))
+trip_thirteen.photo.attach(io: pic_13, filename: 'image.png', content_type: 'image/png')
 
 trip_thirteen.save!
 
@@ -323,6 +354,8 @@ p trip_fourteen = Trip.new(
   user: User.third,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_14 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Ireland_2.jpg"))
+trip_fourteen.photo.attach(io: pic_14, filename: 'image.png', content_type: 'image/png')
 
 trip_fourteen.save!
 
@@ -334,19 +367,36 @@ p trip_fifteen = Trip.new(
   user: User.first,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_15 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Ireland.jpg"))
+trip_fifteen.photo.attach(io: pic_15, filename: 'image.png', content_type: 'image/png')
 
 trip_fifteen.save!
 
 p trip_sixteen = Trip.new(
   destination: "Samothraki",
-  start_date: Date.parse("202 June 26"),
-  end_date: Date.parse("2021 July 23"),
+  start_date: Date.parse("2020 June 26"),
+  end_date: Date.parse("2020 July 23"),
   budget: 200,
   user: User.fourth,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
+pic_16 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Samothraki.jpg"))
+trip_sixteen.photo.attach(io: pic_16, filename: 'image.png', content_type: 'image/png')
 
 trip_sixteen.save!
+
+p trip_seventeen = Trip.new(
+  destination: "Mykonos",
+  start_date: Date.parse("2020 July 26"),
+  end_date: Date.parse("2020 August 23"),
+  budget: 830,
+  user: User.third,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+pic_17 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Mykonos.jpg"))
+trip_seventeen.photo.attach(io: pic_17, filename: 'image.png', content_type: 'image/png')
+
+trip_seventeen.save!
 
 puts "Created some trips.."
 
