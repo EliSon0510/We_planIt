@@ -30,13 +30,46 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
 }
-.trip-card img{
-  width:100%;
-  height: 150px;
+
+.card_home{
+  // cards from the home pg core values
+  background: white;
+  border: 1px solid;
+  border-color: $WPblue;
+  border-radius: 5px;
+  padding-top: 7px;
+}
+.card_home img{
+  max-width: 100%;
+  height: auto;
 }
 
-.trips{
-display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-gap: 10px;
+.trip-card img{
+  // image of each trip card
+  width:100%;
+  height: 150px;
+  object-fit: cover;
 }
+
+.trip-card{
+  // container of each trip infos & pict
+  background: white;
+  border: 1px solid;
+  border-color: $WPblue;
+  border-radius: 5px;
+}
+.trip-card a{
+  // link of trip card
+  color: $WPblue;
+}
+
+.trip-details{
+  // infos of each trip
+  padding: 3px;
+}
+.trip-details li{
+  // interests listed in trip-card
+  font-size: 12px;
+}
+
+
