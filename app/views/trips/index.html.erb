@@ -42,9 +42,9 @@
         <div class="trip-card">
           <div>
             <% if trip.photo.attached? %>
-                <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+                <%= cl_image_tag trip.photo.key, crop: :fill %>
             <% else %>
-                <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+                <%= image_tag "WorldLogo.png"%>
             <% end %>
           </div>
           <div class="trip-details">
