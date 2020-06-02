@@ -27,9 +27,9 @@
             </button>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdown-notification">
-              <% @notifications.each do |notification|%>
-                <%= link_to "You have a #{notification.notifiable_type} from #{notification.actor.nickname}", trip_interaction_path(notification.notifiable.interaction.trip, notification.notifiable.interaction), class: "dropdown-item" %>
-              <% end %>
+              <%# @notifications.each do |notification|%>
+                <%#= link_to "You have a #{notification.notifiable_type} from #{notification.actor.nickname}", trip_interaction_path(notification.notifiable.interaction.trip, notification.notifiable.interaction), class: "dropdown-item" %>
+              <%# end %>
             </div>
           </div>
         </li>
