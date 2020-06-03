@@ -6,54 +6,73 @@
 
 <br>
 
- <% if @profile.photo.attached? %>
-  <%= cl_image_tag @profile.photo.key, height: 220, width: 220, crop: :thumb %>
-  <% else %>
-   <%= image_tag "profile.png" %>
-<% end %>
+<div class="container profile-card">
+  <div class="profile-container">
+  <div>
+    <% if @profile.photo.attached? %>
+      <%= cl_image_tag @profile.photo.key, height: 220, width: 220, crop: :thumb, class: "avatar-profile" %>
+    <% else %>
+      <%= image_tag "profile.png" %>
+    <% end %>
+  </div>
 
+  <div class="profile-card-content">
+    <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
+    <h5>Nickname: <%= @profile.user.nickname %></h5>
+    <h5>Age : <%= @profile.age %></h5>
+    <h5>From: <%= @profile.location %></h5>
+    <% if @profile.gender == "female" %>
+    <h5>Gender:<i class="fas fa-female"></i></h5>
+    <% elsif @profile.gender == "male" %>
+    <h5>Gender:<i class="fas fa-male"></i></h5>
+    <% else %>
+    <h5>Gender: other</h5>
+    <% end %>
+    <h5>Description:</h5>
+    <h5><%= @profile.description %></h5>
 
-<h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
-<h3>Age : <%= @profile.age %></h3>
-<h3>From: <%= @profile.location %></h3>
-<h3>Gender: <%= @profile.gender %></h3>
-<h3>Description: <%= @profile.description %></h3>
+    <% if policy(@profile).edit? %>
+   <%= link_to "", edit_profile_path(@profile), class: "fas fa-edit" %>
+    <% end %>
 
-
-
-<% if policy(@profile).edit? %>
-<%= link_to "", edit_profile_path(@profile), class: "fas fa-edit" %>
-<% end %>
-
-<% if policy(@profile).destroy? %>
-<%= link_to "", profile_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "fas fa-trash-alt" %>
-<% end %>
+    <% if policy(@profile).destroy? %>
+    <%= link_to "", profile_path, method: :delete, data: {confirm: "Are you sure you wish to delete your profile ?"}, class: "fas fa-trash-alt" %>
+    <% end %>
+  </div>
+</div>
+</div>
 
 <br>
 
-<h2>Reviews</h2>
+<div class="container profile-card">
+    <h2>Reviews</h2>
 
-  <% unless @profile.user == current_user %>
-      <h2>Add a review</h2>
+    <% unless @profile.user == current_user %>
+      <h5>Add a review</h5>
 
       <%= simple_form_for [@profile, @review] do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating, collection: 0..5 %>
-        <%= f.submit "submit", class: "btn btn-primary" %>
+        <h4><%= f.input :content %></h4>
+        <h4><%= f.input :rating, collection: 0..5 %></h4>
+        <%= f.submit "submit", class: "btn btn-flat-review" %>
       <% end %>
-  <% end %>
+    <% end %>
 
 
-<ul class="list-group">
-  <% @profile.reviews.each do |review| %>
-    <li class="list-group-item"><%= "Review by #{review.user.nickname} : #{review.rating} ⭐️ | #{review.content}" %>
-      <br>
-      <% if policy(review).edit? %>
-      <%= link_to 'Edit the review', edit_review_path( review) %>
+    <ul>
+    <% @profile.reviews.each do |review| %>
+    <div class="review-content-card">
+      <li><h4><%= "Review by #{review.user.nickname} :"%></h4><p><%= " #{review.rating} ⭐️ " %></p>
+        <p> <%=  "#{review.content}"%></p>
+
+        <% if policy(review).edit? %>
+        <%= link_to "", edit_review_path( review), class: "fas fa-edit" %>
+        <% end %>
+        <% if policy(review).destroy? %>
+        <%= link_to "", review_path(review), method: :delete, remote: true, data: {confirm: "Are you sure?"}, class: "fas fa-trash-alt" %>
+        <% end %>
+      </li>
+    </div>
       <% end %>
-      <br>
-      <% if policy(review).destroy? %>
-      <%= link_to "Delete the review", review_path(review), method: :delete, remote: true, data: {confirm: "Are you sure?"}, class: "btn-round-corners" %>
-      <% end %>
-    </li>
-  <% end %>
+</div>
+
+<br>
