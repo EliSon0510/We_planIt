@@ -62,6 +62,7 @@ p profile_1 = Profile.new(
   last_name: "Carlier",
   age: 22,
   gender: "female",
+  description: "Enjoying life at the fullest everywhere I go! Love to meet new people and to share memories with them!",
   location: "Namur, Belgium"
   )
 profile_1.user_id = user_one.id
@@ -75,6 +76,7 @@ p profile_2 = Profile.new(
   last_name: "Son",
   age: 29,
   gender: "female",
+  description: "Open-minded and positive girl that loves to meet new people and have fun around the world!",
   location: "Belgium"
   )
 profile_2.user_id = user_two.id
@@ -87,6 +89,7 @@ p profile_3 = Profile.new(
   last_name: "de Crombrugghe",
   age: 21,
   gender: "male",
+  description: "I love going on adventure and living the wild life!",
   location: "Belgium"
   )
 profile_3.user_id = user_three.id
@@ -99,6 +102,7 @@ p profile_4 = Profile.new(
   last_name: "Val",
   age: 35,
   gender: "male",
+  description: "My goal in life is to travel as mush as money affords me to...",
   location: "Greece"
   )
 profile_4.user_id = user_four.id
