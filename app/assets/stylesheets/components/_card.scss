@@ -1,6 +1,9 @@
 .height200px{
   height: 200px;
   }
+.height315px{
+  height: 315px;
+}
 
 .width25{
   width: 25%;
@@ -48,6 +51,29 @@
   height: auto;
 }
 
+.card_value{
+  // cards from the home pg core values
+  background-size: cover;
+  background-position: center;
+  background: white;
+  border: 1px solid;
+  border-color: $WPred;
+  border-radius: 5px;
+  padding-top: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+}
+.card_value img{
+  max-width: 100%;
+  height: auto;
+}
+
 .trip-card img{
   // image of each trip card
   width:100%;
@@ -69,11 +95,45 @@
 
 .trip-details{
   // infos of each trip
-  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 165px;
+  padding: 10px;
+  h3{
+    font-size: 17px
+  }
 }
 .trip-details li{
   // interests listed in trip-card
   font-size: 12px;
+}
+
+.trip-schedule{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h4{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.trip-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  ul{
+    padding: 0;
+    margin: 0;
+    li{
+      list-style: none;
+    }
+  }
 }
 
 .trip-card-dashb{
@@ -83,6 +143,12 @@
   border-color: $WPblue;
   border-radius: 5px;
   max-width: 35%;
+}
+
+.trip-show img{
+  // used on show pg for sizing for img @ map
+  width: 100%;
+  height: 300px;
 }
 
 .review-content-card{
@@ -121,13 +187,8 @@
   border-color: $WPblue;
 }
 
-.trip-show img{
-  // used on show pg for sizing for img @ map
-  width: 100%;
-  height: 300px;
-}
 
-.sticky-bottom{
-  position: absolute;
-  bottom: 0;
-}
+
+
+
+

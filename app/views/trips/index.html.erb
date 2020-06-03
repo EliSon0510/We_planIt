@@ -44,7 +44,7 @@
     <% @trips.sort_by(&:updated_at).each do |trip| %>
 
 
-        <div class="trip-card">
+        <div class="trip-card height315px">
           <div>
             <% if trip.photo.attached? %>
                 <%= cl_image_tag trip.photo.key, crop: :fill %>
@@ -63,18 +63,19 @@
             <div class="trip-budget">
               <h4><%= trip.budget %> €/week</h4>
             </div>
-            <div>
-
-            <ul> <% trip.interests.first(2).each do |interest| %>
-              <li><%= interest.name %></li>
-            <% end %>
-            <% if trip.interests.size > 2 %>
-              <li> ...</li>
-            <% end %>
-            </ul>
-            </div>
-            <div class="sticky-bottom">
-              <%= link_to"See more", trip_path(trip) %>
+            <div class="trip-bottom">
+              <div class="trip-interests">
+                <ul> <% trip.interests.first(2).each do |interest| %>
+                  <li><%= interest.name %></li>
+                <% end %>
+                <% if trip.interests.size > 2 %>
+                  <li> ...</li>
+                <% end %>
+                </ul>
+              </div>
+              <div class="sticky-bottom">
+                <%= link_to"See more", trip_path(trip) %>
+              </div>
             </div>
           </div>
         </div>
