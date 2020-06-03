@@ -15,25 +15,6 @@
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
 
-        <li class="nav-item dropdown" id="notifications" data-user-id= "<%= current_user.id %>" >
-
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <i class="fas fa-bell"></i>
-              <span id="notification-counter">
-                <%#= @notifications.count %>
-              </span>
-
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdown-notification">
-              <%# @notifications.each do |notification|%>
-                <%#= link_to "You have a #{notification.notifiable_type} from #{notification.actor.nickname}", trip_interaction_path(notification.notifiable.interaction.trip, notification.notifiable.interaction), class: "dropdown-item" %>
-              <%# end %>
-            </div>
-          </div>
-        </li>
-
         <li class="nav-item active">
           <%= link_to "My Dashboard", "/dashboard", class: "nav-link" %>
         </li>
@@ -50,6 +31,24 @@
 
         <li class="nav-item active">
           <%= link_to "All trips", "/trips", class: "nav-link" %>
+        </li>
+
+        <li class="nav-item dropdown" id="notifications" data-user-id= "<%= current_user.id %>" >
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-bell"></i>
+              <span id="notification-counter">
+                <%= @notifications.count %>
+              </span>
+
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdown-notification">
+              <% @notifications.each do |notification|%>
+                <%= render partial: "shared/notification_dropdown", locals: { notification: notification } %>
+              <% end %>
+            </div>
+          </div>
         </li>
 
         <li class="nav-item">

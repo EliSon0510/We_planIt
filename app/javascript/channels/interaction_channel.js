@@ -9,7 +9,6 @@ const initInteractionCable = () => {
     console.log(id)
     consumer.subscriptions.create({ channel: 'InteractionChannel', id: id }, {
       received(data) {
-        console.log(data)
         messageContainer.insertAdjacentHTML('beforeend', data);
       }
     })
