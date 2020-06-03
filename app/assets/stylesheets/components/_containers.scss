@@ -44,6 +44,14 @@
   align-items: center;
 }
 
+.trip-banner{
+  //should be on all pages
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  align-items: center;
+}
+
 .cards{
   // used on cards of homepage
   display: grid;
@@ -69,5 +77,6 @@
   border: 1px solid;
   border-color: $WPblue;
 }
+
 
 

@@ -4,14 +4,16 @@
   </div>
   <br>
 
+<div class="flex-container-2col trip-card mx-5 my-4">
     <div class="container">
-
-      <%= simple_form_for (@profile) do |f| %>
+     <%= simple_form_for (@profile) do |f| %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.label :gender %>
       <%= f.select :gender, ["female", "male", "other"], include_blank: 'Select a gender', class: 'form-control' %>
       <%= f.input :age %>
+    </div>
+    <div class="container ml-3">
       <%= f.input :location %>
       <%= f.input :description %>
      <%= f.input :photo, as: :file %>
@@ -19,5 +21,5 @@
       <% end %>
     </div>
     <br>
-  </div>
+</div>
   <br>

@@ -1,31 +1,40 @@
-<div class="banner pt-4" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://ibf.church/wp-content/uploads/2014/11/map-banner.jpg)">
-  <div class="container">
+<div class="trip-banner pt-4 pb-1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://ibf.church/wp-content/uploads/2014/11/map-banner.jpg)">
+  <div class="form-container mx-auto">
     <h1>Find your next vacation !</h1>
-    <%= form_tag trips_path, method: :get do %>
+    <%= form_tag trips_path, method: :get, class: "trip-form p-3 mb-1" do %>
       <%= text_field_tag :destination, nil, autocomplete: :on, placeholder: "Search for your location", class: 'form-control search-input', id:'search-bar'%>
+      <br>
       <% budgets = [["0-300 €/week", "0-300"], ["300-600 €/week", "300-600"], ["600 - 1000 €/week", "600-1000"], ["> 1000 €/week", ">=1000"] ] %>
-      <%= select_tag :budget, options_for_select(budgets), prompt: "Select your budget" %>
-      <%=label_tag 'Starting date of your next trip:' %>
-      <%= date_select 'start date', :start_date %>
-      <%=label_tag ' - Ending date of your next trip:' %>
-      <%= date_select 'end date', :end_date %>
+      <br>
+      <%= select_tag :budget, options_for_select(budgets), prompt: "Select your budget", class: "form-control mb-2" %>
+      <div class="form-group">
+        <h5><%=label_tag 'Starting date of your next trip:' %></h5>
+        <%= text_field_tag 'start date', nil, class: "datepicker" %>
+      </div>
+      <div class="form-group">
+      <h5><%=label_tag 'Ending date of your next trip:' %></h5>
+      <%= text_field_tag 'end date', nil, class: "datepicker" %>
+      </div>
+      <div class="check-box-wrapper">
       <% interests = ["Activism","Adventure", "Arts", "Business Trip", "Climate protection", "Concert", "Design", "Extreme Sports", "Food Vlogging", "Green Living", "Hiking", "Lifestyle", "Local food", "Museums & History", "Natural Wonders", "Partying", "Photography", "Safari", "Sailing", "Vacations"] %>
       <% Interest.all.map(&:name).each do |interest| %>
+      <div class="check-box-trip">
       <%= check_box_tag "interests[]", interest %>
-      <%= interest %>
+      <%=label_tag interest %>
+      </div>
       <% end %>
-      <%= submit_tag 'Search', name: nil %>
+      </div>
+      <%= submit_tag 'Search', name: nil, class: "btn btn-flat-review" %>
     <% end %>
   </div>
 </div>
+
 <% if @query && @trips.size == 0  %>
 <h3> Sorry, there are no trips found ... Please, create your own! </h3>
 <% end %>
 
 <div style="
   background-color: white;
-  margin: 15px 0;
-  padding: 30px 0;
   display: flex;
   flex-direction: column;
   align-items: center;">
@@ -38,7 +47,7 @@
 <div class="trips-map background_white">
 <div>
   <h2 class="pl-3 text-center">All the created trips</h2>
-  <br>
+
   <div class="flex-container">
 
     <% @trips.sort_by(&:updated_at).each do |trip| %>
