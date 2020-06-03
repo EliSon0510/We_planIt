@@ -21,3 +21,18 @@
 .btn-flat a{
   color: white;
 }
+
+.btn-flat-review {
+  color: white;
+  padding: 15px 30px;
+  border-radius: 15px;
+  background: #028090;
+  transition: background 0.3s ease;
+  width: 20%;
+  margin: 10px;
+}
+
+.btn-flat-review:hover {
+  background: #F55E61;
+  color: white;
+}
