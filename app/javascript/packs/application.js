@@ -34,9 +34,13 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import {initInteractionCable} from '../channels/interaction_channel';
 import {initNotificationCable} from '../channels/notification_channel';
 
+let count = 0
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initInteractionCable();
-  initNotificationCable();
+
+  count += 1
+  console.log("from app.js", count)
 })
+initNotificationCable();

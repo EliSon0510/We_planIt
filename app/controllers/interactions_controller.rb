@@ -30,10 +30,24 @@ class InteractionsController < ApplicationController
     end
     authorize @interaction
     if @interaction.save
+      if @interaction.status == "pending"
+        create_notification(@interaction.trip.user)
+      else
+        create_notification(@interaction.user)
+      end
       redirect_to dashboard_path
     else
       render :show
     end
+  end
+
+  def create_notification(recipient)
+    notification = Notification.create!(recipient: recipient, actor: current_user,
+      action: 'posted', notifiable: @interaction)
+      body = "#{current_user.nickname} has changed your status!"
+      innnerHTML =  render_to_string(partial: 'shared/notification_message', locals:{notification: notification, body: body})
+      innnerHTML2 =  render_to_string(partial: 'shared/notification_dropdown', locals:{notification: notification})
+      NotificationChannel.broadcast_to("notifications_#{recipient.id}", body: innnerHTML, body2: innnerHTML2)
   end
 
   def show

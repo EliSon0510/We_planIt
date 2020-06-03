@@ -1,1 +1,5 @@
-<%= link_to "You have a #{notification.notifiable_type} from #{notification.actor.nickname}", trip_interaction_path(notification.notifiable.interaction.trip, notification.notifiable.interaction), class: "dropdown-item" %>
+<% if notification.notifiable_type == "Message" %>
+  <%= link_to "You have a #{notification.notifiable_type} from #{notification.actor.nickname}", trip_interaction_path(notification.notifiable.interaction.trip, notification.notifiable.interaction), class: "dropdown-item" %>
+<% elsif notification.notifiable_type == "Interaction" %>
+  <%= link_to "You have a #{notification.notifiable_type} update from #{notification.actor.nickname}", trip_interaction_path(notification.notifiable.trip, notification.notifiable), class: "dropdown-item" %>
+<% end %>

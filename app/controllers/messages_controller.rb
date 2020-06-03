@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   def create
      @interaction = Interaction.find (params[:interaction_id])
      @message = Message.new(message_params)
@@ -11,7 +10,7 @@ class MessagesController < ApplicationController
         @interaction,
         render_to_string(partial: 'message', locals:{message: @message})
       )
-      create_notifications
+      create_notification
       redirect_to interaction_path(@interaction, anchor: "message-#{@message.id}")
     else
       render 'interactions/show'
@@ -30,11 +29,11 @@ class MessagesController < ApplicationController
     end
   end
 
-  def create_notifications
+  def create_notification
       notification = Notification.create!(recipient: recipient, actor: @message.user,
         action: 'posted', notifiable: @message)
       body = "#{@message.user.nickname} has sent you a message!"
-      innnerHTML =  render_to_string(partial: 'shared/notification_message', locals:{body: body})
+      innnerHTML =  render_to_string(partial: 'shared/notification_message', locals:{notification: notification, body: body})
       innnerHTML2 =  render_to_string(partial: 'shared/notification_dropdown', locals:{notification: notification})
       NotificationChannel.broadcast_to("notifications_#{recipient.id}", body: innnerHTML, body2: innnerHTML2)
   end
