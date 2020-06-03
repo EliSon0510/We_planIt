@@ -22,6 +22,72 @@
   color: white;
 }
 
+.dropbtn {
+  background-color: #028090;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 13px;
+  font-size: 15px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background-color: white;
+  border: 1px solid;
+  border-color: #028090;
+  border-radius: 5px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content p {
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #F55E61;}
+
+
+
+.dropbtn2 {
+  background-color: white;
+  padding: 9px 20px;
+  padding-left: 9px;
+  font-size: 15px;
+  border: none;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background-color: white;
+  border: 1px solid;
+  border-color: #028090;
+  border-radius: 5px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown:hover .dropdown-content2 {display: block;}
+
+.dropdown-toggle:hover {display: block;}
+
 .btn-flat-review {
   color: white;
   padding: 15px 30px;
