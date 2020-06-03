@@ -1,76 +1,74 @@
 <!DOCTYPE html>
-<html>
-<head>
-<link href="https://fonts.googleapis.com/css2?family=GFS+Neohellenic&display=swap" rel="stylesheet">
-</head>
-<body>
+  <html>
+    <head></head>
+  <body>
 
-  <div class="banner" style="background: #167ffb;
-      color: white;
-      border-radius: 5px;
-      text-align: center;">
-      <h1>Infos on selected trip</h1>
-  </div>
-
-
-  <div class="container grid-cards" style="border: 1px solid;
-      border-radius: 5px;">
-    <div class="container-title">
-      <h2><!--<span lang="gr">--><%= @trip.destination.upcase %><!--</span>--></h2>
+    <div class="banner" style="background: #167ffb;
+        color: white;
+        border-radius: 5px;
+        text-align: center;">
+        <h1>Infos on selected trip</h1>
     </div>
 
-    <div id="map"
-       style="width: 40%; height: 150px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <div>
-      <% if @trip.photo.attached? %>
-          <%= cl_image_tag @trip.photo.key, height: 150, width: 150, crop: :fill %>
-      <% else %>
-          <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
-      <% end %>
-    </div>
 
-    <div class="container-infos">
-        <h4><strong>Start date</strong></h4>
-        <p><%= @trip.start_date %></p>
-        <h4><strong>End date</strong></h4>
-        <p><%= @trip.end_date %></p>
-        <h4><strong>Budget/week</strong></h4>
-        <p><%= @trip.budget %> €/week</p>
-        <h4><strong>Interests</strong></h4>
-        <ul> <% @trip.interests.each do |interest| %></ul>
-          <li><%= interest.name %></li>
+    <div class="container grid-cards" style="border: 1px solid;
+        border-radius: 5px;">
+      <div class="container-title">
+        <h2><!--<span lang="gr">--><%= @trip.destination.upcase %><!--</span>--></h2>
+      </div>
+
+      <div id="map"
+         style="width: 40%; height: 150px;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <div>
+        <% if @trip.photo.attached? %>
+            <%= cl_image_tag @trip.photo.key, height: 150, width: 150, crop: :fill %>
+        <% else %>
+            <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
         <% end %>
-        <p>
-          <% unless @trip.user == current_user %>
-            <%= link_to "Created by #{@trip.user.nickname}", profile_path(@trip.user.profile.id)%>
+      </div>
+
+      <div class="container-infos">
+          <h4><strong>Start date</strong></h4>
+          <p><%= @trip.start_date %></p>
+          <h4><strong>End date</strong></h4>
+          <p><%= @trip.end_date %></p>
+          <h4><strong>Budget/week</strong></h4>
+          <p><%= @trip.budget %> €/week</p>
+          <h4><strong>Interests</strong></h4>
+          <ul> <% @trip.interests.each do |interest| %></ul>
+            <li><%= interest.name %></li>
           <% end %>
-        </p>
+          <p>
+            <% unless @trip.user == current_user %>
+              <%= link_to "Created by #{@trip.user.nickname}", profile_path(@trip.user.profile.id)%>
+            <% end %>
+          </p>
+      </div>
     </div>
-  </div>
 
-  <div class="container-infos text-center">
-    <% if policy(@trip).edit? %>
-      <%= link_to "", edit_trip_path(@trip), class: "fas fa-edit" %>
-    <% end %>
-
-    <% if policy(@trip).destroy? %>
-      <%= link_to "", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}, class: "fas fa-trash-alt" %>
-    <% end %>
-
-    <% if @trip_interaction.empty? && @trip.user != current_user%>
-      <%= simple_form_for [@trip, @interaction] do |f| %>
-        <%= f.submit "Start interaction", class: "btn btn-primary" %>
+    <div class="container-infos text-center">
+      <% if policy(@trip).edit? %>
+        <%= link_to "", edit_trip_path(@trip), class: "fas fa-edit" %>
       <% end %>
-    <% elsif @trip.user == current_user %>
-      <% @trip.interactions.each do |interaction| %>
-        <%= link_to "Your trip_interaction with #{interaction.user.nickname}", trip_interaction_path(@trip, interaction), class: "btn btn-primary"%>
+
+      <% if policy(@trip).destroy? %>
+        <%= link_to "", trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}, class: "fas fa-trash-alt" %>
       <% end %>
-    <% else %>
-      <%= link_to "Join trip_interaction", trip_interaction_path(@trip, @trip_interaction[0]), class: "btn btn-primary"%>
-    <% end %>
-  </div>
-</body>
+
+      <% if @trip_interaction.empty? && @trip.user != current_user%>
+        <%= simple_form_for [@trip, @interaction] do |f| %>
+          <%= f.submit "Start interaction", class: "btn btn-primary" %>
+        <% end %>
+      <% elsif @trip.user == current_user %>
+        <% @trip.interactions.each do |interaction| %>
+          <%= link_to "Your trip_interaction with #{interaction.user.nickname}", trip_interaction_path(@trip, interaction), class: "btn btn-primary"%>
+        <% end %>
+      <% else %>
+        <%= link_to "Join trip_interaction", trip_interaction_path(@trip, @trip_interaction[0]), class: "btn btn-primary"%>
+      <% end %>
+    </div>
+  </body>
 </html>
