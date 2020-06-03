@@ -20,7 +20,7 @@
   </div>
   <div class="container ml-3">
     <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
-    <%= f.input :budget, :label => "budget/week" %>
+    <%= f.input :budget, :label => "€ budget/week" %>
     <%= f.submit "submit", class: "btn btn-primary" %>
     <% end %>
   </div>
