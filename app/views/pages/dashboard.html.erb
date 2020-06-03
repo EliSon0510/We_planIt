@@ -98,6 +98,15 @@
             <% end %>
           </div>
         </div>
+
+        <% trip.interactions.each do |interaction| %>
+          <% if interaction.status == "pending" || interaction.status == "accepted" %>
+            <div>
+              <h4><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
+            </div>
+          <% end %>
+        <% end %>
+
       <% end %>
     </div>
   </div>

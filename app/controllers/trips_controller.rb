@@ -5,11 +5,7 @@ class TripsController < ApplicationController
   def index
      @trips = Trip
      @query = false
-    if params[:destination].present?
-      @query = true
-      sql_query_1 = "destination ILIKE :destination"
-      @trips = @trips.where(sql_query_1, destination: "%#{params[:destination]}%")
-    end
+
     if params[:budget].present?
       @query = true
       budget_range = params[:budget].split("-")
@@ -34,7 +30,12 @@ class TripsController < ApplicationController
     @query = true
     @trips = @trips.joins(:interests).where(interests: {name: params[:interests]} )
   end
-
+    if params[:destination].present?
+      @query = true
+      destination = params[:destination].gsub(/[^a-zA-Z ]/, "").gsub("  ", " ").gsub(/\s+/, ' ')
+      sql_query_1 = "destination ILIKE :destination"
+      @trips = @trips.search_by_destination(destination)
+    end
     @trips = policy_scope(@trips)
 
     @markers = @trips.map do |trip|
@@ -67,6 +68,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.destination = @trip.destination.gsub(/[^a-zA-Z ]/, "").gsub(/\s+/, ' ')
     @trip.user = current_user
     authorize @trip
     if @trip.save!
