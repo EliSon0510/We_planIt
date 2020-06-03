@@ -123,10 +123,16 @@
   height: 300px;
 }
 
+
 #review {
   padding:0;
   li {
     list-style: none;
   }
+}
+
+.sticky-bottom{
+  position: absolute;
+  bottom: 0;
 }
 

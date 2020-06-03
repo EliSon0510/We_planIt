@@ -1,26 +1,29 @@
-
-
-<div class="banner height160px padding50" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-blue-minimalist-flat-travel-banner-background-image_223018.jpg);">
+<div class="banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://upload.wikimedia.org/wikipedia/commons/b/b3/Hiking_the_rocks_below_the_Stoke%27s_Range_%28banner%29.jpg);">
   <div class="container">
-    <h1 class="font_white">Create a new trip</h1>
+    <h1 class="font_white" >Create a new trip !</h1>
   </div>
 </div>
 
-<div class="container text-center">
-  <h2>Please tell us more about your trip</h2>
+
+<div class="background_white p-3 text-center">
+  <h2>Tell us more about your trip</h2>
 </div>
 
-<div class="container">
-  <%= simple_form_for [@user, @trip] do |f| %>
-  <%= f.input :destination %>
-  <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :budget, :label => "budget/week" %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "submit", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<div class="flex-container-2col trip-card mx-5 my-4">
 
+  <div class="container">
+    <%= simple_form_for [@user, @trip] do |f| %>
+    <%= f.input :destination %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :photo, as: :file %>
+  </div>
+  <div class="container ml-3">
+    <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
+    <%= f.input :budget, :label => "€ budget/week" %>
+    <%= f.submit "Create", class: "btn btn-flat-review text-center" %>
+    <% end %>
+  </div>
+</div>
 
 

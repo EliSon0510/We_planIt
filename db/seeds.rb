@@ -182,7 +182,7 @@ puts "Finished with reviews.."
 puts "Creating some trips.."
 
 p trip_one = Trip.new(
-  destination: "Canada",
+  destination: "East York Ontario Canada",
   start_date: Date.parse("2020 December 15"),
   end_date: Date.parse("2020 December 25"),
   budget: 840,
@@ -195,7 +195,7 @@ trip_one.photo.attach(io: pic_1, filename: 'image.png', content_type: 'image/png
 trip_one.save!
 
 p trip_two = Trip.new(
-  destination: "Athens",
+  destination: "Athens Greece",
   start_date: Date.parse("2019 May 15"),
   end_date: Date.parse("2019 May 25"),
   budget: 600,
@@ -208,7 +208,7 @@ trip_two.photo.attach(io: pic_2, filename: 'image.png', content_type: 'image/png
 trip_two.save!
 
 p trip_three = Trip.new(
-  destination: "London",
+  destination: "City of London England United Kingdom",
   start_date: Date.parse("2021 April 15"),
   end_date: Date.parse("2021 April 25"),
   budget: 900,
@@ -221,7 +221,7 @@ trip_three.photo.attach(io: pic_3, filename: 'image.png', content_type: 'image/p
 trip_three.save!
 
 p trip_four = Trip.new(
-  destination: "New York",
+  destination: "New York United States of America",
   start_date: Date.parse("2018 January 15"),
   end_date: Date.parse("2018 January 25"),
   budget: 1100,
@@ -234,20 +234,20 @@ trip_four.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/pn
 trip_four.save!
 
 p trip_five = Trip.new(
-  destination: "Cuba",
+  destination: "Santiago de cuba Cuba",
   start_date: Date.parse("2019 June 15"),
   end_date: Date.parse("2019 July 25"),
   budget: 840,
   user: User.fourth,
-  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first] #[Interest.all.shuffle[0,2]]
-)
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+  )
 pic_5 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Cuba.jpg"))
 trip_five.photo.attach(io: pic_5, filename: 'image.png', content_type: 'image/png')
 
 trip_five.save!
 
 p trip_six = Trip.new(
-  destination: "Nigeria",
+  destination: "Negeriagung Negeri Agung Lampung Indonesia",
   start_date: Date.parse("2022 June 15"),
   end_date: Date.parse("2022 July 25"),
   budget: 400,
@@ -260,7 +260,7 @@ trip_six.photo.attach(io: pic_6, filename: 'image.png', content_type: 'image/png
 trip_six.save!
 
 p trip_seven = Trip.new(
-  destination: "Peru",
+  destination: "Lima Peru",
   start_date: Date.parse("2021 June 15"),
   end_date: Date.parse("2021 July 25"),
   budget: 732,
@@ -273,7 +273,7 @@ trip_seven.photo.attach(io: pic_7, filename: 'image.png', content_type: 'image/p
 trip_seven.save!
 
 p trip_eight = Trip.new(
-  destination: "Costa Rica",
+  destination: "Costa Rica Sinaloa Mexico",
   start_date: Date.parse("2020 June 15"),
   end_date: Date.parse("2020 August 25"),
   budget: 640,
@@ -286,7 +286,7 @@ trip_eight.photo.attach(io: pic_8, filename: 'image.png', content_type: 'image/p
 trip_eight.save!
 
 p trip_nine = Trip.new(
-  destination: "Croatia",
+  destination: "Zagreb City of Zagreb Croatia",
   start_date: Date.parse("2021 Octomber 08"),
   end_date: Date.parse("2021 January 03"),
   budget: 420,
@@ -299,7 +299,7 @@ trip_nine.photo.attach(io: pic_9, filename: 'image.png', content_type: 'image/pn
 trip_nine.save!
 
 p trip_ten = Trip.new(
-  destination: "Thailand",
+  destination: "Bangkok Thailand",
   start_date: Date.parse("2022 May 26"),
   end_date: Date.parse("2022 July 06"),
   budget: 400,
@@ -312,7 +312,7 @@ trip_ten.photo.attach(io: pic_10, filename: 'image.png', content_type: 'image/pn
 trip_ten.save!
 
 p trip_eleven = Trip.new(
-  destination: "Santorini",
+  destination: "Santorini Thira Municipal Unit Greece",
   start_date: Date.parse("2020 June 25"),
   end_date: Date.parse("2020 July 25"),
   budget: 700,
@@ -325,7 +325,7 @@ trip_eleven.photo.attach(io: pic_11, filename: 'image.png', content_type: 'image
 trip_eleven.save!
 
 p trip_twelve = Trip.new(
-  destination: "Turkey",
+  destination: "Bursa Turkey",
   start_date: Date.parse("2021 April 05"),
   end_date: Date.parse("2021 April 23"),
   budget: 420,
@@ -338,7 +338,7 @@ trip_twelve.photo.attach(io: pic_12, filename: 'image.png', content_type: 'image
 trip_twelve.save!
 
 p trip_thirteen = Trip.new(
-  destination: "Italy",
+  destination: "Venice Veneto Italy",
   start_date: Date.parse("2022 November 09"),
   end_date: Date.parse("2022 November 28"),
   budget: 600,
@@ -351,7 +351,7 @@ trip_thirteen.photo.attach(io: pic_13, filename: 'image.png', content_type: 'ima
 trip_thirteen.save!
 
 p trip_fourteen = Trip.new(
-  destination: "Ireland",
+  destination: "Belfast Northern Ireland United Kingdom",
   start_date: Date.parse("2021 March 06"),
   end_date: Date.parse("2021 April 10"),
   budget: 400,
@@ -364,7 +364,7 @@ trip_fourteen.photo.attach(io: pic_14, filename: 'image.png', content_type: 'ima
 trip_fourteen.save!
 
 p trip_fifteen = Trip.new(
-  destination: "Ireland",
+  destination: "Dublin Leinster Ireland",
   start_date: Date.parse("2021 April 12"),
   end_date: Date.parse("2021 May 27"),
   budget: 549,
@@ -377,7 +377,7 @@ trip_fifteen.photo.attach(io: pic_15, filename: 'image.png', content_type: 'imag
 trip_fifteen.save!
 
 p trip_sixteen = Trip.new(
-  destination: "Samothraki",
+  destination: "Samothraki Greece",
   start_date: Date.parse("2020 June 26"),
   end_date: Date.parse("2020 July 23"),
   budget: 200,
@@ -390,7 +390,7 @@ trip_sixteen.photo.attach(io: pic_16, filename: 'image.png', content_type: 'imag
 trip_sixteen.save!
 
 p trip_seventeen = Trip.new(
-  destination: "Mykonos",
+  destination: "Mykonos Greece",
   start_date: Date.parse("2020 July 26"),
   end_date: Date.parse("2020 August 23"),
   budget: 830,
@@ -401,6 +401,19 @@ pic_17 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_phot
 trip_seventeen.photo.attach(io: pic_17, filename: 'image.png', content_type: 'image/png')
 
 trip_seventeen.save!
+
+p test_trip = Trip.new(
+  destination: "8th Avenue East Bradenton Florida United States of America",
+  start_date: Date.parse("2020 July 26"),
+  end_date: Date.parse("2020 August 23"),
+  budget: 50,
+  user: User.first,
+  interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
+)
+pic_18 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Florida.jpg"))
+test_trip.photo.attach(io: pic_18, filename: 'image.png', content_type: 'image/png')
+
+test_trip.save!
 
 puts "Created some trips.."
 
