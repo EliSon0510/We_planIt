@@ -6,7 +6,7 @@
 
 
 <div class="background_white p-3 text-center">
-  <h2>Please tell us more about your trip</h2>
+  <h2>Tell us more about your trip</h2>
 </div>
 
 <div class="flex-container-2col trip-card mx-5 my-4">
@@ -21,7 +21,7 @@
   <div class="container ml-3">
     <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
     <%= f.input :budget, :label => "€ budget/week" %>
-    <%= f.submit "submit", class: "btn btn-primary" %>
+    <%= f.submit "Create", class: "btn btn-flat-review text-center" %>
     <% end %>
   </div>
 </div>
