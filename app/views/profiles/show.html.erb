@@ -16,12 +16,20 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="profile-card-content">
     <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
+    <h5>Nickname: <%= @profile.user.nickname %></h5>
     <h5>Age : <%= @profile.age %></h5>
     <h5>From: <%= @profile.location %></h5>
-    <h5>Gender: <%= @profile.gender %></h5>
-    <h5>Description: <%= @profile.description %></h5>
+    <% if @profile.gender == "female" %>
+    <h5>Gender:<i class="fas fa-female"></i></h5>
+    <% elsif @profile.gender == "male" %>
+    <h5>Gender:<i class="fas fa-male"></i></h5>
+    <% else %>
+    <h5>Gender: other</h5>
+    <% end %>
+    <h5>Description:</h5>
+    <h5><%= @profile.description %></h5>
 
     <% if policy(@profile).edit? %>
    <%= link_to "", edit_profile_path(@profile), class: "fas fa-edit" %>
@@ -43,8 +51,8 @@
       <h5>Add a review</h5>
 
       <%= simple_form_for [@profile, @review] do |f| %>
-        <h4><strong><%= f.input :content %><strong></h4>
-        <h4><strong><%= f.input :rating, collection: 0..5 %><strong></h4>
+        <h4><%= f.input :content %></h4>
+        <h4><%= f.input :rating, collection: 0..5 %></h4>
         <%= f.submit "submit", class: "btn btn-flat-review" %>
       <% end %>
     <% end %>
