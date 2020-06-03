@@ -1,21 +1,27 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.giant-bicycles.com/b_white,c_crop,h_600,q_70,w_1920/jv39jkthrz5szrlk2jka/Escape_range_banner.jpg);">
+<div class="banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://meche.mit.edu/sites/default/files/styles/research_break/public/news_header/MeC%20SS%2014%20Cover%20Image_25.JPG?itok=lMnyjMZJ);">
   <div class="container">
     <h1>Edit your trip</h1>
   </div>
 </div>
 
-<div class="container text-center">
-  <h2>What changes would you like to do ?</h2>
+
+<div class="background_white p-3 text-center">
+  <h2>What would you like to update ?</h2>
 </div>
 
-<div class="container">
-  <%= simple_form_for [@user, @trip] do |f| %>
-  <%= f.input :destination %>
-  <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :budget, :label => "budget/week" %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "submit", class: "btn btn-primary" %>
-  <% end %>
+<div class="flex-container-2col trip-card mx-5 my-4">
+
+  <div class="container">
+    <%= simple_form_for [@user, @trip] do |f| %>
+    <%= f.input :destination %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :photo, as: :file %>
+  </div>
+  <div class="container ml-3">
+    <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
+    <%= f.input :budget, :label => "€ budget/week" %>
+    <%= f.submit "Edit", class: "btn btn-flat-review text-center" %>
+    <% end %>
+  </div>
 </div>
