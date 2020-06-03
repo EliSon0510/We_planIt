@@ -1,17 +1,19 @@
 <div class="banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://image.redbull.com/rbcom/010/2015-11-10/1331758887432_2/0012/0/0/0/2045/3071/1600/1/adventurer-alastair-humphreys-training-for-the-bob-graham-round-in-the-lake-district.jpg);">
-  <div class="container">
+  <div class="">
     <h1> Update your profile</h1>
   </div>
   <br>
 
-    <div class="container">
-
-      <%= simple_form_for (@profile) do |f| %>
+<div class="flex-container-2col trip-card mx-5 my-4">
+    <div class="">
+     <%= simple_form_for (@profile) do |f| %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.label :gender %>
       <%= f.select :gender, ["female", "male", "other"], include_blank: 'Select a gender', class: 'form-control' %>
       <%= f.input :age %>
+    </div>
+    <div class="container ml-3">
       <%= f.input :location %>
       <%= f.input :description %>
      <%= f.input :photo, as: :file %>
@@ -19,5 +21,5 @@
       <% end %>
     </div>
     <br>
-  </div>
+</div>
   <br>
