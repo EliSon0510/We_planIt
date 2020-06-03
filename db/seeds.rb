@@ -178,7 +178,7 @@ puts "Finished with reviews.."
 puts "Creating some trips.."
 
 p trip_one = Trip.new(
-  destination: "East York, Ontario, Canada",
+  destination: "East York Ontario Canada",
   start_date: Date.parse("2020 December 15"),
   end_date: Date.parse("2020 December 25"),
   budget: 840,
