@@ -35,7 +35,8 @@ class MessagesController < ApplicationController
         action: 'posted', notifiable: @message)
       body = "#{@message.user.nickname} has sent you a message!"
       innnerHTML =  render_to_string(partial: 'shared/notification_message', locals:{body: body})
-      NotificationChannel.broadcast_to("notifications_#{recipient.id}", body: innnerHTML)
+      innnerHTML2 =  render_to_string(partial: 'shared/notification_dropdown', locals:{notification: notification})
+      NotificationChannel.broadcast_to("notifications_#{recipient.id}", body: innnerHTML, body2: innnerHTML2)
   end
 
   def message_params

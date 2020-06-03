@@ -5,16 +5,19 @@
 </div>
 
 <% if user_signed_in? && !current_user.profile %>
-  <div>
-    <h2 class="text-center">Create your profile</h2>
-    <div class="text-center">
+<div class="background_white m-3 p-3">
+  <h2 class="text-center">Create your profile</h2>
+  <div class="btn-container">
+    <div class="text-center btn btn-flat">
       <%= link_to "Your profile", new_profile_path%>
     </div>
   </div>
+</div>
 <% end %>
 
 
-<div class="container w80">
+
+<div class="background_white m-3 p-3">
   <div class="container text-center mt-3">
     <div class="btn btn-flat ">
       <%= link_to "Add a new trip !", new_trip_path, class: "btn-round-corners"%>
@@ -26,27 +29,29 @@
       <%= link_to "See your dashboard !",  "/dashboard", class: "btn-round-corners"%>
     </div>
   </div>
+</div>
 
+<div class="background_white m-3 p-3">
   <h2 class="text-center">How to find your buddy</h2>
   <div class="cards text-center mt-4">
-    <div class="card height200px">
+    <div class="card_home ">
     <h4>Create your profile & trip</h4>
       <%= image_tag "Homepg_computer", class: "img_h150px"%>
     </div>
-    <div class=" card height200px">
+    <div class=" card_home ">
       <h4>Look for a travel friend</h4>
       <%= image_tag "Homepg_binoculars", class: "img_h150px"%>
     </div>
-    <div class="card height200px">
+    <div class="card_home ">
       <h4>Start planning together</h4>
       <%= image_tag "Homepg_planning", class: "img_h150px"%>
     </div>
-    <div class="card height200px">
+    <div class="card_home ">
       <h4>Enjoy a great vacation</h4>
       <%= image_tag "Homepg_friends", class: "img_h150px"%>
     </div>
   </div>
-
 </div>
+
 
 
