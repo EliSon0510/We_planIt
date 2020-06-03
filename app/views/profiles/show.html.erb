@@ -57,9 +57,10 @@
 
 
     <ul id="review">
+    <% star = " ⭐ " %>
     <% @profile.reviews.each do |review| %>
     <div class="review-content-card">
-      <li><h4><%= "Review by #{review.user.nickname} :"%></h4><p><%= " #{review.rating} ⭐️ " %></p>
+      <li><h4><%= "Review by #{review.user.nickname} :"%></h4><p><%= star * review.rating %></p>
         <p> <%=  "#{review.content}"%></p>
 
         <% if policy(review).edit? %>
