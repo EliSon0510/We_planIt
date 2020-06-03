@@ -15,7 +15,9 @@
 
 <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
 <h3>Age : <%= @profile.age %></h3>
-<h3>From <%= @profile.location %></h3>
+<h3>From: <%= @profile.location %></h3>
+<h3>Gender: <%= @profile.gender %></h3>
+
 
 <% if policy(@profile).edit? %>
 <%= link_to "", edit_profile_path(@profile), class: "fas fa-edit" %>
