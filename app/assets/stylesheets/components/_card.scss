@@ -6,6 +6,10 @@
   width: 25%;
 }
 
+.width25{
+  width: 25%;
+}
+
 .border-rds20{
   border-radius: 20px;
 }
@@ -81,3 +85,8 @@
   max-width: 35%;
 }
 
+.trip-show img{
+  // used on show pg for sizing for img @ map
+  width: 100%;
+  height: 300px;
+}
