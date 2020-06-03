@@ -177,18 +177,16 @@
 }
 
 .profile-card{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 120px;
   overflow : hidden;
-  background: white;
-  align-items: center;
-  height: auto;
-  border-radius: 10px;
-  padding: 10px;
-  border: 1px solid;
-  border-color: $WPblue;
 }
 
-
-
-
-
+#review {
+  padding:0;
+  li {
+    list-style: none;
+  }
+}
 
