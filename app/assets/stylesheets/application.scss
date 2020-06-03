@@ -15,13 +15,18 @@
 @import "pages/new";
 @import "pages/edit";
 
-h1{
+
+h1 {
   font-family: 'Amatic SC', cursive;
   font-size: 50px;
   color: white;
 }
 
-h2{
+:lang(gr) {
+  font-family: 'Attika', cursive
+}
+
+h2 {
   font-family: 'Amatic SC', cursive;
   font-size: 32px;
   font-weight: bold;
