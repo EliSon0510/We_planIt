@@ -146,12 +146,20 @@ p review_4 = Review.new(
 review_4.save!
 
 p review_5 = Review.new(
-  content: "We spend very nice time travelling in Iceland.. She also helped much with the maps!",
+  content: "We spend a lot of creative time while hiking on Alps.. I would definetely travel again with her!",
   rating: 5,
-  user: user_two,
+  user: user_three,
   profile: profile_1
   )
 review_5.save!
+
+p review_flo = Review.new(
+  content: "We visited Germany for a concert! Actually this trip made us great friends!",
+  rating: 4,
+  user: user_four,
+  profile: profile_1
+  )
+review_flo.save!
 
 p review_6 = Review.new(
   content: "It was a great sailing trip in Spain! She also paid a lot of our meals!",
