@@ -22,7 +22,7 @@ class InteractionsController < ApplicationController
   def update
     @interaction = Interaction.find(params[:id])
     if params[:interaction][:status] == "asking for validation..."
-      @interaction.status = "pending"
+      @interaction.status = "waiting"
     elsif params[:interaction][:status] == "Validated"
       @interaction.status = "accepted"
     elsif params[:interaction][:status] == "Denied"

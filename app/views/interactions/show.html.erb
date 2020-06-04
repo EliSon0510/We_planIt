@@ -8,32 +8,40 @@
 
 
   <div class= "message-title">
-    <h2>Chat with your travel buddy</h2>
+    <h2> Chat with your travel buddy to go to <span class="chatting-link"> <%= "#{@interaction.trip.destination}" %> </span> ! </h2>
 
   </div>
-  <div class="background_white-message m-3 p-3">
+  <div class="background_white-message">
     <div class="container-message-top text-center mt-3">
 
       <% if current_user == @interaction.trip.user %>
-        <% if @interaction.status == "pending" %>
+        <% if @interaction.status == "waiting" %>
           <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
             <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control' %>
             <%= f.submit "Answer to the buddy", class: "btn btn-flat-answer" %>
           <% end %>
         <% else %>
-         Your trip is...
-         <span class="highlight text-center"> <%= @interaction.status %> </span> !
+          <div class="highlight text-center">
+            <% if @interaction.status = "Validated"%>
+              Yeah, let's start organizing the trip of your dreams!
+            <% else %>
+              Sorry... better luck next time!
+            <% end  %>
+          </div>
         <% end %>
 
       <% else %>
         <% if @interaction.status == "active" %>
           <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["asking for validation..."], include_blank: 'Select your status', class: 'form-control' %>
-            <%= f.submit "Ask for validation", class: "btn btn-flat-answer" %>
+            <%= f.select :status, ["Applying for this trip..."], include_blank: 'Select your status', class: 'form-control' %>
+            <%= f.submit "Apply for this trip", class: "btn btn-flat-answer" %>
           <% end %>
         <% else %>
-          Your trip is...
-         <span class="highlight text-center"> <%= @interaction.status %> </span> !
+          <div class="highlight text-center">
+            <% if @interaction.status = "waiting"%>
+              You're waiting for the answer... suspense!
+            <% end  %>
+          </div>
         <% end %>
       <% end %>
     </div>
