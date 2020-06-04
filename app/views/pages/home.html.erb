@@ -67,6 +67,21 @@
 </div>
 
 <div class="background_white m-3 p-3">
+  <h2 class="text-center">Our favorite trips</h2>
+  <div class="flex-container text-center m-5">
+    <% Trip.all.first(3).each do |trip| %>
+    <% if trip.photo.attached? %>
+      <div class="card-category top-trip" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), crop: :fill, url(cl_image_path trip.photo.key)">
+        <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="background_white m-3 p-3">
   <h2 class="text-center">We believe ...</h2>
   <div class="flex-container-2col text-center m-3 center-horiz">
     <div class="m-3 text-right">
