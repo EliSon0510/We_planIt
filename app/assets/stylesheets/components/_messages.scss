@@ -1,5 +1,11 @@
+
+
 .container-infos {
   margin-bottom: 10px;
+}
+
+.container-message-top {
+  margin: 16px;
 }
 
 .message-title {
@@ -11,7 +17,7 @@
 
 .background_white-message {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: white;
 }
@@ -31,13 +37,14 @@
 }
 
 .chatting-link {
-  color: #a95f1d;
+  color: #6F5E53;
 }
 
 .highlight {
   text-align: center;
   color: #450920;
   font-weight: bold;
+  font-size: 20px;
 }
 
 
@@ -51,6 +58,9 @@
   margin: 10px;
 }
 
+.btn-flat-answer:hover {
+  opacity: 0.9;
+}
 
   //display: flex;
   //align-items: center;
@@ -60,16 +70,34 @@
   color: white;
   padding: 15px 30px;
   border-radius: 15px;
-  background: #028090;
+  background: #A85751;
   transition: background 0.3s ease;
   width: auto;
   margin: 10px;
 }
 
+.btn-flat-abandon:hover {
+  opacity: 0.9;
+}
+
+.btn-flat-return-trip {
+  color: white;
+  padding: 15px 30px;
+  border-radius: 15px;
+  background: #AB947E;
+  transition: background 0.3s ease;
+  width: auto;
+  margin: 10px;
+}
+
+.btn-flat-return-trip:hover {
+  background-color: #C3A995 ;
+}
+
 .message-card {
   overflow : scroll;
   background: white;
-  max-height: 90vh;
+  max-height: 80vh;
   border: 1px solid;
   border-radius: 10px;
   border-color: #028090;

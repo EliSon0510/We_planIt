@@ -12,7 +12,7 @@
 
   </div>
   <div class="background_white-message m-3 p-3">
-    <div class="container text-center mt-3">
+    <div class="container-message-top text-center mt-3">
 
       <% if current_user == @interaction.trip.user %>
         <% if @interaction.status == "pending" %>
@@ -38,9 +38,13 @@
       <% end %>
     </div>
 
-    <div class="container text-center mt-3">
+    <div class="container-message-top text-center mt-3">
       <% if policy(@interaction).destroy? %>
+        <%= link_to "Show my trip", trip_path(@interaction.trip), class: "btn btn-flat-return-trip text-center" %>
+
         <%= link_to "Abandon the trip", interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-flat-abandon text-center" %>
+      <% else %>
+        <%= link_to "Show my trip", trip_path(@interaction.trip), class: "btn btn-flat-return-trip text-center" %>
       <% end %>
     </div>
   </div>
