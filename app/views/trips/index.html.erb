@@ -33,20 +33,21 @@
 <h3> Sorry, there are no trips found ... Please, create your own! </h3>
 <% end %>
 
-<div style="
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;">
-  <h2>Add your trip to the list</h2>
-  <%= link_to "New trip !", new_trip_path, class: "btn btn-flat"%>
+<div class="background_white my-3 py-2">
+  <div style="
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;">
+    <h2>Add your trip to the list</h2>
+    <%= link_to "New trip !", new_trip_path, class: "btn btn-flat", id: "anchor-trip"%>
+  </div>
 </div>
 
 
-
-<div class="trips-map background_white">
+<div class="trips-map background_white" >
 <div>
-  <h2 class="pl-3 text-center" id="anchor-trip">All the created trips</h2>
+  <h2 class="pl-3 text-center" >All the created trips</h2>
 
   <div class="flex-container">
 
