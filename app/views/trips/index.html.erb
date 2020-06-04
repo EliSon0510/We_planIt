@@ -29,9 +29,7 @@
   </div>
 </div>
 
-<% if @query && @trips.size == 0  %>
-<h3> Sorry, there are no trips found ... Please, create your own! </h3>
-<% end %>
+
 
 <div class="background_white my-3 py-2">
   <div style="
@@ -47,7 +45,16 @@
 
 <div class="trips-map background_white" >
 <div>
-  <h2 class="pl-3 text-center" >All the created trips</h2>
+  <% if @query && @trips.size == 0  %>
+    <h2 class="pl-3 text-center mt-3"> Sorry, there are no trips found ... Please, create your own! </h2>
+    <h3 class="pl-3 text-center mt-2">Add your trip to the list</h3>
+    <div class="text-center mt-3">
+    <%= link_to "New trip !", new_trip_path, class: "btn btn-flat pl-3 text-center"%>
+    </div>
+  <% else %>
+    <h2 class="pl-3 text-center" >All the created trips</h2>
+  <% end %>
+
 
   <div class="flex-container">
 
