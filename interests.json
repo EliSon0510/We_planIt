@@ -18,13 +18,16 @@
         "name": "Concert"
     },
     {
+        "name": "Culture"
+    },
+    {
         "name": "Design"
     },
     {
         "name": "Extreme Sports"
     },
     {
-        "name": "Food Vlogging"
+        "name": "Food"
     },
     {
         "name": "Green Living"
@@ -37,9 +40,6 @@
     },
     {
         "name": "Local food"
-    },
-    {
-        "name": "Museums & History"
     },
     {
         "name": "Natural Wonders"
