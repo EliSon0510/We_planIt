@@ -11,6 +11,10 @@
     grid-gap: 10px;
 }
 
+.center-horiz{
+  align-items: center
+}
+
 .w80{
   width: 80%;
 }
@@ -40,6 +44,14 @@
   align-items: center;
 }
 
+.trip-banner{
+  //should be on all pages
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  align-items: center;
+}
+
 .cards{
   // used on cards of homepage
   display: grid;
@@ -56,9 +68,15 @@
 .profile-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 25px;
   grid-gap: 10px;
+  background: white;
   align-items: center;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: $WPblue;
 }
+
 
 

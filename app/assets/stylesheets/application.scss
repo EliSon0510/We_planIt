@@ -8,10 +8,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
+@import "flatpickr/dist/flatpickr";
+
+
 
 // Your CSS partials
 @import "components/index";
 @import "components/messages";
+@import "components/footer";
 @import "pages/index";
 @import "pages/new";
 @import "pages/edit";

@@ -1,0 +1,18 @@
+.check-box-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.trip-form{
+background-color:white;
+
+}
+
+.form-container {
+  max-width: 70%;
+}
+
+.check-box-trip {
+  color: grey;
+  word-break: break-all;
+}

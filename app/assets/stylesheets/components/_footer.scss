@@ -1,0 +1,50 @@
+.footer {
+  background: $WPdark_blue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-top: 20px;
+  bottom: 0;
+  width: 100%;
+  p{
+    color: white;
+  }
+}
+
+
+#LW:hover {
+  opacity: 1;
+  color: #F55E61;
+  text-decoration: none;
+}
+
+.footer h2 {
+  color: white;
+}
+
+ .blue {
+  color: #028090;
+}
+
+.red{
+  color: $WPred;
+}
+
+.white{
+  color: white;
+}
+
+.fa-heart {
+  color: #F55E61;
+}
+
+.orange {
+  color: #F55E61;
+  opacity: 0.7;
+}
+
+#LW {
+  color: $WPred;
+}
