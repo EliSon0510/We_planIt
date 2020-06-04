@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     @past_trips = @trips.select { |trip| trip.end_date < Date.today }
     @future_trips = @trips.select { |trip| trip.start_date >= Date.today }
     @my_trips = Trip.where(user: current_user)
-
   end
+
+
 end
