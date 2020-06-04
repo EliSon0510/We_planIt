@@ -10,6 +10,18 @@
     padding: 15px;
     grid-gap: 10px;
 }
+.flex-container-2col-form{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding: 5px;
+    grid-gap: 1px;
+}
+.col-6{
+  fieldset{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+  }
+}
 
 .center-horiz{
   align-items: center
