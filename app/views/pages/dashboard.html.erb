@@ -23,7 +23,7 @@
               <%= '-' %>
               <%= future_trip.end_date %>
             </p>
-            <h3><%= link_to future_trip.destination, trip_path(future_trip) %></h3>
+            <h3>Interaction : <%= link_to future_trip.destination, trip_path(future_trip) %></h3>
 
             <% future_trip.interactions.each do |interaction| %>
             <% if interaction.user == current_user && interaction.status != "active"%>
