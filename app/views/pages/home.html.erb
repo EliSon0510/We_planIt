@@ -15,6 +15,23 @@
 </div>
 <% end %>
 
+<div class="container mt-3">
+  <%= form_tag trips_path, method: :get, autocomplete: :on do %>
+  <%= text_field_tag :destination,
+    params[:destination],
+    class: "form-control", id: "search-bar",
+    placeholder: "Find for your dream destination here"
+  %>
+</div>
+<div class="container text-center mt-3">
+    <%= submit_tag "Search destination", class: "btn btn-flat-review" %>
+    <% end %>
+</div>
+
+<% if @query && @trips.size == 0  %>
+<h3> Sorry, there are no trips found ... Please, create your own! </h3>
+<% end %>
+
 <div class="background_white m-3 p-3">
   <div class="container text-center mt-3">
     <div class="btn btn-flat ">

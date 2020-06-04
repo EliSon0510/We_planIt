@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :pages do
+    collection do
+      get :search
+    end
+  end
+
   resources :profiles, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :reviews, only: [ :create]
   end
