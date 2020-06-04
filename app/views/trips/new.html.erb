@@ -11,6 +11,7 @@
 
 <div class="container trip-card mx-auto my-4">
     <%= simple_form_for [@user, @trip] do |f| %>
+
 <div class="row">
     <div class="col-6">
       <%= f.input :destination %>
@@ -26,6 +27,7 @@
       <%= f.input :photo, as: :file %>
       <%= f.submit "Create", class: "btn btn-flat-review" %>
     </div>
+
   </div>
   <% end %>
 </div>
