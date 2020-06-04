@@ -20,27 +20,33 @@
             <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control' %>
             <%= f.submit "Answer to the buddy", class: "btn btn-flat-answer" %>
           <% end %>
-        <% else %>
+        <% elsif @interaction.status == "accepted" %>
           <div class="highlight text-center">
-            <% if @interaction.status = "Validated"%>
-              Yeah, let's start organizing the trip of your dreams!
-            <% else %>
-              Sorry... better luck next time!
-            <% end  %>
+            Yeah, let's start organizing the trip of your dreams!
+          </div>
+        <% elsif @interaction.status == "rejected" %>
+          <div class="highlight text-center">
+            Sorry... better luck next time!
           </div>
         <% end %>
 
       <% else %>
         <% if @interaction.status == "active" %>
           <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["Applying for this trip..."], include_blank: 'Select your status', class: 'form-control' %>
+            <%= f.select :status, ["Applying for this trip..."], include_blank: 'Start your adventure', class: 'form-control' %>
             <%= f.submit "Apply for this trip", class: "btn btn-flat-answer" %>
           <% end %>
-        <% else %>
+        <% elsif @interaction.status == "waiting" %>
           <div class="highlight text-center">
-            <% if @interaction.status = "waiting"%>
-              You're waiting for the answer... suspense!
-            <% end  %>
+            You're waiting for the answer... suspense!
+          </div>
+        <% elsif @interaction.status == "accepted" %>
+          <div class="highlight text-center">
+            Yeah, let's start organizing the trip of your dreams!
+          </div>
+        <% elsif @interaction.status == "rejected" %>
+          <div class="highlight text-center">
+            Sorry... better luck next time!
           </div>
         <% end %>
       <% end %>
@@ -48,7 +54,7 @@
 
     <div class="container-message-top text-center mt-3">
       <% if policy(@interaction).destroy? %>
-        <%= link_to "Show my trip", trip_path(@interaction.trip), class: "btn btn-flat-return-trip text-center" %>
+        <%= link_to "Back to the trip", trip_path(@interaction.trip), class: "btn btn-flat-return-trip text-center" %>
 
         <%= link_to "Abandon the trip", interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-flat-abandon text-center" %>
       <% else %>

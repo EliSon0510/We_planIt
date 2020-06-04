@@ -21,7 +21,7 @@ class InteractionsController < ApplicationController
 
   def update
     @interaction = Interaction.find(params[:id])
-    if params[:interaction][:status] == "asking for validation..."
+    if params[:interaction][:status] == "Applying for this trip..."
       @interaction.status = "waiting"
     elsif params[:interaction][:status] == "Validated"
       @interaction.status = "accepted"
@@ -30,7 +30,7 @@ class InteractionsController < ApplicationController
     end
     authorize @interaction
     if @interaction.save
-      if @interaction.status == "pending"
+      if @interaction.status == "waiting"
         create_notification(@interaction.trip.user)
       else
         create_notification(@interaction.user)
