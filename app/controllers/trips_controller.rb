@@ -19,11 +19,13 @@ class TripsController < ApplicationController
     end
     if params["start date"].present? && params["end date"].present?
       @query = true
-      start_date = Date.civil(params["start date"][:"start_date(1i)"].to_i,params["start date"][:"start_date(2i)"].to_i,params["start date"][:"start_date(3i)"].to_i)
-      end_date = Date.civil(params["end date"][:"end_date(1i)"].to_i,params["end date"][:"end_date(2i)"].to_i,params["end date"][:"end_date(3i)"].to_i)
+      start_date = Date.parse params["start date"]
+
+      #start_date = Date.civil(params["start date"][:"start_date(1i)"].to_i,params["start date"][:"start_date(2i)"].to_i,params["start date"][:"start_date(3i)"].to_i)
+      #end_date = Date.civil(params["end date"][:"end_date(1i)"].to_i,params["end date"][:"end_date(2i)"].to_i,params["end date"][:"end_date(3i)"].to_i)
       unless start_date == Date.today
         sql_query_2 = "start_date >= :start_date AND end_date <= :end_date"
-      @trips = @trips.where(sql_query_2, start_date: start_date, end_date: end_date )
+      @trips = @trips.where(sql_query_2, start_date: params["start date"], end_date: params["end date"] )
       end
    end
    if params[:interests].present?
