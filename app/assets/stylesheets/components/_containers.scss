@@ -44,8 +44,21 @@
   align-items: center;
 }
 
+.home-banner{
+  //should be only on home page
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 440px;
+  align-items: center;
+  justify-content: center;
+  h1{
+    font-size: 65px;
+    font-weight: bold;
+  }
+}
 .trip-banner{
-  //should be on all pages
+  //should be only on trips page
   background-size: cover;
   background-position: center;
   width: 100%;
