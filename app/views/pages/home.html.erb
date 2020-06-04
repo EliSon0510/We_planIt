@@ -1,7 +1,19 @@
 <div class="home-banner padding70" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://mvgtraveltours.com/wp-content/uploads/2016/09/Sunset-Banner.jpg);">
   <div class="container text-right">
     <h1>Welcome to <span class="fontred">We PlanIt</span> !!</h1>
-  </div>
+    <div class="container mt-3 text-left">
+      <%= form_tag trips_path, method: :get, autocomplete: :on do %>
+      <%= text_field_tag :destination,
+      params[:destination],
+      class: "form-control", id: "search-bar",
+      placeholder: "Find for your dream destination here"
+    %>
+    </div>
+    <div class="container text-center mt-3">
+    <%= submit_tag "Search destination", class: "btn btn-flat-review" %>
+    <% end %>
+    </div>
+ </div>
 </div>
 
 <% if user_signed_in? && !current_user.profile %>
@@ -15,18 +27,6 @@
 </div>
 <% end %>
 
-<div class="container mt-3">
-  <%= form_tag trips_path, method: :get, autocomplete: :on do %>
-  <%= text_field_tag :destination,
-    params[:destination],
-    class: "form-control", id: "search-bar",
-    placeholder: "Find for your dream destination here"
-  %>
-</div>
-<div class="container text-center mt-3">
-    <%= submit_tag "Search destination", class: "btn btn-flat-review" %>
-    <% end %>
-</div>
 
 <% if @query && @trips.size == 0  %>
 <h3> Sorry, there are no trips found ... Please, create your own! </h3>
