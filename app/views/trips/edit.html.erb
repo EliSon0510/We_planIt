@@ -15,8 +15,8 @@
 <div class="row">
     <div class="col-6">
       <%= f.input :destination %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+      <%= f.input :start_date, as: :string, input_html: {class: "datepicker" } %>
+      <%= f.input :end_date,  as: :string, input_html: {class: "datepicker" }%>
       <%= f.input :budget, :label => "€ budget/week" %>
     </div>
     <div class="col-6">
