@@ -39,7 +39,7 @@
 }
 
 .card_home{
-  // cards from the home pg core values
+  // cards from the home pg
   background: white;
   border: 1px solid;
   border-color: $WPblue;
@@ -49,6 +49,10 @@
 .card_home img{
   max-width: 100%;
   height: auto;
+}
+
+.top-trip img{
+  height: 250px;
 }
 
 .card_value{

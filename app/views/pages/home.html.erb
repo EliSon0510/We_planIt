@@ -50,6 +50,46 @@
 </div>
 
 <div class="background_white m-3 p-3">
+  <h2 class="text-center">Our favorite trips</h2>
+  <div class="cards text-center m-5">
+    <% Trip.all.first(4).each do |trip| %>
+
+
+        <div class="trip-card top-trip height315px">
+          <div>
+            <% if trip.photo.attached? %>
+                <%= cl_image_tag trip.photo.key, crop: :fill %>
+            <% else %>
+                <%= image_tag "WorldLogo.png", height: 250%>
+            <% end %>
+          </div>
+          <div class="trip-details">
+            <div class="trip-destination">
+              <h3><%= link_to trip.destination, trip_path(trip) %></h3>
+            </div>
+            <div class="trip-bottom">
+              <div class="trip-interests">
+                <ul> <% trip.interests.first(2).each do |interest| %>
+                  <li><%= interest.name %></li>
+                <% end %>
+                <% if trip.interests.size > 2 %>
+                  <li> ...</li>
+                <% end %>
+                </ul>
+              </div>
+              <div class="sticky-bottom">
+                <%= link_to"See more", trip_path(trip) %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+  </div>
+</div>
+
+
+<div class="background_white m-3 p-3">
   <h2 class="text-center">We believe ...</h2>
   <div class="flex-container-2col text-center m-3 center-horiz">
     <div class="m-3 text-right">
