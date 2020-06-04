@@ -19,8 +19,11 @@
           <div class="dropdown">
             <div class= "dropbtn2"> Trips </div>
             <div class="dropdown-content2">
+              <i class="fas fa-plus-circle"></i>
               <%= link_to "Create a trip", "/trips/new", class: "nav-link" %>
+              <i class="fas fa-search"></i>
               <%= link_to "Search a trip", "/trips", class: "nav-link" %>
+              <i class="fas fa-campground"></i>
               <%= link_to "All trips", "/trips", class: "nav-link" %>
             </div>
           </div>
@@ -47,7 +50,7 @@
         </li>
 
         <li class="nav-item">
-          <span class="nav-link">
+          <span class="nav-link hello">
           <i>Hello <%= current_user.nickname %></i>
           </span>
         </li>
@@ -60,14 +63,16 @@
             <% end %>
 
             <div class="dropdown-content">
+              <i class="fas fa-tv"></i>
               <%= link_to "My Dashboard", "/dashboard", class: "nav-link" %>
 
+              <i class="fas fa-user-circle"></i>
               <% if current_user.profile %>
                   <%= link_to "My profile", profile_path(current_user.profile), class: "nav-link" %>
               <% else %>
                   <%= link_to "Create my profile", "/profiles/new", class: "nav-link" %>
               <% end %>
-
+              <i class="fas fa-sign-out-alt"></i>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
             </div>
         </li>
