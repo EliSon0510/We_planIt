@@ -17,20 +17,20 @@
 
     <div class="profile-card-content">
       <h2><%= @profile.first_name %> <%= @profile.last_name %></h2>
-     <h5 class="profile-content-2">Nickname:<h3 class="profile-content-2"><%= @profile.user.nickname %></h3></h5>
+     <h5 class="profile-content-2">Nickname:</h5><p class="profile-content-2"><%= @profile.user.nickname %></p>
      <br>
-     <h5 class="profile-content-3">Age :<h3 class="profile-content-3"><%= @profile.age %></h3></h5>
+     <h5 class="profile-content-3">Age :</h5><p class="profile-content-3"><%= @profile.age %></p>
      <br>
-     <h5 class="profile-content-4">From: <h3 class="profile-content-4"><%= @profile.location %></h3></h5>
+     <h5 class="profile-content-4">From:</h5><p class="profile-content-4"><%= @profile.location %></p>
       <% if @profile.gender == "female" %>
       <h5>Gender:<i class="fas fa-female"></i></h5>
       <% elsif @profile.gender == "male" %>
       <h5>Gender:<i class="fas fa-male"></i></h5>
       <% else %>
-     <h5 class="profile-content-5">Gender: <h3 class="profile-content-5">other</h3></h5>
+     <h5 class="profile-content-5">Gender: </h5><p class="profile-content-5">other</p>
       <% end %>
       <h5>Description:</h5>
-      <h3><%= @profile.description %></h3>
+      <p><%= @profile.description %></p>
 
       <% if policy(@profile).edit? %>
         <%= link_to "", edit_profile_path(@profile), class: "fas fa-edit" %>
@@ -53,7 +53,7 @@
       <%= simple_form_for [@profile, @review] do |f| %>
         <h4><%= f.input :content %></h4>
         <h4><%= f.input :rating, collection: 0..5 %></h4>
-        <%= f.submit "submit", class: "btn btn-flatr" %>
+        <%= f.submit "submit", class: "btn btn-flat-review" %>
       <% end %>
     <% end %>
 
