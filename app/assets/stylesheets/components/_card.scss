@@ -56,18 +56,22 @@
   background: white;
   border-radius: 5px;
   width: auto;
-  height: 180px;
+  height: 220px;
   background-size: cover;
   background-position: center;
   justify-content: center;
   align-items: center;
-  color: $WPred;
   font-size: 24px;
   img{
     height: 250px;
   }
-  a{
-    color: $WPblue;
+  h3{
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  :hover{
+    text-decoration: none;
   }
 }
 
