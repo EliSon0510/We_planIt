@@ -2,28 +2,27 @@
   <div class="container">
     <h1> Create your profile</h1>
   </div>
+</div>
 
-
-<div class="flex-container-2col trip-card mx-5 my-4">
-  <div class="container">
-
-      <%= simple_form_for (@profile) do |f| %>
+<div class="container trip-card mx-auto my-4">
+  <%= simple_form_for (@profile) do |f| %>
+  <div class="row">
+    <div class="col-6">
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.label :gender %>
       <%= f.select :gender, ["female", "male", "other"], include_blank: 'Select a gender', class: 'form-control' %>
       <%= f.input :age %>
+    </div>
+    <div class="col-6">
+      <%= f.input :location %>
+      <%= f.input :description %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Create", class: "btn btn-flat-review" %>
+    </div>
   </div>
-  <div class="container ml-3">
-    <%= f.input :location %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "submit", class: "btn btn-flat-review" %>
-    <% end %>
-  </div>
-  <br>
+  <% end %>
 </div>
-
 
 
 

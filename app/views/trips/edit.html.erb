@@ -9,19 +9,23 @@
   <h2>What would you like to update ?</h2>
 </div>
 
-<div class="flex-container-2col trip-card mx-5 my-4">
-
-  <div class="container">
+<div class="container trip-card mx-auto my-4">
     <%= simple_form_for [@user, @trip] do |f| %>
-    <%= f.input :destination %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :photo, as: :file %>
+<div class="row">
+    <div class="col-6">
+      <%= f.input :destination %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :budget, :label => "€ budget/week" %>
+    </div>
+    <div class="col-6">
+      <%= label_tag "Interests" %>
+      <div class=" flex-container-2col-form">
+      <%= f.association :interests, legend_tag: false, as: :check_boxes,  class: 'form-control flex-container-2col', wrapper: false %>
+      </div>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Update", class: "btn btn-flat-review" %>
+    </div>
   </div>
-  <div class="container ml-3">
-    <%= f.association :interests, as: :check_boxes, item_wrapper_class: "inline_block", class: 'form-control' %>
-    <%= f.input :budget, :label => "€ budget/week" %>
-    <%= f.submit "Edit", class: "btn btn-flat-review text-center" %>
-    <% end %>
-  </div>
+  <% end %>
 </div>
