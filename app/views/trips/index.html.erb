@@ -1,7 +1,7 @@
 <div class="trip-banner pt-4 pb-1" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://nas-national-prod.s3.amazonaws.com/styles/hero_mobile/s3/_web_nativeplantwalk_camillacerea_-1-of-1.jpg?itok=zRjyKT9q)">
   <div class="form-container mx-auto">
     <h1>Find your next vacation !</h1>
-    <%= form_tag trips_path, method: :get, class: "trip-form p-3 mb-1" do %>
+    <%= form_tag trips_path(anchor: "anchor-trip"), method: :get, class: "trip-form p-3 mb-1" do %>
       <%= text_field_tag :destination, nil, autocomplete: :on, placeholder: "Search for your location", class: 'form-control search-input', id:'search-bar'%>
       <br>
       <% budgets = [["0-300 €/week", "0-300"], ["300-600 €/week", "300-600"], ["600 - 1000 €/week", "600-1000"], ["> 1000 €/week", ">=1000"] ] %>
@@ -46,7 +46,7 @@
 
 <div class="trips-map background_white">
 <div>
-  <h2 class="pl-3 text-center">All the created trips</h2>
+  <h2 class="pl-3 text-center" id="anchor-trip">All the created trips</h2>
 
   <div class="flex-container">
 
