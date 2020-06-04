@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "../plugins/flatpickr"
+import {initflatpicker} from "../plugins/flatpickr";
 
 
 
@@ -42,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initInteractionCable();
+  initflatpicker();
 
   count += 1
   console.log("from app.js", count)
