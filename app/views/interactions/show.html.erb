@@ -17,7 +17,7 @@
       <% if current_user == @interaction.trip.user %>
         <% if @interaction.status == "pending" %>
           <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control', style: "display: flex; align-items: center;" %>
+            <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control' %>
             <%= f.submit "Answer to the buddy", class: "btn btn-flat-answer" %>
           <% end %>
         <% else %>
