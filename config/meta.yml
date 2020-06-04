@@ -1,4 +1,4 @@
 meta_product_name: "We PlanIt"
 meta_title: "We Plan-It - find the perfect travel buddy"
 meta_description: "Matching travellers based on the interests, We PlanIt is the easiest way to fond your next travel friend"
-meta_image: "Logo-Title.png" # should exist in `app/assets/images/`
+meta_image: "meta_image.jpg" # should exist in `app/assets/images/`
