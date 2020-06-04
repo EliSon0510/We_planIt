@@ -10,30 +10,30 @@
     <div>
       <div class="flex-container">
         <% @future_trips.each do |future_trip| %>
-          <div class="trip-card">
-            <% if future_trip.photo.attached? %>
+        <div class="trip-card">
+          <% if future_trip.photo.attached? %>
 
-                  <%= cl_image_tag future_trip.photo.key, height: 150, width: 150, crop: :fill %>
-            <% else %>
-              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
-            <% end %>
-            <div class="trip-details">
-              <p>
+          <%= cl_image_tag future_trip.photo.key, height: 150, width: 150, crop: :fill %>
+          <% else %>
+          <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <% end %>
+          <div class="trip-details">
+            <p>
               <%= future_trip.start_date %>
               <%= '-' %>
               <%= future_trip.end_date %>
-              </p>
-              <h3><%= link_to future_trip.destination, trip_path(future_trip) %></h3>
+            </p>
+            <h3><%= link_to future_trip.destination, trip_path(future_trip) %></h3>
 
-              <% future_trip.interactions.each do |interaction| %>
-                <% if interaction.user == current_user && interaction.status != "active"%>
-                  <div class="sticky-bottom">
-                    <h4><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
-                  </div>
-                <% end %>
-              </div>
+            <% future_trip.interactions.each do |interaction| %>
+            <% if interaction.user == current_user && interaction.status != "active"%>
+            <div class="sticky-bottom">
+              <h4><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
+            </div>
             <% end %>
           </div>
+          <% end %>
+        </div>
         <% end %>
       </div>
     </div>
@@ -45,25 +45,25 @@
       <div class="flex-container">
         <% @past_trips.each do |past_trip| %>
 
-          <div class="trip-card">
-            <% if past_trip.photo.attached? %>
+        <div class="trip-card">
+          <% if past_trip.photo.attached? %>
 
-                  <%= cl_image_tag past_trip.photo.key, height: 150, width: 150, crop: :fill %>
+          <%= cl_image_tag past_trip.photo.key, height: 150, width: 150, crop: :fill %>
 
-            <% else %>
-                  <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
-            <% end %>
-            <div class="trip-details">
-              <p>
+          <% else %>
+          <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <% end %>
+          <div class="trip-details">
+            <p>
               <%= past_trip.start_date %>
               <%= '-' %>
               <%= past_trip.end_date %>
-              </p>
+            </p>
 
 
-              <h3><%= link_to past_trip.destination, trip_path(past_trip) %></h3>
-            </div>
+            <h3><%= link_to past_trip.destination, trip_path(past_trip) %></h3>
           </div>
+        </div>
         <% end %>
       </div>
     </div>
@@ -75,20 +75,22 @@
       <% @my_trips.each do |trip| %>
         <div class="trip-card">
           <% if trip.photo.attached? %>
-              <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+          <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
           <% else %>
-              <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
+          <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
           <% end %>
           <div class="trip-details">
             <p>
-            <%= trip.start_date %>
-            <%= '-' %>
-            <%= trip.end_date %>
+              <%= trip.start_date %>
+              <%= '-' %>
+              <%= trip.end_date %>
             </p>
             <h3><%= link_to trip.destination, trip_path(trip) %></h3>
 
-            <%= link_to "", edit_trip_path(trip), class: "fas fa-edit" %>
-            <%= link_to "", trip_path(trip), method: :delete, remote: true, data: {confirm: "Are you sure?"}, class: "fas fa-trash-alt" %>
+            <span>
+              <%= link_to "", edit_trip_path(trip), class: "fas fa-edit" %>
+              <%= link_to "", trip_path(trip), method: :delete, remote: true, data: {confirm: "Are you sure?"}, class: "fas fa-trash-alt" %>
+            </span>
             <% trip.interactions.each do |interaction| %>
               <% if interaction.status == "pending" || interaction.status == "accepted" %>
                 <div>
@@ -98,15 +100,6 @@
             <% end %>
           </div>
         </div>
-
-        <% trip.interactions.each do |interaction| %>
-          <% if interaction.status == "pending" || interaction.status == "accepted" %>
-            <div>
-              <h4><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
-            </div>
-          <% end %>
-        <% end %>
-
       <% end %>
     </div>
   </div>
