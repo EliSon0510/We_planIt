@@ -52,6 +52,9 @@ p user_one = User.create!(email: "florence@gmail.com", password: "1234567", nick
 p user_two = User.create!(email: "ellie@gmail.com", password: "1234567", nickname: "Ellie")
 p user_three = User.create!(email: "guillaume@gmail.com", password: "1234567", nickname: "Guigui")
 p user_four = User.create!(email: "phaedon@gmail.com", password: "1234567", nickname: "MrNo")
+p user_five = User.create!(email: "picklerick@gmail.com", password: "1234567", nickname: "gkosmo")
+p user_six = User.create!(email: "tarig@gmail.com", password: "1234567", nickname: "Tarig")
+p user_seven = User.create!(email: "testuser@gmail.com", password: "1234567", nickname: "anon user")
 
 puts "Finished with users!"
 
@@ -109,6 +112,32 @@ profile_4.user_id = user_four.id
 profile_4.photo.attach(io: pic_4, filename: 'image.png', content_type: 'image/png')
 profile_4.save!
 
+pic_5 = File.open(File.join(Rails.root, "/app/assets/images/profile_5.jpg"))
+p profile_5 = Profile.new(
+  first_name: "G",
+  last_name: "Kosmo",
+  age: 26,
+  gender: "male",
+  description: "I love discovering new locations to travel to! I also like coding remotely on my trips!",
+  location: "Brussels"
+  )
+profile_5.user_id = user_five.id
+profile_5.photo.attach(io: pic_5, filename: 'image.png', content_type: 'image/png')
+profile_5.save!
+
+pic_6 = File.open(File.join(Rails.root, "/app/assets/images/profile_6.png"))
+p profile_6 = Profile.new(
+  first_name: "Tarig",
+  last_name: "B",
+  age: 24,
+  gender: "male",
+  description: "Travelling is great! Meeting bright new people even greater!",
+  location: "Brussels"
+  )
+profile_6.user_id = user_six.id
+profile_6.photo.attach(io: pic_6, filename: 'image.png', content_type: 'image/png')
+profile_6.save!
+
 puts "Finished with profiles.."
 
 puts "Creating reviews...."
@@ -148,18 +177,10 @@ review_4.save!
 p review_5 = Review.new(
   content: "We spend a lot of creative time while hiking on Alps.. I would definetely travel again with her!",
   rating: 5,
-  user: user_three,
+  user: user_five,
   profile: profile_1
   )
 review_5.save!
-
-p review_flo = Review.new(
-  content: "We visited Germany for a concert! Actually this trip made us great friends!",
-  rating: 4,
-  user: user_four,
-  profile: profile_1
-  )
-review_flo.save!
 
 p review_6 = Review.new(
   content: "It was a great sailing trip in Spain! She also paid a lot of our meals!",
@@ -185,6 +206,22 @@ p review_8 = Review.new(
   )
 review_8.save!
 
+p review_9 = Review.new(
+  content: "We visited Germany for a concert! Actually this trip made us great friends!",
+  rating: 4,
+  user: user_four,
+  profile: profile_1
+  )
+review_9.save!
+
+p review_10 = Review.new(
+  content: "Awesome person! We had such a great time on our trip to Spain!",
+  rating: 5,
+  user: user_six,
+  profile: profile_1
+  )
+review_10.save!
+
 puts "Finished with reviews.."
 
 puts "Creating some trips.."
@@ -194,7 +231,7 @@ p trip_one = Trip.new(
   start_date: Date.parse("2020 December 15"),
   end_date: Date.parse("2020 December 25"),
   budget: 840,
-  user: User.third,
+  user: user_three,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_1 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Canada.jpg"))
@@ -207,7 +244,7 @@ p trip_two = Trip.new(
   start_date: Date.parse("2019 May 15"),
   end_date: Date.parse("2019 May 25"),
   budget: 600,
-  user: User.last,
+  user: user_four,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_2 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Athens.jpg"))
@@ -220,7 +257,7 @@ p trip_three = Trip.new(
   start_date: Date.parse("2021 April 15"),
   end_date: Date.parse("2021 April 25"),
   budget: 900,
-  user: User.first,
+  user: user_one,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_3 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/London.jpg"))
@@ -233,7 +270,7 @@ p trip_four = Trip.new(
   start_date: Date.parse("2018 January 15"),
   end_date: Date.parse("2018 January 25"),
   budget: 1100,
-  user: User.first,
+  user: user_one,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_4 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/NY.jpg"))
@@ -246,7 +283,7 @@ p trip_five = Trip.new(
   start_date: Date.parse("2019 June 15"),
   end_date: Date.parse("2019 July 25"),
   budget: 840,
-  user: User.fourth,
+  user: user_five,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
   )
 pic_5 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Cuba.jpg"))
@@ -259,7 +296,7 @@ p trip_six = Trip.new(
   start_date: Date.parse("2022 June 15"),
   end_date: Date.parse("2022 July 25"),
   budget: 400,
-  user: User.second,
+  user: user_two,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_6 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Nigeria.jpg"))
@@ -272,7 +309,7 @@ p trip_seven = Trip.new(
   start_date: Date.parse("2021 June 15"),
   end_date: Date.parse("2021 July 25"),
   budget: 732,
-  user: User.second,
+  user: user_two,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_7 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Peru.jpg"))
@@ -285,7 +322,7 @@ p trip_eight = Trip.new(
   start_date: Date.parse("2020 June 15"),
   end_date: Date.parse("2020 August 25"),
   budget: 640,
-  user: User.second,
+  user: user_two,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_8 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Costa_Rica.jpg"))
@@ -298,7 +335,7 @@ p trip_nine = Trip.new(
   start_date: Date.parse("2021 Octomber 08"),
   end_date: Date.parse("2021 January 03"),
   budget: 420,
-  user: User.third,
+  user: user_three,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_9 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Croatia.jpg"))
@@ -311,7 +348,7 @@ p trip_ten = Trip.new(
   start_date: Date.parse("2022 May 26"),
   end_date: Date.parse("2022 July 06"),
   budget: 400,
-  user: User.first,
+  user: user_one,
   interests: [Interest.first, Interest.last]
 )
 pic_10 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Thailand.jpg"))
@@ -324,7 +361,7 @@ p trip_eleven = Trip.new(
   start_date: Date.parse("2020 June 25"),
   end_date: Date.parse("2020 July 25"),
   budget: 700,
-  user: User.second,
+  user: user_two,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_11 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Santorini.jpg"))
@@ -337,7 +374,7 @@ p trip_twelve = Trip.new(
   start_date: Date.parse("2021 April 05"),
   end_date: Date.parse("2021 April 23"),
   budget: 420,
-  user: User.first,
+  user: user_five,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_12 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Turkey.jpg"))
@@ -350,7 +387,7 @@ p trip_thirteen = Trip.new(
   start_date: Date.parse("2022 November 09"),
   end_date: Date.parse("2022 November 28"),
   budget: 600,
-  user: User.first,
+  user: user_one,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_13 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Italy.jpg"))
@@ -363,7 +400,7 @@ p trip_fourteen = Trip.new(
   start_date: Date.parse("2021 March 06"),
   end_date: Date.parse("2021 April 10"),
   budget: 400,
-  user: User.third,
+  user: user_three,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_14 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Ireland_2.jpg"))
@@ -376,7 +413,7 @@ p trip_fifteen = Trip.new(
   start_date: Date.parse("2021 April 12"),
   end_date: Date.parse("2021 May 27"),
   budget: 549,
-  user: User.first,
+  user: user_one,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_15 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Ireland.jpg"))
@@ -389,7 +426,7 @@ p trip_sixteen = Trip.new(
   start_date: Date.parse("2020 June 26"),
   end_date: Date.parse("2020 July 23"),
   budget: 200,
-  user: User.fourth,
+  user: user_four,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_16 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Samothraki.jpg"))
@@ -402,7 +439,7 @@ p trip_seventeen = Trip.new(
   start_date: Date.parse("2020 July 26"),
   end_date: Date.parse("2020 August 23"),
   budget: 830,
-  user: User.third,
+  user: user_three,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_17 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Mykonos.jpg"))
@@ -415,7 +452,7 @@ p test_trip = Trip.new(
   start_date: Date.parse("2020 July 26"),
   end_date: Date.parse("2020 August 23"),
   budget: 50,
-  user: User.first,
+  user: user_one,
   interests: [Interest.all.shuffle.first, Interest.all.shuffle.first]
 )
 pic_18 = File.open(File.join(Rails.root, "/app/assets/images/prototype_trip_photos/Florida.jpg"))
