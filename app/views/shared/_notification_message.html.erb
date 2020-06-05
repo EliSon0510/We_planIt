@@ -1,9 +1,9 @@
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 4; right: 0; opacity: 1;">
   <div class="toast-body">
   <% if notification.notifiable_type == "Message" %>
-    <%= link_to "#{body}", trip_interaction_path(notification.notifiable.interaction.trip, notification.notifiable.interaction), class: "dropdown-item" %>
+    <%= link_to "#{body}", trip_interaction_path(notification.notifiable.interaction.trip, notification.notifiable.interaction), class: "toasty" %>
   <% elsif notification.notifiable_type == "Interaction" %>
-    <%= link_to "#{body}", trip_interaction_path(notification.notifiable.trip, notification.notifiable), class: "dropdown-item" %>
+    <%= link_to "#{body}", trip_interaction_path(notification.notifiable.trip, notification.notifiable), class: "toasty" %>
   <% end %>
   </div>
 </div>
