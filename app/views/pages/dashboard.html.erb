@@ -47,7 +47,7 @@
         <div class="trip-card">
           <% if past_trip.photo.attached? %>
 
-          <%= cl_image_tag past_trip.photo.key, height: 150, width: 150, crop: :fill %>
+          <%= cl_image_tag past_trip.photo.key, height: 150, width: 150%>
 
           <% else %>
           <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
@@ -74,7 +74,7 @@
       <% @my_trips.each do |trip| %>
       <div class="trip-card">
         <% if trip.photo.attached? %>
-        <%= cl_image_tag trip.photo.key, height: 150, width: 150, crop: :fill %>
+        <%= cl_image_tag trip.photo.key, height: 150, width: 150%>
         <% else %>
         <%= image_tag "WorldLogo.png", height: 150, width: 150 %>
         <% end %>
