@@ -39,13 +39,15 @@
                 <%= @notifications.count %>
               </span>
             </button>
-            <div class="dropdown-content">
-              <p>
-                <% @notifications.each do |notification|%>
-                  <%= render partial: "shared/notification_dropdown", locals: { notification: notification } %>
-                <% end %>
-              </p>
-            </div>
+            <% if @notifications.count > 0%>
+              <div class="dropdown-content">
+                <p>
+                  <% @notifications.each do |notification|%>
+                    <%= render partial: "shared/notification_dropdown", locals: { notification: notification } %>
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
           </div>
         </li>
 
