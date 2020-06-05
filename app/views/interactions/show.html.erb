@@ -33,8 +33,8 @@
       <% else %>
         <% if @interaction.status == "active" %>
           <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["Applying for this trip..."], include_blank: 'Start your adventure', class: 'form-control' %>
-            <%= f.submit "Apply for this trip", class: "btn btn-flat-answer" %>
+            <%= f.select :status, ["Apply for this trip..."], include_blank: 'Start your adventure', class: 'form-control' %>
+            <%= f.submit "Send your application", class: "btn btn-flat-answer" %>
           <% end %>
         <% elsif @interaction.status == "waiting" %>
           <div class="highlight text-center">
