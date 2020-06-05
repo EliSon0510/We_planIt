@@ -4,3 +4,34 @@
   right: 16px;
   z-index: 1000;
 }
+
+.toast {
+  border: transparent;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-top: 30px;
+  box-shadow: 0px 0px 10px -3px black;
+  background-color: #028090;
+  border: 1px solid white;
+  border-right: 0px;
+  z-index: 6;
+  font-family: "Roboto";
+  &:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 0.5;
+  }
+}
+
+.toasty {
+  color: white !important;
+  font-weight: bold !important;
+  display: block;
+  padding: 0.25rem 1.5rem;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 0.5;
+  }
+}
+
