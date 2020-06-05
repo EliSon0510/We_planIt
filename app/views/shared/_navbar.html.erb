@@ -57,7 +57,7 @@
 
         <li class="nav-item dropdown">
             <% if current_user.profile %>
-              <%= cl_image_tag current_user.profile.photo.key, class: " avatar dropdown-toggle", :transformation=>[ {:width=>30, :height=>30, :crop=>"thumb"}, {:radius=>50} ], id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag current_user.profile.photo.key, class: " avatar dropdown-toggle", :transformation=>[ {:width=>30, :height=>30}, {:radius=>50} ], id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= image_tag "Profile_user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
