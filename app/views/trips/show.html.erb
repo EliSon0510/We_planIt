@@ -62,9 +62,12 @@
         </div>
       <% end %>
     <% else %>
+
+    <%= link_to trip_interaction_path(@trip, @trip_interaction[0]) do %>
         <div class="text-center btn btn-flat">
-          <%= link_to "Join the chat", trip_interaction_path(@trip, @trip_interaction[0])%>
+          Join the chat
         </div>
+      <% end %>
     <% end %>
   </div>
 </div>
