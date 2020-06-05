@@ -87,7 +87,7 @@
             </p>
             <h3><%= link_to trip.destination, trip_path(trip) %></h3>
             <% trip.interactions.each do |interaction| %>
-              <% if interaction.status == "pending" || interaction.status == "accepted" %>
+              <% if interaction.status == "waiting" || interaction.status == "accepted" %>
                 <div>
                   <h4>Interaction : <%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
                 </div>

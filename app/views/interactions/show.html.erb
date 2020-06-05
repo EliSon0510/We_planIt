@@ -16,8 +16,8 @@
 
       <% if current_user == @interaction.trip.user %>
         <% if @interaction.status == "waiting" %>
-          <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control' %>
+          <%= simple_form_for @interaction, :url => interaction_path, :method => :patch, html: { class: "form-inline" } do |f| %>
+            <%= f.input :status, collection: ["Validated", "Denied"], label: false, include_blank: 'Validate or deny the request', input_html: { class: 'form-control' } %>
             <%= f.submit "Answer to the buddy", class: "btn btn-flat-answer" %>
           <% end %>
         <% elsif @interaction.status == "accepted" %>
@@ -32,8 +32,8 @@
 
       <% else %>
         <% if @interaction.status == "active" %>
-          <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["Applying for this trip..."], include_blank: 'Start your adventure', class: 'form-control' %>
+          <%= simple_form_for @interaction, :url => interaction_path, :method => :patch, html: { class: "form-inline" } do |f| %>
+            <%= f.input :status, collection: ["Applying for this trip..."], label: false, include_blank: 'Start your adventure', input_html: { class: 'form-control' }  %>
             <%= f.submit "Apply for this trip", class: "btn btn-flat-answer" %>
           <% end %>
         <% elsif @interaction.status == "waiting" %>
@@ -77,38 +77,25 @@
       </h4>
 
     </div>
-    <div id='messages' data-interaction-id="<%= @interaction.id %>">
-      <% @interaction.messages.each do |message| %>
-        <% if message.user == current_user %>
+    <div id='messages' >
+      <div id="chat" data-interaction-id="<%= @interaction.id %>">
+        <% @interaction.messages.each do |message| %>
+          <% side = message.user == current_user ? "right" : "left" %>
 
-          <div class="message-left">
-            <i class="author-infos-left">
-            <small><%= message.created_at.strftime("%l:%M%p") %></small>
-            </i>
-            <div class="avatar-message-left">
-              <%= cl_image_tag message.user.profile.photo.key, class: "avatar-message", :transformation=>[ {:width=>30, :height=>30, :crop=>"thumb"}, {:radius=>50} ], id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="message-<%= side %>">
+
+              <i class="author-infos-<%= side %>">
+              <small><%= message.created_at.strftime("%l:%M%p") %></small>
+              </i>
+              <div class="avatar-message-<%= side %>">
+                <%= cl_image_tag message.user.profile.photo.key, class: "avatar-message", :transformation=>[ {:width=>30, :height=>30, :crop=>"thumb"}, {:radius=>50} ], id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              </div>
+                <p class="message-content" id="message-<%= message.id %>">
+                  <%= message.content %>
+                </p>
             </div>
-
-              <p class="message-content" id="message-<%= message.id %>">
-                <%= message.content %>
-              </p>
-          </div>
-
-        <% else %>
-
-          <div class="message-right">
-            <i class="author-infos-right">
-            <small><%= message.created_at.strftime("%l:%M%p") %></small>
-            </i>
-            <div class="avatar-message-right">
-              <%= cl_image_tag message.user.profile.photo.key, class: "avatar-message", :transformation=>[ {:width=>30, :height=>30, :crop=>"thumb"}, {:radius=>50} ], id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            </div>
-              <p class="message-content" id="message-<%= message.id %>">
-                <%= message.content %>
-              </p>
-          </div>
         <% end %>
-      <% end  %>
+      </div>
       <div class="typing-message">
         <%= simple_form_for [@interaction, @message], remote: true do |f| %>
           <%= f.input :content, label: false, placeholder: "Write your message..." %>
