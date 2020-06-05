@@ -9,7 +9,7 @@
   <div class="container profile-container">
     <div class="profile-card">
      <% if @profile.photo.attached? %>
-      <%= cl_image_tag @profile.photo.key, height: 220, width: 220, crop: :thumb, class: "avatar-profile" %>
+      <%= cl_image_tag @profile.photo.key, height: 220, width: 220, class: "avatar-profile" %>
       <% else %>
       <%= image_tag "profile.png" %>
       <% end %>
