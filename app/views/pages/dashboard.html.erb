@@ -27,7 +27,7 @@
               <% future_trip.interactions.each do |interaction| %>
                 <% if interaction.user == current_user && interaction.status != "active"%>
                   <div class="sticky-bottom">
-                    <h4><strong>Buddy : </strong><span class=""><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></span></h4>
+                    <h4><strong>You are </strong><span class=""><%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></span></h4>
                   </div>
                 <% end %>
               <% end %>
