@@ -57,9 +57,11 @@
       <% end %>
     <% elsif @trip.user == current_user %>
       <% @trip.interactions.each do |interaction| %>
+      <%= link_to trip_interaction_path(@trip, interaction) do %>
         <div class="text-center btn btn-flat">
-          <%= link_to "Your conversation with #{interaction.user.nickname}", trip_interaction_path(@trip, interaction)%>
+          Your conversation with interaction.user.nickname
         </div>
+        <% end %>
       <% end %>
     <% else %>
 
