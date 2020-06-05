@@ -21,7 +21,7 @@
   <h2 class="text-center">Create your profile</h2>
   <div class="btn-container">
     <div class="text-center btn btn-flat">
-      <%= link_to "Your profile", new_profile_path%>
+      <%= link_to "Your profile", new_profile_path %>
     </div>
   </div>
 </div>
@@ -34,12 +34,17 @@
 
 <div class="background_white m-3 p-3">
   <div class="container text-center mt-3">
-    <div class="btn btn-flat ">
-      <%= link_to "Add a new trip !", new_trip_path, class: "btn-round-corners"%>
+    <%= link_to new_trip_path do %>
+    <div class="btn btn-flat btn-round-corners">
+      Add a new trip!
     </div>
-    <div class="btn btn-flat text-center">
-      <%= link_to "Search for a trip !", trips_path, class: "btn-round-corners"%>
+    <% end %>
+    <%= link_to trips_path do %>
+    <div class="btn btn-flat text-center btn-round-corners">
+      Search for a trip!
     </div>
+    <% end %>
+
 
   </div>
 </div>
