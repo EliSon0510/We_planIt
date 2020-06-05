@@ -1,7 +1,13 @@
 <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.nickname %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
+  <div class="message-left">
+    <i class="author-infos-left">
+      <small><%= message.created_at.strftime("%l:%M%p") %></small>
+    </i>
+    <div class="avatar-message-left">
+      <%= cl_image_tag message.user.profile.photo.key, class: "avatar-message", :transformation=>[ {:width=>30, :height=>30, :crop=>"thumb"}, {:radius=>50} ], id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
+    <p class="message-content" id="message-<%= message.id %>">
+      <%= message.content %>
+    </p>
+  </div>
 </div>

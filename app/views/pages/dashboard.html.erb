@@ -72,6 +72,7 @@
     <h3 class="pl-3 text-center">The trips you have created</h3>
     <div class="flex-container-2col">
       <% @my_trips.each do |trip| %>
+
       <div class="trip-card">
         <% if trip.photo.attached? %>
         <%= cl_image_tag trip.photo.key, height: 150, width: 150%>
@@ -89,6 +90,7 @@
           <% if interaction.status == "waiting" || interaction.status == "accepted" %>
           <div>
             <h4>Buddy : <%= link_to interaction.status, trip_interaction_path(interaction.trip_id, interaction) %></h4>
+
           </div>
           <% end %>
           <% end %>
