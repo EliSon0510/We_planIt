@@ -1,5 +1,11 @@
+
+
 .container-infos {
   margin-bottom: 10px;
+}
+
+.container-message-top {
+  margin: 16px;
 }
 
 .message-title {
@@ -9,11 +15,18 @@
   background-color: white;
 }
 
+#interaction_status {
+  padding: 5px;
+  border-radius: 5px;
+  border-color : $WPblue;
+}
+
 .background_white-message {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: white;
+  margin-top: 15px;
 }
 
 .chatting-card {
@@ -31,13 +44,14 @@
 }
 
 .chatting-link {
-  color: #a95f1d;
+  color: $WPred;
 }
 
 .highlight {
   text-align: center;
-  color: #450920;
+  color: black;
   font-weight: bold;
+  font-size: 20px;
 }
 
 
@@ -51,6 +65,9 @@
   margin: 10px;
 }
 
+.btn-flat-answer:hover {
+  opacity: 0.9;
+}
 
   //display: flex;
   //align-items: center;
@@ -60,20 +77,38 @@
   color: white;
   padding: 15px 30px;
   border-radius: 15px;
-  background: #028090;
+  background: $WPblue;
   transition: background 0.3s ease;
   width: auto;
   margin: 10px;
 }
 
+.btn-flat-abandon:hover {
+  opacity: 0.9;
+}
+
+.btn-flat-return-trip {
+  color: white;
+  padding: 15px 30px;
+  border-radius: 15px;
+  background: $WPred;
+  transition: background 0.3s ease;
+  width: auto;
+  margin: 10px;
+}
+
+.btn-flat-return-trip:hover {
+  opacity: 0.9;
+}
+
 .message-card {
   overflow : scroll;
   background: white;
-  max-height: 90vh;
+  max-height: 80vh;
   border: 1px solid;
   border-radius: 10px;
   border-color: #028090;
-  margin-top: 30px;
+  margin-top: 15px;
   width: 60%;
   display: block;
   margin-left: auto;

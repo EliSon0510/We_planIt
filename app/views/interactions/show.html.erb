@@ -8,39 +8,57 @@
 
 
   <div class= "message-title">
-    <h2>Chat with your travel buddy</h2>
+    <h2> Chat with your travel buddy to go to <span class="chatting-link"> <%= "#{@interaction.trip.destination}" %> </span> ! </h2>
 
   </div>
-  <div class="background_white-message m-3 p-3">
-    <div class="container text-center mt-3">
+  <div class="background_white-message">
+    <div class="container-message-top text-center mt-3">
 
       <% if current_user == @interaction.trip.user %>
-        <% if @interaction.status == "pending" %>
+        <% if @interaction.status == "waiting" %>
           <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control', style: "display: flex; align-items: center;" %>
+            <%= f.select :status, ["Validated", "Denied"], include_blank: 'Validate or deny the request', class: 'form-control' %>
             <%= f.submit "Answer to the buddy", class: "btn btn-flat-answer" %>
           <% end %>
-        <% else %>
-         Your trip is...
-         <span class="highlight text-center"> <%= @interaction.status %> </span> !
+        <% elsif @interaction.status == "accepted" %>
+          <div class="highlight text-center">
+            Yeah, let's start organizing the trip of your dreams!
+          </div>
+        <% elsif @interaction.status == "rejected" %>
+          <div class="highlight text-center">
+            Sorry... better luck next time!
+          </div>
         <% end %>
 
       <% else %>
         <% if @interaction.status == "active" %>
           <%= simple_form_for @interaction, :url => interaction_path, :method => :patch do |f| %>
-            <%= f.select :status, ["asking for validation..."], include_blank: 'Select your status', class: 'form-control' %>
-            <%= f.submit "Ask for validation", class: "btn btn-flat-answer" %>
+            <%= f.select :status, ["Applying for this trip..."], include_blank: 'Start your adventure', class: 'form-control' %>
+            <%= f.submit "Apply for this trip", class: "btn btn-flat-answer" %>
           <% end %>
-        <% else %>
-          Your trip is...
-         <span class="highlight text-center"> <%= @interaction.status %> </span> !
+        <% elsif @interaction.status == "waiting" %>
+          <div class="highlight text-center">
+            You're waiting for the answer... suspense!
+          </div>
+        <% elsif @interaction.status == "accepted" %>
+          <div class="highlight text-center">
+            Yeah, let's start organising the trip of your dreams!
+          </div>
+        <% elsif @interaction.status == "rejected" %>
+          <div class="highlight text-center">
+            Sorry... better luck next time!
+          </div>
         <% end %>
       <% end %>
     </div>
 
-    <div class="container text-center mt-3">
+    <div class="container-message-top text-center mt-3">
       <% if policy(@interaction).destroy? %>
+        <%= link_to "Back to the trip", trip_path(@interaction.trip), class: "btn btn-flat-return-trip text-center" %>
+
         <%= link_to "Abandon the trip", interaction_path(@interaction), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-flat-abandon text-center" %>
+      <% else %>
+        <%= link_to "Show my trip", trip_path(@interaction.trip), class: "btn btn-flat-return-trip text-center" %>
       <% end %>
     </div>
   </div>
